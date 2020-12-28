@@ -1,11 +1,16 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require("express");
+const app = express();
+const importData = require("./data.json")
+let port = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+app.get("/", (req,res) =>{
+    res.send("Hello Rezan")
+})
+
+app.get("/player", (req,res) =>{
+    res.send(importData)
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+    console.log(`Server runing on port ${port}`);
+}) 
