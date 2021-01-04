@@ -31,47 +31,47 @@ con.connect(function (err) {
         app.get('/pizza', (req, res) => res.json(results))
     })
 
-    // Get all pizza from database
-    con.query(`SELECT * FROM kebabPizza`, (err, results) => {
-        if (err) throw err;
-        console.log(results);
-        app.get('/kebabPizza', (req, res) => res.json(results))
-    })
+    // // Get all pizza from database
+    // con.query(`SELECT * FROM kebabPizza`, (err, results) => {
+    //     if (err) throw err;
+    //     console.log(results);
+    //     app.get('/kebabPizza', (req, res) => res.json(results))
+    // })
 
-    // Get all salads from database
-    con.query(`SELECT * FROM salad`, (err, results) => {
-        if (err) throw err;
-        console.log(results);
-        app.get('/salad', (req, res) => res.json(results))
-    })
+    // // Get all salads from database
+    // con.query(`SELECT * FROM salad`, (err, results) => {
+    //     if (err) throw err;
+    //     console.log(results);
+    //     app.get('/salad', (req, res) => res.json(results))
+    // })
 
-    // Get all kebabdishes form database
-    con.query(`SELECT * FROM kebabDish`, (err, results) => {
-        if (err) throw err;
-        console.log(results);
-        app.get('/kebabDish', (req, res) => res.json(results))
-    })
+    // // Get all kebabdishes form database
+    // con.query(`SELECT * FROM kebabDish`, (err, results) => {
+    //     if (err) throw err;
+    //     console.log(results);
+    //     app.get('/kebabDish', (req, res) => res.json(results))
+    // })
 
-    // Get all hamburger form database
-    con.query(`SELECT * FROM hamburger`, (err, results) => {
-        if (err) throw err;
-        console.log(results);
-        app.get('/hamburger', (req, res) => res.json(results))
-    })
+    // // Get all hamburger form database
+    // con.query(`SELECT * FROM hamburger`, (err, results) => {
+    //     if (err) throw err;
+    //     console.log(results);
+    //     app.get('/hamburger', (req, res) => res.json(results))
+    // })
 
-    // Get all alacarte form database
-    con.query(`SELECT * FROM alaCarte`, (err, results) => {
-        if (err) throw err;
-        console.log(results);
-        app.get('/alaCarte', (req, res) => res.json(results))
-    })
+    // // Get all alacarte form database
+    // con.query(`SELECT * FROM alaCarte`, (err, results) => {
+    //     if (err) throw err;
+    //     console.log(results);
+    //     app.get('/alaCarte', (req, res) => res.json(results))
+    // })
 
-    // Get all accessories form database
-    con.query(`SELECT * FROM accessories`, (err, results) => {
-        if (err) throw err;
-        console.log(results);
-        app.get('/accessories', (req, res) => res.json(results))
-    })
+    // // Get all accessories form database
+    // con.query(`SELECT * FROM accessories`, (err, results) => {
+    //     if (err) throw err;
+    //     console.log(results);
+    //     app.get('/accessories', (req, res) => res.json(results))
+    // })
 })
 
 
