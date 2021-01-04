@@ -1,2 +1,20 @@
-### GET Todos
+### GET pizza
 GET http://localhost:3001/pizza
+
+### GET kebabPizza
+GET http://localhost:3001/kebabPizza
+
+### GET salads
+GET http://localhost:3001/salad
+
+### GET kebabDish
+GET http://localhost:3001/kebabDish
+
+### GET hamburger
+GET http://localhost:3001/hamburger
+
+### GET alaCarte
+GET http://localhost:3001/alaCarte
+
+### GET accessories
+GET http://localhost:3001/accessories
