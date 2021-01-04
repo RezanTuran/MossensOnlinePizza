@@ -13,6 +13,18 @@
 </body>
 </html>
 
+<script>
+
+async function getTodos() {
+    const result = await fetch('/pizza')
+    const todos = await result.json()
+    console.log(todos);
+
+}
+getTodos()
+
+</script>
+
 <style>
     h1{
         color: yellow;
