@@ -5,9 +5,9 @@ const app = express();
 const mysql = require('mysql');
 
 const db = mysql.createPool({
-    host: "localhost",
-    user: "root",
-    password: "root",
+    host: "us-cdbr-east-02.cleardb.com",
+    user: "b73aa7e6839332",
+    password: "2640713d",
     database: "pizzor",
 });
 
