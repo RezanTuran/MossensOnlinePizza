@@ -8,7 +8,7 @@ const db = mysql.createPool({
     host: "us-cdbr-east-02.cleardb.com",
     user: "b73aa7e6839332",
     password: "2640713d",
-    database: "pizzor",
+    database: "heroku_6047f4a63e58bb6",
 });
 
 app.use(express.static("./client/public"));
