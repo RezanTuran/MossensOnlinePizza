@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
 const mysql = require('mysql');
+const path = require('path');
 let port = process.env.PORT || 3001;
 
 const db = mysql.createPool({
@@ -12,7 +13,7 @@ const db = mysql.createPool({
     database: "heroku_6047f4a63e58bb6",
 });
 
-app.use(express.static("./client/build"));
+app.use(express.static(path.join(__dirname, './client/build')));
 app.use(cors());
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }))
