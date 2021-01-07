@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import "./layout.css"
+import './App.css';
 import Axios from 'axios';
 import axios from 'axios';
 
-const Layout = () => {
+function App() {
+
   const [pizzaName, setPizzaName] = useState('')
   const [pizzaPrice, setPizzaPrice] = useState('')
   const [pizzaList, setPizzaList] = useState([])
@@ -84,5 +85,6 @@ const Layout = () => {
       </div>
     </div>
   );
-    }
-export default Layout
+}
+
+export default App;

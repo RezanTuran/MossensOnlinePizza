@@ -11,7 +11,7 @@ const db = mysql.createPool({
     database: "heroku_6047f4a63e58bb6",
 });
 
-app.use(express.static("./client/public"));
+app.use(express.static("./client/build"));
 app.use(cors());
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }))
