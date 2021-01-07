@@ -29,10 +29,12 @@ app.get('/api/get', (req, res) => {
 // Post Pizza
 app.post('/api/insert', (req, res) => {
     const pizzaName = req.body.pizzaName
-    const pizzaPrice = req.body.pizzaPrice
+    const pizzaPriceN = req.body.pizzaPriceN
+    const pizzaPriceF = req.body.pizzaPriceF
+    const desc = req.body.desc
 
-    const sqlInsert = "INSERT INTO pizza (pizzaName, pizzaPrice) VALUES (?,?)";
-    db.query(sqlInsert, [pizzaName, pizzaPrice], (err, result) => {
+    const sqlInsert = "INSERT INTO pizza (pizzaName, pizzaPriceN, pizzaPriceF, desc) VALUES (?,?,?,?)";
+    db.query(sqlInsert, [pizzaName, pizzaPriceN, pizzaPriceF, desc], (err, result) => {
         console.log(result);
     });
 });
@@ -49,8 +51,8 @@ app.delete('/api/delete/:pizzaName', (req, res) =>{
 // Update Pizza
 app.put('/api/update', (req, res) =>{
     const name = req.body.pizzaName;
-    const price = req.body.pizzaPrice;
-    const sqlUpdate = "UPDATE pizza SET pizzaPrice = ? WHERE pizzaName = ?";
+    const price = req.body.pizzaPriceN;
+    const sqlUpdate = "UPDATE pizza SET pizzaPriceN = ? WHERE pizzaName = ?";
     db.query(sqlUpdate, [price,name], (err, result) =>{
        if(err) console.log(err);
     })
