@@ -4,13 +4,13 @@ const cors = require('cors');
 const app = express();
 const mysql = require('mysql');
 const path = require('path');
-let port = process.env.PORT || 3001;
+let port = process.env.PORT || 8080;
 
 const db = mysql.createPool({
-    host: "us-cdbr-east-02.cleardb.com",
-    user: "b73aa7e6839332",
-    password: "2640713d",
-    database: "heroku_6047f4a63e58bb6",
+    host: "localhost",
+    user: "root",
+    password: "root",
+    database: "pizzor",
 });
 
 app.use(express.static(path.join(__dirname, 'build')));
@@ -29,32 +29,41 @@ app.get('/api/get', (req, res) => {
 // Post Pizza
 app.post('/api/insert', (req, res) => {
     const pizzaName = req.body.pizzaName
-    const pizzaPriceN = req.body.pizzaPriceN
+    const pizzaPrice = req.body.pizzaPrice
     const pizzaPriceF = req.body.pizzaPriceF
-    const desc = req.body.desc
+    const ingredients = req.body.ingredients
 
-    const sqlInsert = "INSERT INTO pizza (pizzaName, pizzaPriceN, pizzaPriceF, desc) VALUES (?,?,?,?)";
-    db.query(sqlInsert, [pizzaName, pizzaPriceN, pizzaPriceF, desc], (err, result) => {
+    const sqlInsert = "INSERT INTO pizza (pizzaName, pizzaPrice, pizzaPriceF, ingredients) VALUES (?,?,?,?)";
+    db.query(sqlInsert, [pizzaName, pizzaPrice, pizzaPriceF, ingredients], (err, result) => {
         console.log(result);
     });
 });
 
 // Delete Pizza
-app.delete('/api/delete/:pizzaName', (req, res) =>{
-    const name = req.params.pizzaName;
-    const sqlDelete = "DELETE FROM pizza WHERE pizzaName = ?";
-    db.query(sqlDelete, name, (err, result) =>{
-       if(err) console.log(err);
+app.delete('/api/delete/:pizzaId', (req, res) => {
+    const name = req.params.pizzaId;
+    const sqlDelete = "DELETE FROM pizza WHERE pizzaId = ?";
+    db.query(sqlDelete, name, (err, result) => {
+        if (err) console.log(err);
     })
 })
 
-// Update Pizza
-app.put('/api/update', (req, res) =>{
+// Update PizzaPrice
+app.put('/api/updatePrice', (req, res) => {
+    const pizzaId = req.body.pizzaId;
+    const price = req.body.pizzaPrice;
+    const sqlUpdate = "UPDATE pizza SET pizzaPrice = ? WHERE pizzaId = ?";
+    db.query(sqlUpdate, [price, pizzaId], (err, result) => {
+        if (err) console.log(err);
+    })
+})
+// Update PizzaName
+app.put('/api/updateName', (req, res) => {
+    const pizzaId = req.body.pizzaId;
     const name = req.body.pizzaName;
-    const price = req.body.pizzaPriceN;
-    const sqlUpdate = "UPDATE pizza SET pizzaPriceN = ? WHERE pizzaName = ?";
-    db.query(sqlUpdate, [price,name], (err, result) =>{
-       if(err) console.log(err);
+    const sqlUpdate = "UPDATE pizza SET pizzaName = ? WHERE pizzaId = ?";
+    db.query(sqlUpdate, [name, pizzaId], (err, result) => {
+        if (err) console.log(err);
     })
 })
 
