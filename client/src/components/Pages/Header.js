@@ -78,6 +78,10 @@ const Header = props => {
       menuTitle: "Cart",
       pageURL: "/cart"
     },
+    {
+      menuTitle: "Admin",
+      pageURL: "/admin"
+    },
    
   ];
 
