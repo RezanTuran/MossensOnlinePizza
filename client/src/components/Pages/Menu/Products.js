@@ -6,7 +6,7 @@ function Products({ addToCart }) {
     const [pizzaList, setPizzaList] = useState([])
 
     useEffect(() => {
-        Axios.get('http://localhost:8080/api/get').then((Response) => {
+        Axios.get('https://mossenspizzeria.herokuapp.com/api/get').then((Response) => {
             setPizzaList(Response.data)
             console.log(Response.data);
         })

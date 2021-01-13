@@ -7,10 +7,10 @@ const path = require('path');
 let port = process.env.PORT || 8080;
 
 const db = mysql.createPool({
-    host: "localhost",
-    user: "root",
-    password: "root",
-    database: "pizzor",
+    host: "us-cdbr-east-03.cleardb.com",
+    user: "b2c51d49d060ca",
+    password: "6f567673",
+    database: "heroku_4a9f54220fd7a1d",
 });
 
 app.use(express.static(path.join(__dirname, 'build')));

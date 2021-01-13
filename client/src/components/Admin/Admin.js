@@ -13,14 +13,14 @@ function Admin() {
   const [newPizzaName, setNewPizzaName] = useState('')
 
   useEffect(() => {
-    Axios.get('http://localhost:8080/api/get').then((Response) => {
+    Axios.get('https://mossenspizzeria.herokuapp.com/api/get').then((Response) => {
       setPizzaList(Response.data)
     })
   }, [])
 
   // Post pizza
   const insertPizza = () => {
-    Axios.post('http://localhost:8080/api/insert', {
+    Axios.post('https://mossenspizzeria.herokuapp.com/api/insert', {
       pizzaName: pizzaName,
       pizzaPrice: pizzaPrice,
       pizzaPriceF: pizzaPriceF,
@@ -36,13 +36,13 @@ function Admin() {
 
   // Delete pizza
   const deletePizza = (pizza) => {
-    Axios.delete(`http://localhost:8080/api/delete/${pizza}`)
+    Axios.delete(`https://mossenspizzeria.herokuapp.com/api/delete/${pizza}`)
     window.location.reload()
   }
 
   // Update pizza
   const updatePizzaPrice = (pizza) => {
-    Axios.put('http://localhost:8080/api/updatePrice/', {
+    Axios.put('https://mossenspizzeria.herokuapp.com/api/updatePrice/', {
       pizzaId: pizza,
       pizzaPrice: newPrice,
     });
@@ -50,7 +50,7 @@ function Admin() {
     window.location.reload()
   }
   const updatePizzaName = (pizza) => {
-    Axios.put('http://localhost:8080/api/updateName/', {
+    Axios.put('hhttps://mossenspizzeria.herokuapp.com/api/updateName/', {
       pizzaId: pizza,
       pizzaName: newPizzaName,
     });
