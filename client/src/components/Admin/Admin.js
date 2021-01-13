@@ -31,13 +31,13 @@ function Admin() {
       ...pizzaList,
       { pizzaName: pizzaName, pizzaPrice: pizzaPrice, pizzaPriceF: pizzaPriceF, ingredients: ingredients }
     ]);
-    window.location.reload('https://mossenspizzeria.herokuapp.com/admin')
+    window.location.reload()
   };
 
   // Delete pizza
   const deletePizza = (pizza) => {
     Axios.delete(`https://mossenspizzeria.herokuapp.com/api/delete/${pizza}`)
-    window.location.reload('https://mossenspizzeria.herokuapp.com/admin')
+    window.location.reload()
   }
 
   // Update pizza
@@ -47,7 +47,7 @@ function Admin() {
       pizzaPrice: newPrice,
     });
     setNewPrice('')
-    window.location.reload('https://mossenspizzeria.herokuapp.com/admin')
+    window.location.reload()
   }
   const updatePizzaName = (pizza) => {
     Axios.put('https://mossenspizzeria.herokuapp.com/api/updateName/', {
@@ -55,7 +55,7 @@ function Admin() {
       pizzaName: newPizzaName,
     });
     setNewPizzaName('')
-    window.location.reload('https://mossenspizzeria.herokuapp.com/admin')
+    window.location.reload()
   }
 
   return (
