@@ -1,13 +1,20 @@
-import React from 'react'
-import pizzaImg from '../../components/Pages/Menu/images/pic-1.jpeg';
+import React, { useState, useEffect } from 'react'
+import Axios from 'axios';
+import pizzaImg from '../Menu/images/pic-1.jpeg';
 
-function Cart({ cart, removeFromCart }) {
-    // if(cart.length === 0){
-    //     alert("Kund korgen är tom !!!")
-    // };
+function Products({ addToCart }) {
+    const [pizzaList, setPizzaList] = useState([])
+
+    useEffect(() => {
+        Axios.get('http://localhost:8080/api/get').then((Response) => {
+            setPizzaList(Response.data)
+            console.log(Response.data);
+        })
+    }, [])
+
     return (
         <>
-            {cart.map((product, idx) => {
+            {pizzaList.map((product, idx) => {
                 return (
                     <div className="food-items" key={idx}>
                         <img src={pizzaImg} alt="BigCo Inc. logo" />
@@ -17,7 +24,7 @@ function Cart({ cart, removeFromCart }) {
                                 <h5 className="price">{product.pizzaPrice} :- &nbsp; &nbsp; <span>{product.pizzaPriceF} :-</span></h5>
                             </div>
                             <p>{product.ingredients}</p>
-                            <button onClick={() => removeFromCart(product)}>Ta Bort</button>
+                            <button onClick={() => addToCart(product)}>Beställa</button>
                         </div>
                     </div>
                 )
@@ -26,4 +33,4 @@ function Cart({ cart, removeFromCart }) {
     )
 }
 
-export default Cart
+export default Products
