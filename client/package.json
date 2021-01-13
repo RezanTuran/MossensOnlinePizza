@@ -14,8 +14,7 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
-    "web-vitals": "^0.2.4",
-    "webpack-dev-server": "^3.11.1"
+    "web-vitals": "^0.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -41,7 +40,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "webpack": "^5.13.0"
-  }
+  "devDependencies": {}
 }
