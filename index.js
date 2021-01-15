@@ -4,7 +4,7 @@ const cors = require('cors');
 const app = express();
 const mysql = require('mysql');
 const path = require('path');
-let port = process.env.PORT || 8080;
+let port = process.env.PORT || 3001;
 
 const db = mysql.createPool({
     host: "us-cdbr-east-03.cleardb.com",
