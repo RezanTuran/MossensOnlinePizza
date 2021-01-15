@@ -1,20 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../Menu/styles.css'
-import Cart from '../Pages/Cart';
+import Cart from '../Cart/Cart';
 import Products from './Products';
 
 const PAGE_PRODUCTS = 'products';
 const PAGE_CART = 'cart';
 
+// Get item localStorage
+const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]')
+
 function PizzaMenu() {
 
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(cartFromLocalStorage);
   const [page, setPage] = useState(PAGE_PRODUCTS)
 
+  // Set item localStorage
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
+  // Add items to cart
   const addToCart = (product) => {
     setCart([...cart, { ...product }])
   }
 
+  // Remove items from cart
   const removeFromCart = (productToRemove) => {
     setCart(
       cart.filter((pizzaList) => pizzaList !== productToRemove)

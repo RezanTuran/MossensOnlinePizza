@@ -4,7 +4,7 @@ import Contact from "../components/Pages/Contact";
 import About from "../components/Pages/About";
 import PizzaMenu from "../components/Menu/PizzaMenu";
 import Galery from "../components/Pages/Galery";
-import Cart from "../components/Pages/Cart";
+import Cart from "../components/Cart/Cart";
 import Admin from "../components/Admin/Admin";
 import { Route, Switch } from "react-router-dom";
 

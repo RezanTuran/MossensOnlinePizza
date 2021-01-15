@@ -10,7 +10,7 @@ ReactDOM.render(
     <Router>
       <CssBaseline />
       <HashRouter>
-      <App />
+        <App />
       </HashRouter>
     </Router>
   </React.StrictMode>,
