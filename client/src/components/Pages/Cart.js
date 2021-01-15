@@ -1,5 +1,5 @@
 import React from 'react'
-import pizzaImg from '../../components/Pages/Menu/images/pic-1.jpeg';
+import pizzaImg from '../Menu/images/pic-1.jpeg';
 
 function Cart({ cart, removeFromCart }) {
     // if(cart.length === 0){

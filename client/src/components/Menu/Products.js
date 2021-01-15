@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Axios from 'axios';
-import pizzaImg from '../Menu/images/pic-1.jpeg';
+import pizzaImg from './images/pic-1.jpeg';
 
 function Products({ addToCart }) {
     const [pizzaList, setPizzaList] = useState([])

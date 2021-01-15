@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import '../Menu/styles.css'
-import Cart from '../Cart';
+import Cart from '../Pages/Cart';
 import Products from './Products';
 
 const PAGE_PRODUCTS = 'products';

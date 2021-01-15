@@ -91,7 +91,7 @@ function Admin() {
               <p>Pizza pris familj: {val.pizzaPriceF}</p>
               <p>ingredienser: {val.ingredients}</p>
 
-              <button onClick={() => { deletePizza(val.pizzaId) }}>Delete</button>
+              <button className="adminButton" onClick={() => { deletePizza(val.pizzaId) }}>Delete</button>
               <input type="text" id="updateInput" placeholder="pris"
                 onChange={(e) => {
                   setNewPrice(e.target.value)
@@ -103,10 +103,12 @@ function Admin() {
                 }}
               />
               <button
+                className="adminButton"
                 onClick={() => { updatePizzaPrice(val.pizzaId) }}>Update Pizzaprice
                </button>
 
                <button
+               className="adminButton"
                 onClick={() => { updatePizzaName(val.pizzaId) }}>Update Pizzaname
                </button>
 
