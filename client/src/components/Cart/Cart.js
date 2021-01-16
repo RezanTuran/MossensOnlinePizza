@@ -2,6 +2,7 @@ import React from 'react'
 import pizzaImg from '../Menu/images/pic-1.jpeg';
 
 function Cart({ cart, removeFromCart }) {
+    
     // if(cart.length === 0){
     //     alert("Kund korgen är tom !!!")
     // };
