@@ -31,15 +31,13 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-
-const Header = props => {
+const Header = (props) => {
   const { history } = props;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
-
 
   const handleMenu = event => {
     setAnchorEl(event.currentTarget);
@@ -79,11 +77,6 @@ const Header = props => {
       menuTitle: "Cart",
       pageURL: "/cart"
     },
-    {
-      menuTitle: "Admin",
-      pageURL: "/admin"
-    },
-   
   ];
 
   return (
@@ -142,7 +135,7 @@ const Header = props => {
                 >
                   HEM
               </Button>
-              <Button
+                <Button
                   variant="contained"
                   onClick={() => handleButtonClick("/menu")}
                 >

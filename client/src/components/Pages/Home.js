@@ -1,10 +1,12 @@
 import React from 'react'
-
+import InserPizza from '../Admin/InserPizza'
 function Home() {
 
     
     return (
-       <h1>Home</h1>
+       <div>
+           <InserPizza />
+       </div>
     )
 }
 

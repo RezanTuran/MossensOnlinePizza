@@ -32,6 +32,7 @@ function Cart({
                                 </div>
                                 <p>{product.ingredients}</p>
                                 <input
+                                    type="number"
                                     value={product.quantity}
                                     onChange={(e) =>
                                         setQuantity(product,
