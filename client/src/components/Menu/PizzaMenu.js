@@ -21,8 +21,21 @@ function PizzaMenu() {
 
   // Add items to cart
   const addToCart = (product) => {
-    setCart([...cart, { ...product }])
-  }
+    let newCart = [...cart];
+    let itemInCart = newCart.find(
+      (item) => product.pizzaName === item.pizzaName
+    );
+    if (itemInCart) {
+      itemInCart.quantity++;
+    } else {
+      itemInCart = {
+        ...product,
+        quantity: 1,
+      };
+      newCart.push(itemInCart);
+    }
+    setCart(newCart);
+  };
 
   // Remove items from cart
   const removeFromCart = (productToRemove) => {
@@ -43,24 +56,34 @@ function PizzaMenu() {
   // Pizza price counter
   const getCartTotal = () => {
     return cart.reduce(
-      (sum, { pizzaPrice }) => sum + pizzaPrice, 0);
+      (sum, { quantity }) => sum + quantity, 0) + '';
   };
-  console.log(getCartTotal());
+
+  //Pizza amount
+  const setQuantity = (product, amount) => {
+    const newCart = [...cart];
+    newCart.find(item => item.pizzaName === product.pizzaName).quantity = amount;
+    setCart(newCart)
+  }
 
   return (
     <div className="menu">
       <header>
         <button
-          onClick={() => navigateTo(PAGE_CART)}>Kundkorg ({cart.length})
+          onClick={() => navigateTo(PAGE_CART)}>Kundkorg ({getCartTotal()})
         </button>
 
         <button
           onClick={() => navigateTo(PAGE_PRODUCTS)}>Visa Produkter
           </button>
-        <h4>({getCartTotal()}) :-</h4>
       </header>
       {page === PAGE_PRODUCTS && <Products addToCart={addToCart} />}
-      {page === PAGE_CART && <Cart cart={cart} removeFromCart={removeFromCart} clearCart={clearCart} />}
+      {page === PAGE_CART && <Cart
+        cart={cart}
+        removeFromCart={removeFromCart}
+        clearCart={clearCart}
+        setQuantity={setQuantity}
+      />}
     </div>
   );
 }

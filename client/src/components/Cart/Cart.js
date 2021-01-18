@@ -1,17 +1,16 @@
 import React from 'react'
 import pizzaImg from '../Menu/images/pic-1.jpeg';
 
-function Cart({ cart, clearCart, removeFromCart }) {
-
-    // if(cart.length === 0){
-    //     alert("Kund korgen är tom !!!")
-    // };
-
+function Cart({
+    cart,
+    clearCart,
+    removeFromCart,
+    setQuantity
+}) {
     // Pizza price Counter
     const getTotalSum = () => {
-        return cart.reduce((sum, { pizzaPrice }) => sum + pizzaPrice, 0);
+        return cart.reduce((sum, { pizzaPrice, quantity }) => sum + pizzaPrice * quantity, 0);
     }
-
     return (
         <>
             <h1>Kundkorg</h1>
@@ -32,7 +31,15 @@ function Cart({ cart, clearCart, removeFromCart }) {
                                     <h5 className="price">{product.pizzaPrice} :- &nbsp; &nbsp; <span>{product.pizzaPriceF} :-</span></h5>
                                 </div>
                                 <p>{product.ingredients}</p>
-                                <button onClick={() => removeFromCart(product)}>Ta Bort</button>
+                                <input
+                                    value={product.quantity}
+                                    onChange={(e) =>
+                                        setQuantity(product,
+                                            parseInt(e.target.value)
+                                        )}
+                                />
+                                <button onClick={() => removeFromCart(product)}>Ta Bort
+                                </button>
                             </div>
                         </div>
                     </>
