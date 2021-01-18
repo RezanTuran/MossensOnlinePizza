@@ -35,10 +35,17 @@ function PizzaMenu() {
     setPage(nextPage);
   }
 
+  // Clear Cart
+  const clearCart = () => {
+    setCart([])
+  }
+
+  // Pizza price counter
   const getCartTotal = () => {
     return cart.reduce(
-      (sum, { quantity }) => sum + quantity,0);
+      (sum, { pizzaPrice }) => sum + pizzaPrice, 0);
   };
+  console.log(getCartTotal());
 
   return (
     <div className="menu">
@@ -50,10 +57,10 @@ function PizzaMenu() {
         <button
           onClick={() => navigateTo(PAGE_PRODUCTS)}>Visa Produkter
           </button>
-          <h4>({getCartTotal()})</h4>
+        <h4>({getCartTotal()}) :-</h4>
       </header>
       {page === PAGE_PRODUCTS && <Products addToCart={addToCart} />}
-      {page === PAGE_CART && <Cart cart={cart} removeFromCart={removeFromCart} />}
+      {page === PAGE_CART && <Cart cart={cart} removeFromCart={removeFromCart} clearCart={clearCart} />}
     </div>
   );
 }
