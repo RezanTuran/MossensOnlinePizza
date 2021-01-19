@@ -22,18 +22,16 @@ function Login() {
     };
 
     const login = () => {
-        Axios.get('https://mossenspizzeria.herokuapp.com/api/login', {
+        Axios.post('https://mossenspizzeria.herokuapp.com/api/login', {
             userName: userName,
             password: password,
         }).then((response) => {
 
             if(response.data.message) {
-
                 setLoginStatus(response.data.message)
             }else{
                 setLoginStatus(response.data[0].userName)
             }
-
         });
     };
 
