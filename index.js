@@ -58,16 +58,17 @@ app.post('/api/register', (req, res) => {
         const password = req.body.password
 
         const sqlSelectAdmin = "SELECT * FROM loginAdmin WHERE userName = ? AND password = ?";
-        db.query(sqlSelectAdmin, (err, result) => {
-            if (err) {
-                res.send({ err: err })
+        db.query(sqlSelectAdmin, [userName, password],
+            (err, result) => {
+                if (err) {
+                    res.send({ err: err })
+                }
+                if (result) {
+                    res.send(result)
+                } else {
+                    res.send({ message: "Wrong username/password combination!" })
+                }
             }
-            if (result) {
-                res.send(result)
-            } else {
-                res.send({ message: "Wrong username/password combination!" })
-            }
-        }
         )
     });
 })
