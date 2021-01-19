@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Axios from 'axios';
 import Register from './Register'
-import Admin from './Admin';
 
 function Login() {
 
@@ -21,26 +20,26 @@ function Login() {
             } else {
                 setLoginStatus(response.data[0].userName)
             }
-            if(response.data[0].userName === userName && response.data[0].password === password){
-                window.location.href="https://mossenspizzeria.herokuapp.com/#/admin"
+            if (response.data[0].userName === userName && response.data[0].password === password) {
+                window.location.href = "https://mossenspizzeria.herokuapp.com/#/admin"
 
             }
         });
     };
 
     return (
-            <div>
-                <h1>Logga in</h1>
-                <input type="text" placeholder="Användarnamn"
-                    onChange={(e) => { setUserName(e.target.value) }}
-                />
-                <input type="password" placeholder="Lösenord"
-                    onChange={(e) => { setPassword(e.target.value) }}
-                />
-                <button onClick={login}>Logga in</button>
-                <h1>{loginStatus}</h1>
-                <Register />
-            </div>
+        <div>
+            <h1>Logga in</h1>
+            <input type="text" placeholder="Användarnamn"
+                onChange={(e) => { setUserName(e.target.value) }}
+            />
+            <input type="password" placeholder="Lösenord"
+                onChange={(e) => { setPassword(e.target.value) }}
+            />
+            <button onClick={login}>Logga in</button>
+            <h1>{loginStatus}</h1>
+            <Register />
+        </div>
     )
 }
 
