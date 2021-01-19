@@ -44,7 +44,7 @@ app.post('/api/register', (req, res) => {
     const userName = req.body.userName
     const password = req.body.password
 
-    const sqlInsertAdmin = "INSER INTO admin (userName,password) VALUES (?,?)";
+    const sqlInsertAdmin = "INSERT INTO loginAdmin (userName,password) VALUES (?,?)";
     db.query(sqlInsertAdmin, [userName, password],
         (err, result) => {
             console.log(result);
