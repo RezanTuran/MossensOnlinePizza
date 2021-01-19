@@ -6,10 +6,23 @@ function Login() {
     const [userNameReg, setUserNameReg] = useState('')
     const [passwordReg, setPasswordReg] = useState('')
 
+    const [userName, setUserName] = useState('')
+    const [password, setPassword] = useState('')
+
     const register = () => {
         Axios.post('https://mossenspizzeria.herokuapp.com/api/register', {
             userName: userNameReg,
             password: passwordReg,
+        }).then((response) => {
+            console.log(response);
+        });
+        window.location.reload()
+    };
+
+    const login = () => {
+        Axios.get('https://mossenspizzeria.herokuapp.com/api/login', {
+            userName: userName,
+            password: password,
         }).then((response) => {
             console.log(response);
         });
@@ -22,16 +35,20 @@ function Login() {
                 <input type="text" placeholder="Användarnamn"
                     onChange={(e) => { setUserNameReg(e.target.value) }}
                 />
-                <input type="text" placeholder="Lösenord"
+                <input type="password" placeholder="Lösenord"
                     onChange={(e) => { setPasswordReg(e.target.value) }}
                 />
                 <button onClick={register}>Resgistera</button>
             </div>
             <div>
                 <h1>Logga in</h1>
-                <input type="text" placeholder="Användarnamn" />
-                <input type="password" placeholder="Lösenord" />
-                <button>Logga in</button>
+                <input type="text" placeholder="Användarnamn" 
+                 onChange={(e) => { setUserName(e.target.value) }}
+                />
+                <input type="password" placeholder="Lösenord" 
+                 onChange={(e) => { setPassword(e.target.value) }}
+                />
+                <button onClick={login}>Logga in</button>
             </div>
         </div>
     )
