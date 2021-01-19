@@ -39,7 +39,7 @@ app.post('/api/insert', (req, res) => {
     });
 });
 
-app.post('/register', (req, res) => {
+app.post('/api/register', (req, res) => {
 
     const userName = req.body.userName
     const password = req.body.password

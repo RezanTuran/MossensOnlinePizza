@@ -7,14 +7,13 @@ function Login() {
     const [passwordReg, setPasswordReg] = useState('')
 
     const register = () => {
-        Axios.post('https://mossenspizzeria.herokuapp.com/register', {
+        Axios.post('https://mossenspizzeria.herokuapp.com/api/register', {
             userName: userNameReg,
-            password: passwordReg
+            password: passwordReg,
         }).then((response) => {
             console.log(response);
-        })
-    }
-
+        });
+    };
 
     return (
         <div>
@@ -23,7 +22,7 @@ function Login() {
                 <input type="text" placeholder="Användarnamn"
                     onChange={(e) => { setUserNameReg(e.target.value) }}
                 />
-                <input type="password" placeholder="Lösenord"
+                <input type="text" placeholder="Lösenord"
                     onChange={(e) => { setPasswordReg(e.target.value) }}
                 />
                 <button onClick={register}>Resgistera</button>
