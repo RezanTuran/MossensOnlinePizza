@@ -3,7 +3,6 @@ import '../Admin/style.css';
 import Axios from 'axios';
 
 function InserPizza() {
-
     const [pizzaName, setPizzaName] = useState('')
     const [pizzaPrice, setPizzaPrice] = useState('')
     const [pizzaPriceF, setPizzaPriceF] = useState('')

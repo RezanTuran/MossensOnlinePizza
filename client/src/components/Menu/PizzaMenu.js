@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import '../Menu/styles.css'
 import Cart from '../Cart/Cart';
 import Products from './Products';
+import MenuBookIcon from '@material-ui/icons/MenuBook';
+import Button from '@material-ui/core/Button';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 const PAGE_PRODUCTS = 'products';
 const PAGE_CART = 'cart';
@@ -67,24 +70,36 @@ function PizzaMenu() {
   }
 
   return (
-    <div className="menu">
-      <header>
-        <button
-          onClick={() => navigateTo(PAGE_CART)}>Kundkorg ({getCartTotal()})
-        </button>
-
-        <button
-          onClick={() => navigateTo(PAGE_PRODUCTS)}>Visa Produkter
-          </button>
+    <>
+      <header className="cartHeader">
+        <Button
+          color="secondary"
+          variant="contained"
+          startIcon={<ShoppingCartIcon />}
+          onClick={() => navigateTo(PAGE_CART)}
+        >
+          Kundkorg({getCartTotal()})
+      </Button>
+        <Button
+          color="secondary"
+          variant="contained"
+          startIcon={<MenuBookIcon />}
+          onClick={() => navigateTo(PAGE_PRODUCTS)}
+        >
+          Visa Menyn
+      </Button>
       </header>
-      {page === PAGE_PRODUCTS && <Products addToCart={addToCart} />}
-      {page === PAGE_CART && <Cart
-        cart={cart}
-        removeFromCart={removeFromCart}
-        clearCart={clearCart}
-        setQuantity={setQuantity}
-      />}
-    </div>
+      <div className="menu">
+
+        {page === PAGE_PRODUCTS && <Products addToCart={addToCart} />}
+        {page === PAGE_CART && <Cart
+          cart={cart}
+          removeFromCart={removeFromCart}
+          clearCart={clearCart}
+          setQuantity={setQuantity}
+        />}
+      </div>
+    </>
   );
 }
 export default PizzaMenu;

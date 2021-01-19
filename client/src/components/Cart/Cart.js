@@ -1,5 +1,9 @@
 import React from 'react'
 import pizzaImg from '../Menu/images/pic-1.jpeg';
+import Button from '@material-ui/core/Button';
+import DeleteIcon from '@material-ui/icons/Delete';
+import TextField from '@material-ui/core/TextField';
+import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
 
 function Cart({
     cart,
@@ -13,13 +17,7 @@ function Cart({
     }
     return (
         <>
-            <h1>Kundkorg</h1>
-            {cart.length > 0 && (
-                <>
-                    <button onClick={clearCart}>Rensa Kundkorg</button>
-                    <div>Total pris: {getTotalSum()} :-</div>
-                </>
-            )}
+
             {cart.map((product, idx) => {
                 return (
                     <>
@@ -31,21 +29,42 @@ function Cart({
                                     <h5 className="price">{product.pizzaPrice} :- &nbsp; &nbsp; <span>{product.pizzaPriceF} :-</span></h5>
                                 </div>
                                 <p>{product.ingredients}</p>
-                                <input
-                                    type="number"
+                                <TextField
+                                    id="outlined-basic"
+                                    label="Antal"
+                                    variant="outlined"
                                     value={product.quantity}
                                     onChange={(e) =>
                                         setQuantity(product,
                                             parseInt(e.target.value)
                                         )}
                                 />
-                                <button onClick={() => removeFromCart(product)}>Ta Bort
-                                </button>
+                                <Button
+                                    onClick={() => removeFromCart(product)}
+                                    variant="contained"
+                                    color="secondary"
+                                    startIcon={<DeleteIcon />}
+                                >
+                                    Ta Bort
+                                </Button>
                             </div>
                         </div>
                     </>
                 )
             })}
+            {cart.length > 0 && (
+                <div>
+                    <Button
+                        onClick={clearCart}
+                        variant="contained"
+                        color="secondary"
+                        startIcon={<RemoveShoppingCartIcon />}
+                        >
+                        Rensa Kundkorgen
+                    </Button>
+                    <h2>Total pris: {getTotalSum()} :-</h2>
+                </div>
+            )}
         </>
     )
 }

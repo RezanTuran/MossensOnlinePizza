@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Header = (props) => {
+const Header = (props,cart) => {
   const { history } = props;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -163,7 +163,7 @@ const Header = (props) => {
             )}
           <ShoppingCartIcon
             variant="contained"
-            onClick={() => handleButtonClick("/cart")}
+            onClick={() => handleButtonClick('/cart')}
             style={{ cursor: "pointer" }}
           />
         </Toolbar>
