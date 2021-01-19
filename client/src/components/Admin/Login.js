@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Axios from 'axios';
 import Register from './Register'
+import Admin from './Admin';
 
 function Login() {
 
@@ -21,7 +22,7 @@ function Login() {
                 setLoginStatus(response.data[0].userName)
             }
             if(response.data[0].userName === userName && response.data[0].password === password){
-                alert("inloggad")
+                <Admin />
             }
         });
     };
