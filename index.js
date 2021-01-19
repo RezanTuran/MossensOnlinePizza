@@ -48,6 +48,17 @@ app.post('/api/register', (req, res) => {
     const sqlInsertAdmin = "INSERT INTO loginAdmin (userName,password) VALUES (?,?)";
     db.query(sqlInsertAdmin, [userName, password],
         (err, result) => {
+            console.log(err);
+        })
+
+    // Login Admin
+    app.get('/api/login', (req, res) => {
+
+        const userName = req.body.userName
+        const password = req.body.password
+
+        const sqlSelectAdmin = "SELECT * FROM loginAdmin WHERE userName = ? AND password = ?";
+        db.query(sqlSelectAdmin, (err, result) => {
             if (err) {
                 res.send({ err: err })
             }
@@ -57,18 +68,7 @@ app.post('/api/register', (req, res) => {
                 res.send({ message: "Wrong username/password combination!" })
             }
         }
-    )
-})
-
-// Login Admin
-app.get('/api/login', (req, res) => {
-
-    const userName = req.body.userName
-    const password = req.body.password
-
-    const sqlSelectAdmin = "SELECT * FROM loginAdmin WHERE userName = ? AND password = ?";
-    db.query(sqlSelectAdmin, (err, result) => {
-        res.send(result)
+        )
     });
 })
 

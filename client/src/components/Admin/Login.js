@@ -9,6 +9,8 @@ function Login() {
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
 
+    const [loginStatus, setLoginStatus] = useState('')
+
     const register = () => {
         Axios.post('https://mossenspizzeria.herokuapp.com/api/register', {
             userName: userNameReg,
@@ -24,7 +26,14 @@ function Login() {
             userName: userName,
             password: password,
         }).then((response) => {
-            console.log(response);
+
+            if(response.data.message) {
+
+                setLoginStatus(response.data.message)
+            }else{
+                setLoginStatus(response.data[0].userName)
+            }
+
         });
     };
 
@@ -50,6 +59,7 @@ function Login() {
                 />
                 <button onClick={login}>Logga in</button>
             </div>
+            <h1>{loginStatus}</h1>
         </div>
     )
 }
