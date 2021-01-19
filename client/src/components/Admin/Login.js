@@ -47,6 +47,7 @@ function Login() {
                 />
                 <button onClick={register}>Resgistera</button>
             </div>
+            
             <div>
                 <h1>Logga in</h1>
                 <input type="text" placeholder="Användarnamn" 

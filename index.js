@@ -63,7 +63,7 @@ app.post('/api/register', (req, res) => {
                 if (err) {
                     res.send({ err: err })
                 }
-                if (result) {
+                if (result.length > 0) {
                     res.send(result)
                 } else {
                     res.send({ message: "Wrong username/password combination!" })
