@@ -1,25 +1,13 @@
 import React, { useState } from 'react'
 import Axios from 'axios';
+import Register from './Register'
 
 function Login() {
-
-    const [userNameReg, setUserNameReg] = useState('')
-    const [passwordReg, setPasswordReg] = useState('')
 
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
 
     const [loginStatus, setLoginStatus] = useState('')
-
-    const register = () => {
-        Axios.post('https://mossenspizzeria.herokuapp.com/api/register', {
-            userName: userNameReg,
-            password: passwordReg,
-        }).then((response) => {
-            console.log(response);
-        });
-        window.location.reload()
-    };
 
     const login = () => {
         Axios.post('https://mossenspizzeria.herokuapp.com/api/login', {
@@ -27,39 +15,30 @@ function Login() {
             password: password,
         }).then((response) => {
 
-            if(response.data.message) {
+            if (response.data.message) {
                 setLoginStatus(response.data.message)
-            }else{
+            } else {
                 setLoginStatus(response.data[0].userName)
+            }
+            if(response.data[0].userName === userName && response.data[0].password === password){
+                alert("inloggad")
             }
         });
     };
 
     return (
-        <div>
-            <div>
-                <h1>Registrera</h1>
-                <input type="text" placeholder="Användarnamn"
-                    onChange={(e) => { setUserNameReg(e.target.value) }}
-                />
-                <input type="password" placeholder="Lösenord"
-                    onChange={(e) => { setPasswordReg(e.target.value) }}
-                />
-                <button onClick={register}>Resgistera</button>
-            </div>
-            
             <div>
                 <h1>Logga in</h1>
-                <input type="text" placeholder="Användarnamn" 
-                 onChange={(e) => { setUserName(e.target.value) }}
+                <input type="text" placeholder="Användarnamn"
+                    onChange={(e) => { setUserName(e.target.value) }}
                 />
-                <input type="password" placeholder="Lösenord" 
-                 onChange={(e) => { setPassword(e.target.value) }}
+                <input type="password" placeholder="Lösenord"
+                    onChange={(e) => { setPassword(e.target.value) }}
                 />
                 <button onClick={login}>Logga in</button>
+                <h1>{loginStatus}</h1>
+                <Register />
             </div>
-            <h1>{loginStatus}</h1>
-        </div>
     )
 }
 
