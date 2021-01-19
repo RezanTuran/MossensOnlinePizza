@@ -22,7 +22,7 @@ function Login() {
                 setLoginStatus(response.data[0].userName)
             }
             if(response.data[0].userName === userName && response.data[0].password === password){
-                <Admin />
+                window.location('https://mossenspizzeria.herokuapp.com/#/admin')
             }
         });
     };
