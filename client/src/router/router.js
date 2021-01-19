@@ -6,6 +6,7 @@ import PizzaMenu from "../components/Menu/PizzaMenu";
 import Galery from "../components/Pages/Galery";
 import Cart from "../components/Cart/Cart";
 import Admin from "../components/Admin/Admin";
+import Login from "../components/Admin/Login";
 import { Route, Switch } from "react-router-dom";
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
         <Route exact path="/galery" render={props => <Galery {...props} />} />
         <Route exact path="/cart" render={props => <Cart {...props} />} />
         <Route exact path="/admin" render={props => <Admin {...props} />} />
+        <Route exact path="/login" render={props => <Login {...props} />} />
       </Switch>
   );
 }

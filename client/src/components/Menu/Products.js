@@ -43,7 +43,6 @@ function Products({ addToCart }) {
                                 Beställ
                                 </Button>
                         </div>
-                        
                     </div>
                 )
             })}

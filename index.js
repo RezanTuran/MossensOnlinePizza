@@ -39,6 +39,19 @@ app.post('/api/insert', (req, res) => {
     });
 });
 
+app.post('/register', (req, res) => {
+
+    const userName = req.body.userName
+    const password = req.body.password
+
+    const sqlInsertAdmin = "INSER INTO admin (userName,password) VALUES (?,?)";
+    db.query(sqlInsertAdmin, [userName, password],
+        (err, result) => {
+            console.log(result);
+        }
+    )
+})
+
 // Delete Pizza
 app.delete('/api/delete/:pizzaId', (req, res) => {
     const name = req.params.pizzaId;
