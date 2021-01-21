@@ -22,7 +22,6 @@ function Login() {
             }
             if (response.data[0].userName === userName && response.data[0].password === password) {
                 window.location.href = "https://mossenspizzeria.herokuapp.com/#/admin"
-
             }
         });
     };

@@ -10,11 +10,13 @@ import Button from "@material-ui/core/Button";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { withRouter } from "react-router-dom";
 import MenuIcon from '@material-ui/icons/Menu';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+// import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import PersonIcon from '@material-ui/icons/Person';
+import MossensLogo from '../components/Menu/images/logo.png'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   menuButton: {
     marginRight: theme.spacing(2)
@@ -31,7 +33,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Header = (props,cart) => {
+const Header = (props) => {
   const { history } = props;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -73,15 +75,11 @@ const Header = (props,cart) => {
       menuTitle: "Galery",
       pageURL: "/galery"
     },
-    {
-      menuTitle: "Cart",
-      pageURL: "/cart"
-    },
   ];
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" style={{backgroundColor:'black'}}>
         <Toolbar>
           <Typography
             variant="h6"
@@ -89,7 +87,7 @@ const Header = (props,cart) => {
             onClick={() => handleButtonClick("/")}
             style={{ cursor: "pointer" }}
           >
-            Mossens Pizzeria
+            <img style={{width:'8em',display:'flex'}} src={MossensLogo} alt="logo" />
           </Typography>
           {isMobile ? (
             <>
@@ -161,13 +159,19 @@ const Header = (props,cart) => {
               </Button>
               </div>
             )}
-          <ShoppingCartIcon
+          {/* <ShoppingCartIcon
             variant="contained"
-            onClick={() => handleButtonClick('/cart')}
+            onClick={() => handleButtonClick('/testcart')}
+            style={{ cursor: "pointer" }}
+          /> */}
+          <PersonIcon
+            variant="contained"
+            onClick={() => handleButtonClick('/login')}
             style={{ cursor: "pointer" }}
           />
         </Toolbar>
       </AppBar>
+      
     </div>
   );
 };

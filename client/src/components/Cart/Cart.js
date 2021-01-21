@@ -65,6 +65,7 @@ function Cart({
                     <h2>Total pris: {getTotalSum()} :-</h2>
                 </div>
             )}
+
         </>
     )
 }

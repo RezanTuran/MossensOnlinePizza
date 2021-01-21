@@ -26,6 +26,7 @@ function Products({ addToCart }) {
                             <div className="details-sub">
                                 <h5>{product.pizzaName}</h5>
                                 <h5 className="price">{product.pizzaPrice} :- <Checkbox
+                                    checked="checked"
                                     value="checkedA"
                                     inputProps={{ 'aria-label': 'Checkbox A' }}
                                 />&nbsp; &nbsp; <span>{product.pizzaPriceF} :-<Checkbox
