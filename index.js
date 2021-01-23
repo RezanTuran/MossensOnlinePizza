@@ -7,6 +7,7 @@ const path = require('path');
 let PORT = process.env.PORT || 5000;
 
 const bcrypt = require('bcrypt');
+const { response } = require('express');
 const saltRounds = 10;
 
 const db = mysql.createPool({
@@ -79,7 +80,7 @@ app.post('/api/register', (req, res) => {
     const password = req.body.password
 
     bcrypt.hash(password, saltRounds, (err, hash) => {
-        if(err){
+        if (err) {
             console.log(err);
         }
         const sqlInsertAdmin = "INSERT INTO loginAdmin (userName,password) VALUES (?,?)";
@@ -95,16 +96,23 @@ app.post('/api/register', (req, res) => {
         const userName = req.body.userName
         const password = req.body.password
 
-        const sqlSelectAdmin = "SELECT * FROM loginAdmin WHERE userName = ? AND password = ?";
-        db.query(sqlSelectAdmin, [userName, password],
+        const sqlSelectAdmin = "SELECT * FROM loginAdmin WHERE userName = ?;"
+        db.query(sqlSelectAdmin, userName,
             (err, result) => {
                 if (err) {
                     res.send({ err: err })
                 }
                 if (result.length > 0) {
-                    res.send(result)
+                    bcrypt.compare(password, result[0].password, (error, response) => {
+                        if (response) {
+                            res.send(result)
+                        } else {
+                            res.send({ message: "Fel användarnamn eller lösenord!" })
+
+                        }
+                    })
                 } else {
-                    res.send({ message: "Fel användarnamn eller lösenord!" })
+                    res.send({ message: "Existerar inte" })
                 }
             }
         )
