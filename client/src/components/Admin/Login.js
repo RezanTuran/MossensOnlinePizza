@@ -37,7 +37,7 @@ function Login() {
             />
             <button onClick={login}>Logga in</button>
             <h1>{loginStatus}</h1>
-            <Register />
+           
         </div>
     )
 }
