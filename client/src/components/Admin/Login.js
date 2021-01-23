@@ -13,6 +13,9 @@ function Login(props) {
     const [userNameLogin, setUserName] = useState('')
     const [passwordLogin, setPassword] = useState('')
 
+    const [userNameReg, setUserNameReg] = useState('')
+    const [passwordReg, setPasswordReg] = useState('')
+
     const [loginStatus, setLoginStatus] = useState('')
 
     const adminLogin = () => {
@@ -32,6 +35,16 @@ function Login(props) {
         });
     };
 
+    const adminRegister = () => {
+        Axios.post('https://mossenspizzeria.herokuapp.com/api/register', {
+            userName: userNameReg,
+            password: passwordReg,
+        }).then((response) => {
+            console.log(response);
+        });
+        window.location.reload()
+    };
+
     return (
         <div>
             <h1>Logga in</h1>
@@ -43,6 +56,20 @@ function Login(props) {
             />
             <button onClick={adminLogin}>Logga in</button>
             <h1>{loginStatus}</h1>
+
+            <div>
+            <div>
+                <h1>Registrera</h1>
+                <input type="text" placeholder="Användarnamn"
+                    onChange={(e) => { setUserNameReg(e.target.value) }}
+                />
+                <input type="password" placeholder="Lösenord"
+                    onChange={(e) => { setPasswordReg(e.target.value) }}
+                />
+                <button onClick={adminRegister}>Resgistera</button>
+            </div>
+        </div>
+
         </div>
     )
 }
