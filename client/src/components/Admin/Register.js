@@ -6,7 +6,7 @@ function Register() {
     const [userNameReg, setUserNameReg] = useState('')
     const [passwordReg, setPasswordReg] = useState('')
 
-    const register = () => {
+    const adminRegister = () => {
         Axios.post('https://mossenspizzeria.herokuapp.com/api/register', {
             userName: userNameReg,
             password: passwordReg,
@@ -26,7 +26,7 @@ function Register() {
                 <input type="password" placeholder="Lösenord"
                     onChange={(e) => { setPasswordReg(e.target.value) }}
                 />
-                <button onClick={register}>Resgistera</button>
+                <button onClick={adminRegister}>Resgistera</button>
             </div>
         </div>
     )

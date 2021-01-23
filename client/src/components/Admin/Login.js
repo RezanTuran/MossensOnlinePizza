@@ -4,15 +4,15 @@ import Register from './Register'
 
 function Login() {
 
-    const [userName, setUserName] = useState('')
-    const [password, setPassword] = useState('')
+    const [userNameLogin, setUserName] = useState('')
+    const [passwordLogin, setPassword] = useState('')
 
     const [loginStatus, setLoginStatus] = useState('')
 
-    const login = () => {
+    const adminLogin = () => {
         Axios.post('https://mossenspizzeria.herokuapp.com/api/login', {
-            userName: userName,
-            password: password,
+            userName: userNameLogin,
+            password: passwordLogin,
         }).then((response) => {
 
             if (response.data.message) {
@@ -20,7 +20,7 @@ function Login() {
             } else {
                 setLoginStatus(response.data[0].userName)
             }
-            if (response.data[0].userName === userName && response.data[0].password === password) {
+            if (response.data[0].userName === userNameLogin && response.data[0].password === passwordLogin) {
                 window.location.href = "https://mossenspizzeria.herokuapp.com/#/admin"
             }
         });
@@ -35,9 +35,9 @@ function Login() {
             <input type="password" placeholder="Lösenord"
                 onChange={(e) => { setPassword(e.target.value) }}
             />
-            <button onClick={login}>Logga in</button>
+            <button onClick={adminLogin}>Logga in</button>
             <h1>{loginStatus}</h1>
-           
+            <Register />
         </div>
     )
 }
