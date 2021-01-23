@@ -13,19 +13,18 @@ function Login(props) {
     const [userNameLogin, setUserName] = useState('')
     const [passwordLogin, setPassword] = useState('')
 
-    //const [loginStatus, setLoginStatus] = useState('')
+    const [loginStatus, setLoginStatus] = useState('')
 
     const adminLogin = () => {
         Axios.post('https://mossenspizzeria.herokuapp.com/api/login', {
             userName: userNameLogin,
             password: passwordLogin,
-        }).then((response) => {
-            console.log(response);
-            // if (response.data.message) {
-            //     setLoginStatus(response.data.message)
-            // } else {
-            //     setLoginStatus(response.data[0].userName)
-            // }
+        }).then((response) => {            
+            if (response.data.message) {
+                setLoginStatus(response.data.message)
+            } else {
+                setLoginStatus(response.data[0].userName)
+            }
             if (response.data[0].userName === userNameLogin && response.data[0].password === passwordLogin) {
                 handleButtonClick()
             }
@@ -42,7 +41,7 @@ function Login(props) {
                 onChange={(e) => { setPassword(e.target.value) }}
             />
             <button onClick={adminLogin}>Logga in</button>
-            {/* <h1>{loginStatus}</h1> */}
+            <h1>{loginStatus}</h1>
             <Register />
         </div>
     )
