@@ -20,17 +20,15 @@ function Login(props) {
             userName: userNameLogin,
             password: passwordLogin,
         }).then((response) => {
-
+            console.log(response);
+            if (response.data.message) {
+                setLoginStatus(response.data.message)
+            } else {
+                setLoginStatus(response.data[0].userName)
+            }
             if (response.data[0].userName === userNameLogin && response.data[0].password === passwordLogin) {
                 handleButtonClick()
             }
-
-            // if (response.data.message) {
-            //     setLoginStatus(response.data.message)
-            // } else {
-            //     setLoginStatus(response.data[0].userName)
-            // }
-
         });
     };
 

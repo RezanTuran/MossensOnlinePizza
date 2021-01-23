@@ -54,11 +54,11 @@ app.post('/api/register', (req, res) => {
     // Login Admin
     app.post('/api/login', (req, res) => {
 
-        const userName = req.body.userName
-        const password = req.body.password
+        const userNameLogin = req.body.userName
+        const passwordLogin = req.body.password
 
         const sqlSelectAdmin = "SELECT * FROM loginAdmin WHERE userName = ? AND password = ?";
-        db.query(sqlSelectAdmin, [userName, password],
+        db.query(sqlSelectAdmin, [userNameLogin, passwordLogin],
             (err, result) => {
                 if (err) {
                     res.send({ err: err })
