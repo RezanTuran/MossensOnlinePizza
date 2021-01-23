@@ -43,7 +43,6 @@ function Login(props) {
             />
             <button onClick={adminLogin}>Logga in</button>
             <h1>{loginStatus}</h1>
-            <Register />
         </div>
     )
 }
