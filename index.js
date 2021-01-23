@@ -44,11 +44,12 @@ app.post('/api/insert', (req, res) => {
 
 // Register Admin
 app.post('/api/register', (req, res) => {
+    const userName = req.body.userName
+    const password = req.body.password
+
     if (err) {
         console.log(err);
     }
-    const userName = req.body.userName
-    const password = req.body.password
 
     bcrypt.hash(password, saltRounds, (err, hash) => {
         const sqlInsertAdmin = "INSERT INTO loginAdmin (userName,password) VALUES (?,?)";
@@ -76,7 +77,6 @@ app.post('/api/register', (req, res) => {
                             res.send(result)
                         } else {
                             res.send({ message: "Fel användarnamn eller lösenord!" })
-
                         }
                     })
                 } else {
