@@ -13,10 +13,7 @@ function Login(props) {
     const [userNameLogin, setUserName] = useState('')
     const [passwordLogin, setPassword] = useState('')
 
-    const [userNameReg, setUserNameReg] = useState('')
-    const [passwordReg, setPasswordReg] = useState('')
-
-    const [loginStatus, setLoginStatus] = useState('')
+    //const [loginStatus, setLoginStatus] = useState('')
 
     const adminLogin = () => {
         Axios.post('https://mossenspizzeria.herokuapp.com/api/login', {
@@ -24,25 +21,15 @@ function Login(props) {
             password: passwordLogin,
         }).then((response) => {
             console.log(response);
-            if (response.data.message) {
-                setLoginStatus(response.data.message)
-            } else {
-                setLoginStatus(response.data[0].userName)
-            }
+            // if (response.data.message) {
+            //     setLoginStatus(response.data.message)
+            // } else {
+            //     setLoginStatus(response.data[0].userName)
+            // }
             if (response.data[0].userName === userNameLogin && response.data[0].password === passwordLogin) {
                 handleButtonClick()
             }
         });
-    };
-
-    const adminRegister = () => {
-        Axios.post('https://mossenspizzeria.herokuapp.com/api/register', {
-            userName: userNameReg,
-            password: passwordReg,
-        }).then((response) => {
-            console.log(response);
-        });
-        window.location.reload()
     };
 
     return (
@@ -55,21 +42,8 @@ function Login(props) {
                 onChange={(e) => { setPassword(e.target.value) }}
             />
             <button onClick={adminLogin}>Logga in</button>
-            <h1>{loginStatus}</h1>
-
-            <div>
-            <div>
-                <h1>Registrera</h1>
-                <input type="text" placeholder="Användarnamn"
-                    onChange={(e) => { setUserNameReg(e.target.value) }}
-                />
-                <input type="password" placeholder="Lösenord"
-                    onChange={(e) => { setPasswordReg(e.target.value) }}
-                />
-                <button onClick={adminRegister}>Resgistera</button>
-            </div>
-        </div>
-
+            {/* <h1>{loginStatus}</h1> */}
+            <Register />
         </div>
     )
 }
