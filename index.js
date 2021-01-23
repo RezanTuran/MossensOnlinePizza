@@ -5,7 +5,6 @@ const app = express();
 const mysql = require('mysql');
 const path = require('path');
 const bcrypt = require('bcrypt');
-const { response } = require('express');
 const saltRounds = 10;
 let port = process.env.PORT || 5000;
 
