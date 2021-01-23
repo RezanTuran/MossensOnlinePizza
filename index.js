@@ -4,7 +4,7 @@ const cors = require('cors');
 const app = express();
 const mysql = require('mysql');
 const path = require('path');
-let port = process.env.PORT || 5000;
+let PORT = process.env.PORT || 5000;
 
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
@@ -112,7 +112,7 @@ app.post('/api/register', (req, res) => {
 })
 
 
-app.listen(port, () => {
-    console.log(`Server runing on port ${port}`);
+app.listen(PORT, () => {
+    console.log(`Server runing on port ${PORT}`);
 })
 
