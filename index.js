@@ -1,13 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const app = express();
 const mysql = require('mysql');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-let port = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
+const app = express();
+
+app.use(cors());
+app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 const db = mysql.createPool({
     host: "us-cdbr-east-03.cleardb.com",
@@ -16,10 +21,6 @@ const db = mysql.createPool({
     database: "heroku_4a9f54220fd7a1d",
 });
 
-app.use(cors());
-app.use(express.static(path.join(__dirname, 'build')));
-app.use(express.json())
-app.use(bodyParser.urlencoded({ extended: true }))
 
 // Get Pizza
 app.get('/api/get', (req, res) => {
