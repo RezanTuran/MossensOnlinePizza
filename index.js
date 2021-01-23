@@ -6,8 +6,7 @@ const mysql = require('mysql');
 const path = require('path');
 let PORT = process.env.PORT || 5000;
 
-const bcrypt = require('bcrypt');
-const { response } = require('express');
+const bcrypt = require('bcrypt-nodejs');
 const saltRounds = 10;
 
 const db = mysql.createPool({
