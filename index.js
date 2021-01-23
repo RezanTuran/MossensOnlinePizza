@@ -71,7 +71,7 @@ app.post('/api/register', (req, res) => {
                     res.send({ err: err })
                 }
                 if (result.length > 0) {
-                    bcrypt.compare(passwor, result[0].password, (error, response) => {
+                    bcrypt.compare(password, result[0].password, (error, response) => {
                         if (response) {
                             res.send(result)
                         } else {
