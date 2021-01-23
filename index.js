@@ -1,17 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const app = express();
 const mysql = require('mysql');
 const path = require('path');
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
-const port = process.env.PORT || 5000;
-const app = express();
+let port = process.env.PORT || 5000;
 
-app.use(cors());
-app.use(express.static(path.join(__dirname, 'build')));
-app.use(express.json())
-app.use(bodyParser.urlencoded({ extended: true }))
 
 const db = mysql.createPool({
     host: "us-cdbr-east-03.cleardb.com",
@@ -20,6 +14,10 @@ const db = mysql.createPool({
     database: "heroku_4a9f54220fd7a1d",
 });
 
+app.use(cors());
+app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 // Get Pizza
 app.get('/api/get', (req, res) => {
@@ -43,95 +41,38 @@ app.post('/api/insert', (req, res) => {
 });
 
 // Register Admin
-// app.post('/api/register', (req, res) => {
-//     const userName = req.body.userName
-//     const password = req.body.password
+app.post('/api/register', (req, res) => {
 
-//     if (err) {
-//         console.log(err);
-//     }
+    const userName = req.body.userName
+    const password = req.body.password
 
-//     bcrypt.hash(password, saltRounds, (err, hash) => {
-//         const sqlInsertAdmin = "INSERT INTO loginAdmin (userName,password) VALUES (?,?)";
-//         db.query(sqlInsertAdmin, [userName, hash],
-//             (err, result) => {
-//                 console.log(err);
-//             })
-//     })
-
-//     // Login Admin
-//     app.post('/api/login', (req, res) => {
-
-//         const userName = req.body.userName
-//         const password = req.body.password
-
-//         const sqlSelectAdmin = "SELECT * FROM loginAdmin WHERE userName = ?";
-//         db.query(sqlSelectAdmin, userName,
-//             (err, result) => {
-//                 if (err) {
-//                     res.send({ err: err })
-//                 }
-//                 if (result.length > 0) {
-//                     bcrypt.compare(password, result[0].password, (error, response) => {
-//                         if (response) {
-//                             res.send(result)
-//                         } else {
-//                             res.send({ message: "Fel användarnamn eller lösenord!" })
-//                         }
-//                     })
-//                 } else {
-//                     res.send({ message: "User doesnt exist" })
-//                 }
-//             }
-//         )
-//     });
-// })
-
-app.post("/api/register", (req, res) => {
-    const userName = req.body.userName;
-    const password = req.body.password;
-  
-    bcrypt.hash(password, saltRounds, (err, hash) => {
-      if (err) {
-        console.log(err);
-      }
-  
-      db.query(
-        "INSERT INTO loginAdmin (username, password) VALUES (?,?)",
-        [userName, hash],
+    const sqlInsertAdmin = "INSERT INTO loginAdmin (userName,password) VALUES (?,?)";
+    db.query(sqlInsertAdmin, [userName, password],
         (err, result) => {
-          console.log(err);
-        }
-      );
-    });
-  });
+            console.log(err);
+        })
 
-  app.post("/api/login", (req, res) => {
-    const userName = req.body.userName;
-    const password = req.body.password;
-  
-    db.query(
-      "SELECT * FROM users WHERE username = ?;",
-      userName,
-      (err, result) => {
-        if (err) {
-          res.send({ err: err });
-        }
-  
-        if (result.length > 0) {
-          bcrypt.compare(password, result[0].password, (error, response) => {
-            if (response) {
-              res.send(result);
-            } else {
-              res.send({ message: "Wrong username/password combination!" });
+    // Login Admin
+    app.post('/api/login', (req, res) => {
+
+        const userName = req.body.userName
+        const password = req.body.password
+
+        const sqlSelectAdmin = "SELECT * FROM loginAdmin WHERE userName = ? AND password = ?";
+        db.query(sqlSelectAdmin, [userName, password],
+            (err, result) => {
+                if (err) {
+                    res.send({ err: err })
+                }
+                if (result.length > 0) {
+                    res.send(result)
+                } else {
+                    res.send({ message: "Fel användarnamn eller lösenord!" })
+                }
             }
-          });
-        } else {
-          res.send({ message: "User doesn't exist" });
-        }
-      }
-    );
-  });
+        )
+    });
+})
 
 // Delete Pizza
 app.delete('/api/delete/:pizzaId', (req, res) => {
