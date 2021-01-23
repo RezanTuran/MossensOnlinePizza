@@ -6,6 +6,8 @@ function Register() {
     const [userNameReg, setUserNameReg] = useState('')
     const [passwordReg, setPasswordReg] = useState('')
 
+    Axios.defaults.withCredentials = true;
+
     const adminRegister = () => {
         Axios.post('https://mossenspizzeria.herokuapp.com/api/register', {
             userName: userNameReg,
@@ -13,7 +15,6 @@ function Register() {
         }).then((response) => {
             console.log(response);
         });
-        window.location.reload()
     };
 
     return (
