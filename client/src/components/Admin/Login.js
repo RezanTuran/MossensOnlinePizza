@@ -2,7 +2,13 @@ import React, { useState } from 'react'
 import Axios from 'axios';
 import Register from './Register'
 
-function Login() {
+function Login(props) {
+
+    const { history } = props;
+
+    const handleButtonClick = () => {
+        history.push('./admin');
+    };
 
     const [userNameLogin, setUserName] = useState('')
     const [passwordLogin, setPassword] = useState('')
@@ -21,7 +27,7 @@ function Login() {
                 setLoginStatus(response.data[0].userName)
             }
             if (response.data[0].userName === userNameLogin && response.data[0].password === passwordLogin) {
-                window.location.href = "https://mossenspizzeria.herokuapp.com/#/admin"
+                handleButtonClick()
             }
         });
     };

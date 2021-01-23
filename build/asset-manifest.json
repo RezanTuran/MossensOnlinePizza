@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/static/css/main.8c1523bc.chunk.css",
-    "main.js": "/static/js/main.4002f24b.chunk.js",
-    "main.js.map": "/static/js/main.4002f24b.chunk.js.map",
+    "main.js": "/static/js/main.9e0d4076.chunk.js",
+    "main.js.map": "/static/js/main.9e0d4076.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.c012fedc.js",
     "runtime-main.js.map": "/static/js/runtime-main.c012fedc.js.map",
-    "static/js/2.bcfa0db3.chunk.js": "/static/js/2.bcfa0db3.chunk.js",
-    "static/js/2.bcfa0db3.chunk.js.map": "/static/js/2.bcfa0db3.chunk.js.map",
+    "static/js/2.1bc04f4a.chunk.js": "/static/js/2.1bc04f4a.chunk.js",
+    "static/js/2.1bc04f4a.chunk.js.map": "/static/js/2.1bc04f4a.chunk.js.map",
     "index.html": "/index.html",
     "static/css/main.8c1523bc.chunk.css.map": "/static/css/main.8c1523bc.chunk.css.map",
-    "static/js/2.bcfa0db3.chunk.js.LICENSE.txt": "/static/js/2.bcfa0db3.chunk.js.LICENSE.txt",
+    "static/js/2.1bc04f4a.chunk.js.LICENSE.txt": "/static/js/2.1bc04f4a.chunk.js.LICENSE.txt",
     "static/media/hamburger1.68235a9d.jpeg": "/static/media/hamburger1.68235a9d.jpeg",
     "static/media/kebab.f81c54a2.jpg": "/static/media/kebab.f81c54a2.jpg",
     "static/media/logo.6e3e4a2a.png": "/static/media/logo.6e3e4a2a.png",
@@ -19,8 +19,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.c012fedc.js",
-    "static/js/2.bcfa0db3.chunk.js",
+    "static/js/2.1bc04f4a.chunk.js",
     "static/css/main.8c1523bc.chunk.css",
-    "static/js/main.4002f24b.chunk.js"
+    "static/js/main.9e0d4076.chunk.js"
   ]
 }

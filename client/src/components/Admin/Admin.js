@@ -1,15 +1,19 @@
 import React from 'react';
 import '../Admin/style.css';
-import InsertPizza from './InserPizza';
-import PizzaProperties from './PizzaProperties';
 
-function Admin() {
+function Admin(props) {
 
+  const { history } = props;
+
+  const handleButtonClick = pageURL => {
+      history.push(pageURL);
+  };
 
   return (
     <div>
-      <InsertPizza />
-      <PizzaProperties />
+      <button onClick={() => handleButtonClick("/insertPizza")}>Produkter</button>
+      <button>Admin</button>
+      <button>Beställningar</button>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import '../Admin/style.css';
 import Axios from 'axios';
+import PizzaProperties from './PizzaProperties'
 
 function InserPizza() {
     const [pizzaName, setPizzaName] = useState('')
@@ -26,6 +27,7 @@ function InserPizza() {
     };
 
     return (
+        <>
         <div className="app">
             <div className="form">
                 <label>Pizzanamn</label>
@@ -48,6 +50,9 @@ function InserPizza() {
                 <button onClick={insertPizza}>Spara</button>
                 </div>
             </div>
+            <PizzaProperties />
+            </>
+
     )
 }
 
