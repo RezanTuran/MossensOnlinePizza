@@ -83,7 +83,7 @@ app.post("/api/register", (req, res) => {
       }
   
       db.query(
-        "INSERT INTO loginadmin (userName, password) VALUES (?,?)",
+        "INSERT INTO loginAdmin (userName, password) VALUES (?,?)",
         [userName, hash],
         (err, result) => {
           console.log(err);
