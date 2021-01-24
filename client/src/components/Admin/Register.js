@@ -3,12 +3,12 @@ import Axios from 'axios';
 
 function Register() {
 
-    const [userNameReg, setUserNameReg] = useState('')
+    const [usernameReg, setUserNameReg] = useState('')
     const [passwordReg, setPasswordReg] = useState('')
 
     const adminRegister = () => {
         Axios.post('https://mossenspizzeria.herokuapp.com/api/register', {
-            userName: userNameReg,
+            username: usernameReg,
             password: passwordReg,
         }).then((response) => {
             console.log(response);

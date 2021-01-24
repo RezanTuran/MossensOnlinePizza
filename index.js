@@ -119,7 +119,7 @@ app.put('/api/updateName', (req, res) => {
 
 
     app.post("/api/register", (req, res) => {
-        const userName = req.body.userName;
+        const username = req.body.username;
         const password = req.body.password;
       
         bcrypt.hash(password, saltRounds, (err, hash) => {
@@ -128,8 +128,8 @@ app.put('/api/updateName', (req, res) => {
           }
       
           db.query(
-            "INSERT INTO loginadmin (userName, password) VALUES (?,?)",
-            [userName, hash],
+            "INSERT INTO users (username, password) VALUES (?,?)",
+            [username, hash],
             (err, result) => {
               console.log(err);
             }
