@@ -73,50 +73,70 @@ app.put('/api/updateName', (req, res) => {
 })
 
 // Register Admin
-app.post('/api/register', (req, res) => {
+// app.post('/api/register', (req, res) => {
 
-    const userName = req.body.userName
-    const password = req.body.password
+//     const userName = req.body.userName
+//     const password = req.body.password
 
-    bcrypt.hash(password, saltRounds, (err, hash) => {
-        if (err) {
-            console.log(err);
-        }
-        const sqlInsertAdmin = "INSERT INTO loginAdmin (userName,password) VALUES (?,?)";
-        db.query(sqlInsertAdmin, [userName, hash],
-            (err, result) => {
-                console.log(err);
-            })
-    })
-})
+//     bcrypt.hash(password, saltRounds, (err, hash) => {
+//         if (err) {
+//             console.log(err);
+//         }
+//         const sqlInsertAdmin = "INSERT INTO loginAdmin (userName,password) VALUES (?,?)";
+//         db.query(sqlInsertAdmin, [userName, hash],
+//             (err, result) => {
+//                 console.log(err);
+//             })
+//     })
+// })
 
     // Login Admin
-    app.post('/api/login', (req, res) => {
+    // app.post('/api/login', (req, res) => {
 
-        const userName = req.body.userName
-        const password = req.body.password
+    //     const userName = req.body.userName
+    //     const password = req.body.password
 
-        const sqlSelectAdmin = "SELECT * FROM loginAdmin WHERE userName = ?;"
-        db.query(sqlSelectAdmin, userName,
+    //     const sqlSelectAdmin = "SELECT * FROM loginAdmin WHERE userName = ?;"
+    //     db.query(sqlSelectAdmin, userName,
+    //         (err, result) => {
+    //             if (err) {
+    //                 res.send({ err: err })
+    //             }
+    //             if (result.length > 0) {
+    //                 bcrypt.compare(password, result[0].password, (error, response) => {
+    //                     if (response) {
+    //                         res.send(result)
+    //                     } else {
+    //                         res.send({ message: "Fel användarnamn eller lösenord!" })
+    //                     }
+    //                 })
+    //             } else {
+    //                 res.send({ message: "Existerar inte" })
+    //             }
+    //         }
+    //     )
+    // });
+
+
+    app.post("/api/register", (req, res) => {
+        const userName = req.body.userName;
+        const password = req.body.password;
+      
+        bcrypt.hash(password, saltRounds, (err, hash) => {
+          if (err) {
+            console.log(err);
+          }
+      
+          db.query(
+            "INSERT INTO loginadmin (userName, password) VALUES (?,?)",
+            [userName, hash],
             (err, result) => {
-                if (err) {
-                    res.send({ err: err })
-                }
-                if (result.length > 0) {
-                    bcrypt.compare(password, result[0].password, (error, response) => {
-                        if (response) {
-                            res.send(result)
-                        } else {
-                            res.send({ message: "Fel användarnamn eller lösenord!" })
-                        }
-                    })
-                } else {
-                    res.send({ message: "Existerar inte" })
-                }
+              console.log(err);
             }
-        )
-    });
-
+          );
+        });
+      });
+      
 
 
 app.listen(PORT, () => {
