@@ -70,7 +70,6 @@ app.put('/api/updateName', (req, res) => {
     })
 })
 
-// Register Admin
 app.post('/api/register', (req, res) => {
 
     const userName = req.body.userName
@@ -81,7 +80,6 @@ app.post('/api/register', (req, res) => {
         (err, result) => {
             console.log(err);
         })
-   
 
     // Login Admin
     app.post('/api/login', (req, res) => {
@@ -102,8 +100,8 @@ app.post('/api/register', (req, res) => {
                 }
             }
         )
+    });
 })
-});
 
 app.listen(port, () => {
     console.log(`Server runing on port ${port}`);
