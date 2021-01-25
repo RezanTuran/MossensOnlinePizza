@@ -25,7 +25,7 @@ function Login(props) {
             if (response.data.message) {
                 setLoginStatus(response.data.message)
             } else {
-                setLoginStatus(response.data[0].userName)
+                handleButtonClick()
             }
         });
     };
@@ -36,7 +36,7 @@ function Login(props) {
                 handleButtonClick()
             }
         })
-    }, [])
+    },)
 
     return (
         <div>
