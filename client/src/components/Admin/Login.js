@@ -6,9 +6,9 @@ function Login(props) {
 
     const { history } = props;
 
-    // const handleButtonClick = () => {
-    //     history.push('./admin');
-    // };
+    const handleButtonClick = () => {
+        history.push('./admin');
+    };
 
     const [userNameLogin, setUserName] = useState('')
     const [passwordLogin, setPassword] = useState('')
@@ -27,16 +27,13 @@ function Login(props) {
             } else {
                 setLoginStatus(response.data[0].userName)
             }
-            // if (response.data[0].userName === userNameLogin && response.data[0].password === passwordLogin) {
-            //     handleButtonClick()
-            // }
         });
     };
 
     useEffect(() => {
         Axios.get("https://mossenspizzeria.herokuapp.com/api/login").then((response) => {
             if(response.data.loggedIn === true) {
-                setLoginStatus(response.data.user[0].userName)
+                handleButtonClick()
             }
         })
     }, [])
