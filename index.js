@@ -75,7 +75,7 @@ app.post('/api/register', (req, res) => {
     const userName = req.body.userName
     const password = req.body.password
 
-    const sqlInsertAdmin = "INSERT INTO admin (userName,password) VALUES (?,?)";
+    const sqlInsertAdmin = "INSERT INTO adminSystem (userName,password) VALUES (?,?)";
     db.query(sqlInsertAdmin, [userName, password],
         (err, result) => {
             console.log(err);
@@ -87,7 +87,7 @@ app.post('/api/register', (req, res) => {
         const userName = req.body.userName
         const password = req.body.password
 
-        const sqlSelectAdmin = "SELECT * FROM admin WHERE userName = ? AND password = ?";
+        const sqlSelectAdmin = "SELECT * FROM adminSystem WHERE userName = ? AND password = ?";
         db.query(sqlSelectAdmin, [userName, password],
             (err, result) => {
                 if (err) {
