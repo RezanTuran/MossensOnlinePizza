@@ -1,32 +1,28 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const app = express();
 const mysql = require('mysql');
-const path = require('path');
-let port = process.env.PORT || 5000;
-const bcrypt = require('bcryptjs');
-const saltRounds = 10;
+const cors = require('cors');
+
+const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
+const bcrypt = require('bcryptjs');
+const saltRounds = 10;
 
-const db = mysql.createPool({
-    host: "us-cdbr-east-03.cleardb.com",
-    user: "b2c51d49d060ca",
-    password: "6f567673",
-    database: "heroku_4a9f54220fd7a1d",
-});
+const path = require('path');
+let port = process.env.PORT || 5000;
 
+const app = express();
+
+app.use(express.json());
 app.use(cors({
-    origin: ["http://mossenspizzeria.herokuapp.com"],
+    origin: ["https://mossenspizzeria.herokuapp.com"],
     methods: ["GET", "POST"],
     credentials: true
 }));
 
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use(session({
     key: "userId",
     secret: "subscribe",
@@ -38,8 +34,13 @@ app.use(session({
 }));
 
 app.use(express.static(path.join(__dirname, 'build')));
-app.use(express.json());
 
+const db = mysql.createPool({
+    host: "us-cdbr-east-03.cleardb.com",
+    user: "b2c51d49d060ca",
+    password: "6f567673",
+    database: "heroku_4a9f54220fd7a1d",
+});
 
 
 // Get Pizza
