@@ -19,7 +19,7 @@ const db = mysql.createPool({
 });
 
 app.use(cors({
-    origin: ["https://mossenspizzeria.herokuapp.com/#/"],
+    origin: ["http://mossenspizzeria.herokuapp.com/"],
     methods: ["GET", "POST"],
     credentials: true
 }));
