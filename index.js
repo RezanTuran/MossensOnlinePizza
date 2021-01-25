@@ -19,10 +19,14 @@ const db = mysql.createPool({
 });
 
 app.use(cors({
-    origin: ["http://mossenspizzeria.herokuapp.com/"],
+    origin: ["https://mossenspizzeria.herokuapp.com"],
     methods: ["GET", "POST"],
     credentials: true
 }));
+
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(session({
     key: "userId",
     secret: "subscribe",
@@ -33,10 +37,8 @@ app.use(session({
     }
 }));
 
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 
 
