@@ -80,6 +80,7 @@ app.post('/api/register', (req, res) => {
         (err, result) => {
             console.log(err);
         })
+    })
 
     // Login Admin
     app.post('/api/login', (req, res) => {
@@ -101,7 +102,7 @@ app.post('/api/register', (req, res) => {
             }
         )
     });
-})
+
 
 app.listen(port, () => {
     console.log(`Server runing on port ${port}`);
