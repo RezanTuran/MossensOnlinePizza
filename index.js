@@ -5,10 +5,11 @@ const app = express();
 const mysql = require('mysql');
 const path = require('path');
 let port = process.env.PORT || 5000;
-
 const bcrypt = require('bcryptjs');
-const { response } = require('express');
-const saltRounds = 10
+const saltRounds = 10;
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+
 
 const db = mysql.createPool({
     host: "us-cdbr-east-03.cleardb.com",
@@ -17,10 +18,25 @@ const db = mysql.createPool({
     database: "heroku_4a9f54220fd7a1d",
 });
 
-app.use(cors());
+app.use(cors({
+    origin: ["https://mossenspizzeria.herokuapp.com/#/"],
+    methods: ["GET", "POST"],
+    credentials: true
+}));
+app.use(session({
+    key: "userId",
+    secret: "subscribe",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        expires: 60 * 60 * 24,
+    }
+}));
+
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'build')));
-app.use(express.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 
@@ -93,7 +109,13 @@ app.post('/api/register', (req, res) => {
     })
 })
 
-
+app.get('/api/login', (req, res) => {
+    if(req.session.user) {
+        res.send({loggedIn: true, user: req.session.user})
+    }else{
+        res.send({loggedIn: false})
+    }
+})
 
 // Login Admin
 app.post('/api/login', (req, res) => {
@@ -110,13 +132,15 @@ app.post('/api/login', (req, res) => {
             if (result.length > 0) {
                 bcrypt.compare(password, result[0].password, (error, response) => {
                     if (response) {
+                        req.session.user = result
+                        console.log(req.session.user);
                         res.send(result)
                     } else {
                         res.send({ message: "Fel användarnamn eller lösenord!" })
                     }
                 })
             } else {
-                res.send({ message: "Existerar inte" })
+                res.send({ message: "Användaren existerar inte!" })
             }
         }
     )

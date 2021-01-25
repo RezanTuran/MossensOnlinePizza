@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import Axios from 'axios';
 import Register from './Register'
 
@@ -15,6 +15,8 @@ function Login(props) {
 
     const [loginStatus, setLoginStatus] = useState('')
 
+    Axios.defaults.withCredentials = true
+
     const adminLogin = () => {
         Axios.post('https://mossenspizzeria.herokuapp.com/api/login', {
             userName: userNameLogin,
@@ -30,6 +32,12 @@ function Login(props) {
             }
         });
     };
+
+    useEffect(() => {
+        Axios.get("https://mossenspizzeria.herokuapp.com/api/login").then((response) => {
+            console.log(response);
+        })
+    }, [])
 
     return (
         <div>
