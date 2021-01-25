@@ -6,6 +6,9 @@ const mysql = require('mysql');
 const path = require('path');
 let port = process.env.PORT || 5000;
 
+const bcrypt = require('bcrypt');
+const { response } = require('express');
+const saltRounds = 10
 
 const db = mysql.createPool({
     host: "us-cdbr-east-03.cleardb.com",
@@ -70,38 +73,54 @@ app.put('/api/updateName', (req, res) => {
     })
 })
 
+// Register Admin
 app.post('/api/register', (req, res) => {
 
     const userName = req.body.userName
     const password = req.body.password
 
-    const sqlInsertAdmin = "INSERT INTO adminSystem (userName,password) VALUES (?,?)";
-    db.query(sqlInsertAdmin, [userName, password],
-        (err, result) => {
+    bcrypt.hash(password, saltRounds, (err, hash) => {
+
+        if (err) {
             console.log(err);
-        })
-    })
+        }
 
-    // Login Admin
-    app.post('/api/login', (req, res) => {
-
-        const userName = req.body.userName
-        const password = req.body.password
-
-        const sqlSelectAdmin = "SELECT * FROM adminSystem WHERE userName = ? AND password = ?";
-        db.query(sqlSelectAdmin, [userName, password],
+        const sqlInsertAdmin = "INSERT INTO adminSystem (userName,password) VALUES (?,?)";
+        db.query(sqlInsertAdmin, [userName, hash],
             (err, result) => {
-                if (err) {
-                    res.send({ err: err })
-                }
-                if (result.length > 0) {
-                    res.send(result)
-                } else {
-                    res.send({ message: "Fel användarnamn eller lösenord!" })
-                }
+                console.log(err);
+            })
+    })
+})
+
+
+
+// Login Admin
+app.post('/api/login', (req, res) => {
+
+    const userName = req.body.userName
+    const password = req.body.password
+
+    const sqlSelectAdmin = "SELECT * FROM adminSystem WHERE userName = ?";
+    db.query(sqlSelectAdmin, userName,
+        (err, result) => {
+            if (err) {
+                res.send({ err: err })
             }
-        )
-    });
+            if (result.length > 0) {
+                bcrypt.compare(password, result[0].password, (error, response) => {
+                    if (response) {
+                        res.send(result)
+                    } else {
+                        res.send({ message: "Fel användarnamn eller lösenord!" })
+                    }
+                })
+            } else {
+                res.send({ message: "Existerar inte" })
+            }
+        }
+    )
+});
 
 
 app.listen(port, () => {
