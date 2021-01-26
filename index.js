@@ -19,7 +19,9 @@ app.use(cors({
     origin: ["https://mossenspizzeria.herokuapp.com"],
     methods: ["GET", "POST"],
     credentials: true,
-    header: 'Access-Control-Allow-Origin',
+    headers: {
+        'Content-Type': 'application/json',
+    }
 }));
 
 app.use(cookieParser());
