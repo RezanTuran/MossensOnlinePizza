@@ -52,9 +52,9 @@ function PizzaMenu() {
   }
 
   // Clear Cart
-  // const clearCart = () => {
-  //   setCart([])
-  // }
+  const clearCart = () => {
+    setCart([])
+  }
 
   // Pizza price counter
   const getCartTotal = () => {
@@ -95,6 +95,7 @@ function PizzaMenu() {
         {page === PAGE_CART && <Cart
           cart={cart}
           removeFromCart={removeFromCart}
+          clearCart={clearCart}
           setQuantity={setQuantity}
         />}
       </div>
