@@ -1,7 +1,9 @@
 import React from 'react'
 import pizzaImg from '../Menu/images/pic-1.jpeg';
-
+import Button from '@material-ui/core/Button';
+import DeleteIcon from '@material-ui/icons/Delete';
 import TextField from '@material-ui/core/TextField';
+import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
 
 function Cart({
     cart,
@@ -36,12 +38,14 @@ function Cart({
                                             parseInt(e.target.value)
                                         )}
                                 />
-                                <button
+                                <Button
                                     onClick={() => removeFromCart(product)}
-                                 
+                                    variant="contained"
+                                    color="secondary"
+                                    startIcon={<DeleteIcon />}
                                 >
                                     Ta Bort
-                                </button>
+                                </Button>
                             </div>
                         </div>
                     </>
@@ -49,12 +53,14 @@ function Cart({
             })}
             {cart.length > 0 && (
                 <div>
-                    <button
+                    <Button
                         onClick={clearCart}
-                      
+                        variant="contained"
+                        color="secondary"
+                        startIcon={<RemoveShoppingCartIcon />}
                     >
                         Rensa Kundkorgen
-                    </button>
+                    </Button>
                     <h2>Total pris: {getTotalSum()} :-</h2>
                 </div>
             )}

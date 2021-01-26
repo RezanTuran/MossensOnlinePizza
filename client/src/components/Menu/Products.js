@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import Axios from 'axios';
 import pizzaImg from './images/pic-1.jpeg';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 
 function Products({ addToCart }) {
@@ -33,11 +35,14 @@ function Products({ addToCart }) {
                                 /></span></h5>
                             </div>
                             <p>{product.ingredients}</p>
-                            <button
+                            <Button
                                 onClick={() => addToCart(product)}
+                                variant="contained"
+                                color="primary"
+                                startIcon={<ShoppingCartIcon />}
                             >
                                 Beställ
-                                </button>
+                                </Button>
                         </div>
                     </div>
                 )
