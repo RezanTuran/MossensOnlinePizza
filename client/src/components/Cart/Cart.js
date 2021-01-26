@@ -59,7 +59,7 @@ function Cart({
                         variant="contained"
                         color="secondary"
                         startIcon={<RemoveShoppingCartIcon />}
-                        >
+                    >
                         Rensa Kundkorgen
                     </Button>
                     <h2>Total pris: {getTotalSum()} :-</h2>

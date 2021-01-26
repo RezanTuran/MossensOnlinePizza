@@ -4,11 +4,11 @@ import Register from './Register'
 
 function Login(props) {
 
-    // const { history } = props;
+    const { history } = props;
 
-    // const handleButtonClick = () => {
-    //     history.push('./admin');
-    // };
+    const handleButtonClick = () => {
+        history.push('./admin');
+    };
 
     const [userNameLogin, setUserName] = useState('')
     const [passwordLogin, setPassword] = useState('')
@@ -25,7 +25,7 @@ function Login(props) {
             if (response.data.message) {
                 setLoginStatus(response.data.message)
             } else {
-                //handleButtonClick()
+                handleButtonClick()
             }
         });
     };
@@ -33,7 +33,7 @@ function Login(props) {
     useEffect(() => {
         Axios.get("https://mossenspizzeria.herokuapp.com/api/login").then((response) => {
             if(response.data.loggedIn === true) {
-                //handleButtonClick()
+                handleButtonClick()
             }
         })
     },)
