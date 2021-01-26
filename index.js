@@ -16,12 +16,9 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-    origin: ["http://localhost:3000"],
+    origin: ["http://localhost:3000"], // Change to https://mossenspizzeria.herokuapp.com/#/
     methods: ["GET", "POST"],
     credentials: true,
-    headers: {
-        'Content-Type': 'application/json',
-    }
 }));
 
 app.use(cookieParser());

@@ -8,6 +8,7 @@ import Admin from "../components/Admin/Admin";
 import Login from "../components/Admin/Login";
 import { Route, Switch } from "react-router-dom";
 import InserPizza from "../components/Admin/InserPizza";
+import Checkout from "../components/Checkout/Checkout";
 
 export default function App() {
 
@@ -21,6 +22,7 @@ export default function App() {
         <Route exact path="/admin" render={props => <Admin {...props} />} />
         <Route exact path="/login" render={props => <Login {...props} />} />
         <Route exact path="/insertPizza" render={props => <InserPizza {...props} />} />
+        <Route exact path="/checkout" render={props => <Checkout {...props} />} />
       </Switch>
   );
 }

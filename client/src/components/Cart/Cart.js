@@ -61,6 +61,14 @@ function Cart({
                     >
                         Rensa Kundkorgen
                     </Button>
+                    <hr></hr>
+                    <Button
+                        onClick={clearCart}
+                        variant="contained"
+                        color="secondary"
+                    >
+                        Betala
+                    </Button>
                     <h2>Total pris: {getTotalSum()} :-</h2>
                 </div>
             )}
