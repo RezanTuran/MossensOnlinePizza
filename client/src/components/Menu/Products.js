@@ -35,14 +35,14 @@ function Products({ addToCart }) {
                                 /></span></h5>
                             </div>
                             <p>{product.ingredients}</p>
-                            <Button
+                            <button
                                 onClick={() => addToCart(product)}
                                 variant="contained"
                                 color="primary"
                                 startIcon={<ShoppingCartIcon />}
                             >
                                 Beställ
-                                </Button>
+                                </button>
                         </div>
                     </div>
                 )

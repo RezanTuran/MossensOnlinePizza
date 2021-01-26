@@ -39,14 +39,14 @@ function Cart({
                                             parseInt(e.target.value)
                                         )}
                                 />
-                                <Button
+                                <button
                                     onClick={() => removeFromCart(product)}
                                     variant="contained"
                                     color="secondary"
                                     startIcon={<DeleteIcon />}
                                 >
                                     Ta Bort
-                                </Button>
+                                </button>
                             </div>
                         </div>
                     </>
@@ -54,14 +54,14 @@ function Cart({
             })}
             {cart.length > 0 && (
                 <div>
-                    <Button
+                    <button
                         onClick={clearCart}
                         variant="contained"
                         color="secondary"
                         startIcon={<RemoveShoppingCartIcon />}
                     >
                         Rensa Kundkorgen
-                    </Button>
+                    </button>
                     <h2>Total pris: {getTotalSum()} :-</h2>
                 </div>
             )}
