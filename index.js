@@ -18,7 +18,8 @@ app.use(express.json());
 app.use(cors({
     origin: ["https://mossenspizzeria.herokuapp.com/#/"],
     methods: ["GET", "POST"],
-    credentials: true
+    credentials: true,
+    header: 'Access-Control-Allow-Origin'
 }));
 
 app.use(cookieParser());
