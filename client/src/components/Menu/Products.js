@@ -37,9 +37,7 @@ function Products({ addToCart }) {
                             <p>{product.ingredients}</p>
                             <button
                                 onClick={() => addToCart(product)}
-                                variant="contained"
-                                color="primary"
-                                startIcon={<ShoppingCartIcon />}
+                              
                             >
                                 Beställ
                                 </button>

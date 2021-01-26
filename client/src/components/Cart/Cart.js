@@ -1,6 +1,5 @@
 import React from 'react'
 import pizzaImg from '../Menu/images/pic-1.jpeg';
-import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import TextField from '@material-ui/core/TextField';
 import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
@@ -41,9 +40,7 @@ function Cart({
                                 />
                                 <button
                                     onClick={() => removeFromCart(product)}
-                                    variant="contained"
-                                    color="secondary"
-                                    startIcon={<DeleteIcon />}
+    
                                 >
                                     Ta Bort
                                 </button>
@@ -56,9 +53,7 @@ function Cart({
                 <div>
                     <button
                         onClick={clearCart}
-                        variant="contained"
-                        color="secondary"
-                        startIcon={<RemoveShoppingCartIcon />}
+                        
                     >
                         Rensa Kundkorgen
                     </button>
