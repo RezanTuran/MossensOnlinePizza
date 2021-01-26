@@ -1,8 +1,7 @@
 import React from 'react'
 import pizzaImg from '../Menu/images/pic-1.jpeg';
-import DeleteIcon from '@material-ui/icons/Delete';
+
 import TextField from '@material-ui/core/TextField';
-import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
 
 function Cart({
     cart,
@@ -16,7 +15,6 @@ function Cart({
     }
     return (
         <>
-
             {cart.map((product, idx) => {
                 return (
                     <>
@@ -40,7 +38,7 @@ function Cart({
                                 />
                                 <button
                                     onClick={() => removeFromCart(product)}
-    
+                                 
                                 >
                                     Ta Bort
                                 </button>
@@ -53,14 +51,13 @@ function Cart({
                 <div>
                     <button
                         onClick={clearCart}
-                        
+                      
                     >
                         Rensa Kundkorgen
                     </button>
                     <h2>Total pris: {getTotalSum()} :-</h2>
                 </div>
             )}
-
         </>
     )
 }
