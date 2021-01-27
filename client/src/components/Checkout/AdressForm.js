@@ -26,8 +26,6 @@ function AdressForm() {
     const [postNumber, setPostnumber] = useState('')
     const [adress, setAdress] = useState('')
 
-    const [orderList, setOrderlist] = useState([])
-
     // Post order
     const insertOrder = () => {
         Axios.post('https://mossenspizzeria.herokuapp.com/api/insertOrder', {
@@ -39,10 +37,7 @@ function AdressForm() {
             adress: adress
         });
 
-        setOrderlist([
-            ...orderList,
-            { firstName: firstName, sureName: sureName, phone: phone, epost: epost, postNumber: postNumber, adress: adress }
-        ]);
+
         window.location.reload()
     };
 
