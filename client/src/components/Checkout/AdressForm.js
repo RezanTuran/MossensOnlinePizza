@@ -24,11 +24,11 @@ function AdressForm() {
     const [phone, setPhone] = useState('')
     const [epost, setEpost] = useState('')
     const [postNumber, setPostnumber] = useState('')
-    const [adress, setAdress] = useState([])
+    const [adress, setAdress] = useState('')
 
     const [orderList, setOrderlist] = useState([])
 
-    // Post pizza
+    // Post order
     const insertOrder = () => {
         Axios.post('https://mossenspizzeria.herokuapp.com/api/insertOrder', {
             firstName: firstName,
@@ -48,7 +48,7 @@ function AdressForm() {
 
     return (
         <div>
-            <form className={classes.root} noValidate autoComplete="off">
+            <div className={classes.root}>
                 <TextField className={classes.input} id="outlined-basic" label="Förnamn" variant="outlined"
                     onChange={(e) => {
                         setFirstName(e.target.value)
@@ -87,7 +87,7 @@ function AdressForm() {
                 >
                     Slutför
                 </Button>
-            </form>
+            </div>
         </div>
     )
 }
