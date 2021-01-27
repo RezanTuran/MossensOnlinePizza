@@ -26,6 +26,8 @@ function AdressForm() {
     const [postNumber, setPostnumber] = useState('')
     const [adress, setAdress] = useState('')
 
+    const [orderList, setOrderlist] = useState([])
+
     // Post order
     const insertOrder = () => {
         Axios.post('https://mossenspizzeria.herokuapp.com/api/insertOrder', {
@@ -37,39 +39,42 @@ function AdressForm() {
             adress: adress
         });
 
-
+        setOrderlist([
+            ...orderList,
+            { firstName: firstName, sureName: sureName, phone: phone, epost: epost, postNumber: postNumber, adress: adress }
+        ]);
         window.location.reload()
     };
 
     return (
         <div>
             <div className={classes.root}>
-                <TextField className={classes.input} type="text" id="outlined-basic" label="Förnamn" variant="outlined"
+                <TextField className={classes.input} name="firstName" type="text" id="outlined-basic" label="Förnamn" variant="outlined"
                     onChange={(e) => {
                         setFirstName(e.target.value)
                     }}
                 />
-                <TextField className={classes.input} type="text" id="outlined-basic" label="Efternamn" variant="outlined"
+                <TextField className={classes.input} name="sureName" type="text" id="outlined-basic" label="Efternamn" variant="outlined"
                     onChange={(e) => {
                         setSureName(e.target.value)
                     }}
                 />
-                <TextField className={classes.input} type="text" id="outlined-basic" label="Telefonnummer" variant="outlined"
+                <TextField className={classes.input} name="phone" type="text" id="outlined-basic" label="Telefonnummer" variant="outlined"
                     onChange={(e) => {
                         setPhone(e.target.value)
                     }}
                 />
-                <TextField className={classes.input} type="text" id="outlined-basic" label="E-post" variant="outlined"
+                <TextField className={classes.input} name="epost" type="text" id="outlined-basic" label="E-post" variant="outlined"
                     onChange={(e) => {
                         setEpost(e.target.value)
                     }}
                 />
-                <TextField className={classes.input} type="text" id="outlined-basic" label="Postnummer" variant="outlined"
+                <TextField className={classes.input} name="postNumber" type="text" id="outlined-basic" label="Postnummer" variant="outlined"
                     onChange={(e) => {
                         setPostnumber(e.target.value)
                     }}
                 />
-                <TextField className={classes.input} type="text" id="outlined-basic" label="Address" variant="outlined" multiline rows={4}
+                <TextField className={classes.input} name="adress" type="text" id="outlined-basic" label="Address" variant="outlined" multiline rows={4}
                     onChange={(e) => {
                         setAdress(e.target.value)
                     }}
