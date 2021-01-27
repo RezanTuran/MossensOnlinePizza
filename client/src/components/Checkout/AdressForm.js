@@ -49,26 +49,28 @@ function AdressForm() {
     return (
         <div>
             <div className={classes.root}>
-            <label>Pizzanamn</label>
+                <label>namn</label>
                 <input type="text" name="firstName" onChange={(e) => {
                     setFirstName(e.target.value)
                 }} />
-                <label>Pizzapris</label>
+                <label>efternamn</label>
                 <input type="text" name="sureName" onChange={(e) => {
                     setSureName(e.target.value)
                 }} />
-                <label>Pizzapris Familj</label>
+                <label>phone</label>
                 <input type="text" name="phone" onChange={(e) => {
                     setPhone(e.target.value)
                 }} />
-                <label>Pizza ingredients</label>
+                <label>espot</label>
                 <input type="text" name="epost" onChange={(e) => {
                     setEpost(e.target.value)
                 }} />
-                 <input type="text" name="postNumber" onChange={(e) => {
+                <label>postnr</label>
+                <input type="text" name="postNumber" onChange={(e) => {
                     setPostnumber(e.target.value)
                 }} />
-                 <input type="text" name="adress" onChange={(e) => {
+                <label>adress</label>
+                <input type="text" name="adress" onChange={(e) => {
                     setAdress(e.target.value)
                 }} />
 
