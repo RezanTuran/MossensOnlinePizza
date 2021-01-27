@@ -49,44 +49,30 @@ function AdressForm() {
     return (
         <div>
             <div className={classes.root}>
-                <TextField className={classes.input} name="firstName" type="text" id="outlined-basic" label="Förnamn" variant="outlined"
-                    onChange={(e) => {
-                        setFirstName(e.target.value)
-                    }}
-                />
-                <TextField className={classes.input} name="sureName" type="text" id="outlined-basic" label="Efternamn" variant="outlined"
-                    onChange={(e) => {
-                        setSureName(e.target.value)
-                    }}
-                />
-                <TextField className={classes.input} name="phone" type="text" id="outlined-basic" label="Telefonnummer" variant="outlined"
-                    onChange={(e) => {
-                        setPhone(e.target.value)
-                    }}
-                />
-                <TextField className={classes.input} name="epost" type="text" id="outlined-basic" label="E-post" variant="outlined"
-                    onChange={(e) => {
-                        setEpost(e.target.value)
-                    }}
-                />
-                <TextField className={classes.input} name="postNumber" type="text" id="outlined-basic" label="Postnummer" variant="outlined"
-                    onChange={(e) => {
-                        setPostnumber(e.target.value)
-                    }}
-                />
-                <TextField className={classes.input} name="adress" type="text" id="outlined-basic" label="Address" variant="outlined" multiline rows={4}
-                    onChange={(e) => {
-                        setAdress(e.target.value)
-                    }}
-                />
+            <label>Pizzanamn</label>
+                <input type="text" name="firstName" onChange={(e) => {
+                    setFirstName(e.target.value)
+                }} />
+                <label>Pizzapris</label>
+                <input type="text" name="sureName" onChange={(e) => {
+                    setSureName(e.target.value)
+                }} />
+                <label>Pizzapris Familj</label>
+                <input type="text" name="phone" onChange={(e) => {
+                    setPhone(e.target.value)
+                }} />
+                <label>Pizza ingredients</label>
+                <input type="text" name="epost" onChange={(e) => {
+                    setEpost(e.target.value)
+                }} />
+                 <input type="text" name="postNumber" onChange={(e) => {
+                    setPostnumber(e.target.value)
+                }} />
+                 <input type="text" name="adress" onChange={(e) => {
+                    setAdress(e.target.value)
+                }} />
 
-                <Button
-                    onClick={insertOrder}
-                    variant="contained"
-                    color="secondary"
-                >
-                    Slutför
-                </Button>
+                <button onClick={insertOrder}>Spara</button>
             </div>
         </div>
     )
