@@ -9,12 +9,18 @@ function Cart({
     cart,
     clearCart,
     removeFromCart,
-    setQuantity
-}) {
+    setQuantity,
+}) 
+{
     // Pizza price Counter
     const getTotalSum = () => {
         return cart.reduce((sum, { pizzaPrice, quantity }) => sum + pizzaPrice * quantity, 0);
     }
+
+    const handleButtonClick = () => {
+        window.location.assign(".#/checkout")
+    };
+
     return (
         <>
             {cart.map((product, idx) => {
@@ -51,6 +57,7 @@ function Cart({
                     </>
                 )
             })}
+            
             {cart.length > 0 && (
                 <div>
                     <Button
@@ -63,7 +70,7 @@ function Cart({
                     </Button>
                     <hr></hr>
                     <Button
-                        onClick={clearCart}
+                        onClick={handleButtonClick}
                         variant="contained"
                         color="secondary"
                     >

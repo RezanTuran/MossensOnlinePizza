@@ -12,6 +12,14 @@ const saltRounds = 10;
 const path = require('path');
 let port = process.env.PORT || 5000;
 
+// if(process.env.NODE_ENV !== 'production'){
+//     require('dotenv').config()
+// }
+// const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+// const stripePublicKey = process.env.STRIPE_PUBLIC_KEY;
+
+// console.log(stripeSecretKey, stripePublicKey);
+
 const app = express();
 
 app.use(express.json());
@@ -35,6 +43,7 @@ app.use(session({
 
 app.use(express.static(path.join(__dirname, 'build')));
 
+// DB Connection
 const db = mysql.createPool({
     host: "us-cdbr-east-03.cleardb.com",
     user: "b2c51d49d060ca",
@@ -148,6 +157,69 @@ app.post('/api/login', (req, res) => {
         }
     )
 });
+
+// ### Post Order in Database ### //
+app.post('/api/insertOrder', (req, res) => {
+    const firstName = req.body.firstName
+    const sureName = req.body.sureName
+    const phone = req.body.phone
+    const epost = req.body.epost
+    const postNumber = req.body.postNumber
+    const adress = req.body.adress
+
+    const sqlInsert = "INSERT INTO order (firstName,sureName,phone,epost,postNumber,adress) VALUES (?,?,?,?,?,?)";
+    db.query(sqlInsert, [firstName,sureName,phone,epost,postNumber,adress], (err, result) => {
+        console.log(result);
+    });
+});
+
+//-------------------------------------------------------//
+app.post("/create-checkout-session", async (req, res) => {
+
+    const items=req.body ;
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ["card"],
+      line_items: items,
+      mode: "payment",
+      success_url: "http://localhost:3000/done?session_id={CHECKOUT_SESSION_ID}",
+      cancel_url: "http://localhost:3000/cart",
+    });
+  
+    res.json({ id: session.id });
+  });
+  
+  app.post("/verify-checkout-session", async (req, res) => {
+      try{
+          const session = await stripe.checkout.sessions.retrieve(req.body.sessionId)
+          console.log("Session",session);
+          if(session){
+              if(session.payment_status==='paid'){
+              res.json({isVerfied: true})
+              const items= await stripe.checkout.sessions.listLineItems(req.body.sessionId);
+              const result = users.find( ( user => user.url === items.url ));
+  
+              if(!result){
+              users.push(items); 
+              fs.writeFile("ordersList.json", JSON.stringify(users, null, 2), err => { 
+       
+                  // Checking for errors 
+                  if (err) throw err;  
+                 
+                  console.log("Done writing"); // Success 
+              });
+            }
+  
+              }
+              else  throw new Error('Not paid')
+          }else{
+              throw new Error('No session')
+          }
+      }catch(error){
+          console.error(error)
+          res.json({isVerfied: false})
+      }
+  })
+  
 
 
 app.listen(port, () => {

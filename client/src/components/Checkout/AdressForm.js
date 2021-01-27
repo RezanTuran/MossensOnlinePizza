@@ -1,30 +1,92 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Axios from 'axios';
 
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      display: 'flex',
-      flexDirection: 'column',
-      padding: '2em'
+        display: 'flex',
+        flexDirection: 'column',
+        padding: '2em'
     },
     input: {
-        margin:'1em'
+        margin: '1em'
     }
-  }));
+}));
 
 function AdressForm() {
     const classes = useStyles();
 
+    const [firstName, setFirstName] = useState('')
+    const [sureName, setSureName] = useState('')
+    const [phone, setPhone] = useState('')
+    const [epost, setEpost] = useState('')
+    const [postNumber, setPostnumber] = useState('')
+    const [adress, setAdress] = useState([])
+
+    const [orderList, setOrderlist] = useState([])
+
+    // Post pizza
+    const insertOrder = () => {
+        Axios.post('https://mossenspizzeria.herokuapp.com/api/insertOrder', {
+            firstName: firstName,
+            sureName: sureName,
+            phone: phone,
+            epost: epost,
+            postNumber: postNumber,
+            adress: adress
+        });
+
+        setOrderlist([
+            ...orderList,
+            { firstName: firstName, sureName: sureName, phone: phone, epost: epost, postNumber: postNumber, adress: adress }
+        ]);
+        window.location.reload()
+    };
+
     return (
         <div>
             <form className={classes.root} noValidate autoComplete="off">
-                <TextField className={classes.input} id="outlined-basic" label="Förnamn" variant="outlined" />
-                <TextField className={classes.input} id="outlined-basic" label="Efternamn" variant="outlined" />
-                <TextField className={classes.input} id="outlined-basic" label="Telefonnummer" variant="outlined" />
-                <TextField className={classes.input} id="outlined-basic" label="Postnummer" variant="outlined" />
-                <TextField className={classes.input} id="outlined-basic" label="Address" variant="outlined" multiline rows={4}/>
+                <TextField className={classes.input} id="outlined-basic" label="Förnamn" variant="outlined"
+                    onChange={(e) => {
+                        setFirstName(e.target.value)
+                    }}
+                />
+                <TextField className={classes.input} id="outlined-basic" label="Efternamn" variant="outlined"
+                    onChange={(e) => {
+                        setSureName(e.target.value)
+                    }}
+                />
+                <TextField className={classes.input} id="outlined-basic" label="Telefonnummer" variant="outlined"
+                    onChange={(e) => {
+                        setPhone(e.target.value)
+                    }}
+                />
+                <TextField className={classes.input} id="outlined-basic" label="E-post" variant="outlined"
+                    onChange={(e) => {
+                        setEpost(e.target.value)
+                    }}
+                />
+                <TextField className={classes.input} id="outlined-basic" label="Postnummer" variant="outlined"
+                    onChange={(e) => {
+                        setPostnumber(e.target.value)
+                    }}
+                />
+                <TextField className={classes.input} id="outlined-basic" label="Address" variant="outlined" multiline rows={4}
+                    onChange={(e) => {
+                        setAdress(e.target.value)
+                    }}
+                />
+
+                <Button
+                    onClick={insertOrder}
+                    variant="contained"
+                    color="secondary"
+                >
+                    Slutför
+                </Button>
             </form>
         </div>
     )

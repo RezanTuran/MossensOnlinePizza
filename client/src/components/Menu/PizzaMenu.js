@@ -21,7 +21,7 @@ function PizzaMenu() {
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
-
+  
   // Add items to cart
   const addToCart = (product) => {
     let newCart = [...cart];
