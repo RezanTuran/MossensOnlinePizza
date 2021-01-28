@@ -20,8 +20,6 @@ const useStyles = makeStyles((theme) => ({
 function AdressForm() {
     const classes = useStyles();
 
-    const cartFromLocalStorage = localStorage.getItem('cart')
-
     const [firstName, setFirstName] = useState('')
     const [sureName, setSureName] = useState('')
     const [phone, setPhone] = useState('')
@@ -33,6 +31,13 @@ function AdressForm() {
 
     // Post order
     const insertOrder = () => {
+
+        const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart'))
+    
+        for (let i = 0; i < cartFromLocalStorage.length; i++) {
+            console.log(cartFromLocalStorage[i].pizzaName);
+        
+
         Axios.post('https://mossenspizzeria.herokuapp.com/api/insertOrder', {
             firstName: firstName,
             sureName: sureName,
@@ -41,16 +46,16 @@ function AdressForm() {
             postNumber: postNumber,
             adress: adress,
             date: date,
-            food: cartFromLocalStorage
+            food: cartFromLocalStorage[i].pizzaName
         });
 
         setOrderlist([
             ...orderList,
-            { firstName: firstName, sureName: sureName, phone: phone, epost: epost, postNumber: postNumber, adress: adress, date: date, food: cartFromLocalStorage }
+            { firstName: firstName, sureName: sureName, phone: phone, epost: epost, postNumber: postNumber, adress: adress, date: date, food: cartFromLocalStorage[i].pizzaName }
         ]);
         window.location.reload()
     };
-
+    }
     return (
         <div>
             <div className={classes.root}>
