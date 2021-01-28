@@ -13,7 +13,7 @@ function Admin(props) {
     <div>
       <button onClick={() => handleButtonClick("/insertPizza")}>Produkter</button>
       <button>Admin</button>
-      <button>Beställningar</button>
+      <button onClick={() => handleButtonClick("/order")}>Beställningar</button>
     </div>
   );
 }

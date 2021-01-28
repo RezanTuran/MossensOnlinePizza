@@ -158,7 +158,7 @@ app.post('/api/login', (req, res) => {
     )
 });
 
-// ### Post Order in Database ### //
+// ### Post Order ### //
 app.post('/api/insertOrder', (req, res) => {
 
     const firstName = req.body.firstName
@@ -175,6 +175,13 @@ app.post('/api/insertOrder', (req, res) => {
         console.log(result);
     });
 });
+// ### Get Order ### //
+app.get('/api/getOrder', (req, res) => {
+    const sqlSelectOrder = "SELECT * FROM pizzaorder";
+    db.query(sqlSelectOrder, (err, result) => {
+        res.send(result)
+    });
+})
 
 //-------------------------------------------------------//
 app.post("/create-checkout-session", async (req, res) => {
