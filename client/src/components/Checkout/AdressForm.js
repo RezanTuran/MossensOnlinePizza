@@ -43,37 +43,50 @@ function AdressForm() {
             ...orderList,
             { firstName: firstName, sureName: sureName, phone: phone, epost: epost, postNumber: postNumber, adress: adress }
         ]);
+        window.location.reload()
     };
 
     return (
         <div>
             <div className={classes.root}>
-                <label>namn</label>
-                <input type="text" name="firstName" onChange={(e) => {
-                    setFirstName(e.target.value)
-                }} />
-                <label>efternamn</label>
-                <input type="text" name="sureName" onChange={(e) => {
-                    setSureName(e.target.value)
-                }} />
-                <label>phone</label>
-                <input type="text" name="phone" onChange={(e) => {
-                    setPhone(e.target.value)
-                }} />
-                <label>espot</label>
-                <input type="text" name="epost" onChange={(e) => {
-                    setEpost(e.target.value)
-                }} />
-                <label>postnr</label>
-                <input type="text" name="postNumber" onChange={(e) => {
-                    setPostnumber(e.target.value)
-                }} />
-                <label>adress</label>
-                <input type="text" name="adress" onChange={(e) => {
-                    setAdress(e.target.value)
-                }} />
+                <TextField className={classes.input} name="firstName" type="text" id="outlined-basic" label="Förnamn" variant="outlined"
+                    onChange={(e) => {
+                        setFirstName(e.target.value)
+                    }}
+                />
+                <TextField className={classes.input} name="sureName" type="text" id="outlined-basic" label="Efternamn" variant="outlined"
+                    onChange={(e) => {
+                        setSureName(e.target.value)
+                    }}
+                />
+                <TextField className={classes.input} name="phone" type="text" id="outlined-basic" label="Telefonnummer" variant="outlined"
+                    onChange={(e) => {
+                        setPhone(e.target.value)
+                    }}
+                />
+                <TextField className={classes.input} name="epost" type="text" id="outlined-basic" label="E-post" variant="outlined"
+                    onChange={(e) => {
+                        setEpost(e.target.value)
+                    }}
+                />
+                <TextField className={classes.input} name="postNumber" type="text" id="outlined-basic" label="Postnummer" variant="outlined"
+                    onChange={(e) => {
+                        setPostnumber(e.target.value)
+                    }}
+                />
+                <TextField className={classes.input} name="adress" type="text" id="outlined-basic" label="Address" variant="outlined" multiline rows={4}
+                    onChange={(e) => {
+                        setAdress(e.target.value)
+                    }}
+                />
 
-                <button onClick={insertOrder}>Spara</button>
+                <Button
+                    onClick={insertOrder}
+                    variant="contained"
+                    color="secondary"
+                >
+                    Slutför
+                </Button>
             </div>
         </div>
     )
