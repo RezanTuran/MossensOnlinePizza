@@ -37,3 +37,6 @@
     border-radius: 5px;
     width: 180px;
   }
+.MuiPaper-root{
+  display: none;
+}

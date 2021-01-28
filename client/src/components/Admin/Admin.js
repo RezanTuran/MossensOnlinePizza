@@ -12,7 +12,6 @@ function Admin(props) {
   return (
     <div>
       <button onClick={() => handleButtonClick("/insertPizza")}>Produkter</button>
-      <button>Admin</button>
       <button onClick={() => handleButtonClick("/order")}>Beställningar</button>
     </div>
   );

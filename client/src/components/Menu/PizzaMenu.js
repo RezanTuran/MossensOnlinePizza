@@ -21,7 +21,7 @@ function PizzaMenu() {
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
-  
+
   // Add items to cart
   const addToCart = (product) => {
     let newCart = [...cart];
@@ -92,6 +92,8 @@ function PizzaMenu() {
       <div className="menu">
 
         {page === PAGE_PRODUCTS && <Products addToCart={addToCart} />}
+      </div>
+      <div className="cart">
         {page === PAGE_CART && <Cart
           cart={cart}
           removeFromCart={removeFromCart}
@@ -99,6 +101,7 @@ function PizzaMenu() {
           setQuantity={setQuantity}
         />}
       </div>
+
     </>
   );
 }

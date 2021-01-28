@@ -69,7 +69,7 @@ app.post('/api/insert', (req, res) => {
 
     const sqlInsert = "INSERT INTO pizza (pizzaName, pizzaPrice, pizzaPriceF, ingredients) VALUES (?,?,?,?)";
     db.query(sqlInsert, [pizzaName, pizzaPrice, pizzaPriceF, ingredients], (err, result) => {
-        console.log(result);
+        //console.log(result);
     });
 });
 
@@ -172,7 +172,7 @@ app.post('/api/insertOrder', (req, res) => {
 
     const sqlInsertOrder = "INSERT INTO pizzaorder (firstName,sureName,phone,epost,postNumber,adress,date,food) VALUES (?,?,?,?,?,?,?,?)";
     db.query(sqlInsertOrder, [firstName,sureName,phone,epost,postNumber,adress,date,food], (err, result) => {
-        console.log(result);
+        //console.log(result);
     });
 });
 // ### Get Order ### //
