@@ -21,6 +21,7 @@ function AdressForm() {
     const classes = useStyles();
 
     const cartFromLocalStorage = JSON.stringify(localStorage.getItem('cart') || '[]')
+    console.log(cartFromLocalStorage);
 
     const [firstName, setFirstName] = useState('')
     const [sureName, setSureName] = useState('')
@@ -64,17 +65,17 @@ function AdressForm() {
                         setSureName(e.target.value)
                     }}
                 />
-                <TextField className={classes.input} name="phone" type="text" id="outlined-basic" label="Telefonnummer" variant="outlined"
+                <TextField className={classes.input} name="phone" type="number" id="outlined-basic" label="Telefonnummer" variant="outlined"
                     onChange={(e) => {
                         setPhone(e.target.value)
                     }}
                 />
-                <TextField className={classes.input} name="epost" type="text" id="outlined-basic" label="E-post" variant="outlined"
+                <TextField className={classes.input} name="epost" type="email" id="outlined-basic" label="E-post" variant="outlined"
                     onChange={(e) => {
                         setEpost(e.target.value)
                     }}
                 />
-                <TextField className={classes.input} name="postNumber" type="text" id="outlined-basic" label="Postnummer" variant="outlined"
+                <TextField className={classes.input} name="postNumber" type="number" id="outlined-basic" label="Postnummer" variant="outlined"
                     onChange={(e) => {
                         setPostnumber(e.target.value)
                     }}

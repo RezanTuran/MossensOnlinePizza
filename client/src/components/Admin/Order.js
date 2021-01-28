@@ -9,6 +9,7 @@ function Order() {
         Axios.get('https://mossenspizzeria.herokuapp.com/api/getOrder').then((Response) => {
             setOrderlist(Response.data)
         })
+        window.location.reload()
     }, [])
 
     return (
