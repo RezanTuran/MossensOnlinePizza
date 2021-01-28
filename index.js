@@ -161,8 +161,6 @@ app.post('/api/login', (req, res) => {
 // ### Post Order in Database ### //
 app.post('/api/insertOrder', (req, res) => {
 
-    console.log(cartFromLocalStorage);
-
     const firstName = req.body.firstName
     const sureName = req.body.sureName
     const phone = req.body.phone
@@ -170,10 +168,9 @@ app.post('/api/insertOrder', (req, res) => {
     const postNumber = req.body.postNumber
     const adress = req.body.adress
     const date = new Date()
-    const food = food
 
-    const sqlInsertOrder = "INSERT INTO pizzaorder (firstName,sureName,phone,epost,postNumber,adress,date,food) VALUES (?,?,?,?,?,?,?,?)";
-    db.query(sqlInsertOrder, [firstName,sureName,phone,epost,postNumber,adress,date,food], (err, result) => {
+    const sqlInsertOrder = "INSERT INTO pizzaorder (firstName,sureName,phone,epost,postNumber,adress,date) VALUES (?,?,?,?,?,?,?)";
+    db.query(sqlInsertOrder, [firstName,sureName,phone,epost,postNumber,adress,date], (err, result) => {
         console.log(result);
     });
 });
