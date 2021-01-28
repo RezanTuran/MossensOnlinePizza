@@ -8,8 +8,8 @@ function Order() {
     useEffect(() => {
         Axios.get('https://mossenspizzeria.herokuapp.com/api/getOrder').then((Response) => {
             setOrderlist(Response.data)
+            window.location.reload()
         })
-        window.location.reload()
     }, [])
 
     return (
