@@ -25,6 +25,7 @@ function AdressForm() {
     const [epost, setEpost] = useState('')
     const [postNumber, setPostnumber] = useState('')
     const [adress, setAdress] = useState('')
+    let date = new Date()
 
     const [orderList, setOrderlist] = useState([])
 
@@ -36,12 +37,13 @@ function AdressForm() {
             phone: phone,
             epost: epost,
             postNumber: postNumber,
-            adress: adress
+            adress: adress,
+            date: date
         });
 
         setOrderlist([
             ...orderList,
-            { firstName: firstName, sureName: sureName, phone: phone, epost: epost, postNumber: postNumber, adress: adress }
+            { firstName: firstName, sureName: sureName, phone: phone, epost: epost, postNumber: postNumber, adress: adress, date: date }
         ]);
         window.location.reload()
     };
