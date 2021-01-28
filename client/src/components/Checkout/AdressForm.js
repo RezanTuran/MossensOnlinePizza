@@ -43,7 +43,6 @@ function AdressForm() {
             ...orderList,
             { firstName: firstName, sureName: sureName, phone: phone, epost: epost, postNumber: postNumber, adress: adress }
         ]);
-        window.location.reload()
     };
 
     return (
