@@ -30,8 +30,7 @@ function AdressForm() {
     const [postNumber, setPostnumber] = useState('')
     const [adress, setAdress] = useState('')
     let date = new Date()
-    const order = cartFromLocalStorage
-
+    const food = cartFromLocalStorage
     const [orderList, setOrderlist] = useState([])
 
     // Post order
@@ -44,12 +43,12 @@ function AdressForm() {
             postNumber: postNumber,
             adress: adress,
             date: date,
-            order: order
+            food: food
         });
 
         setOrderlist([
             ...orderList,
-            { firstName: firstName, sureName: sureName, phone: phone, epost: epost, postNumber: postNumber, adress: adress, date: date, order: order }
+            { firstName: firstName, sureName: sureName, phone: phone, epost: epost, postNumber: postNumber, adress: adress, date: date, food: food }
         ]);
         window.location.reload()
     };
