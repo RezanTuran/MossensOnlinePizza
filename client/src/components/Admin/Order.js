@@ -16,11 +16,8 @@ function Order() {
             {orderList.map((val) => {
                 return (
                     <div className="card">
-                        <p>Pizza ID: {val.pizzaId}</p>
-                        <p>Pizzanamn: {val.pizzaName}</p>
-                        <p>Pizza pris: {val.pizzaPrice}</p>
-                        <p>Pizza pris familj: {val.pizzaPriceF}</p>
-                        <p>ingredienser: {val.ingredients}</p>
+                        <p>Pizza {val.food}</p>
+            
                     </div>
                 )
             })}
