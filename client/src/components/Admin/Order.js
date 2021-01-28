@@ -16,8 +16,7 @@ function Order() {
             {orderList.map((val) => {
                 return (
                     <div className="card">
-                        <p>Pizza {val.food}</p>
-            
+                        <p> {val.firstName}: {val.food}</p>
                     </div>
                 )
             })}
