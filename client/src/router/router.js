@@ -9,7 +9,7 @@ import Login from "../components/Admin/Login";
 import { Route, Switch } from "react-router-dom";
 import InserPizza from "../components/Admin/InserPizza";
 import Checkout from "../components/Checkout/Checkout";
-import Order from '../components/Admin/Order'
+import Order from '../components/Admin/Order';
 
 export default function App() {
 
