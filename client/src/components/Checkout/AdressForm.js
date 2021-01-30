@@ -20,9 +20,9 @@ const useStyles = makeStyles((theme) => ({
 function AdressForm() {
     const classes = useStyles();
 
-    const cartFromLocalStorage = JSON.stringify(localStorage.getItem('cart') || '[]')
+    const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]').join()
 
-    console.log(cartFromLocalStorage);
+    console.log(cartFromLocalStorage)
 
     const [firstName, setFirstName] = useState('')
     const [sureName, setSureName] = useState('')
