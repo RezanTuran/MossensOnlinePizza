@@ -24,8 +24,9 @@ function AdressForm() {
 
     const renderPizzaFromLocalStrg = cartFromLocalStorage.map(pizza => {
         return (`
-            ${pizza.pizzaName}
-            ${pizza.pizzaPrice}
+            ${'Pizzanamn: ' + pizza.pizzaName}
+            ${pizza.pizzaPrice + ' :- '}
+            ${'Antal: ' + pizza.quantity}
         `
         )
     })
