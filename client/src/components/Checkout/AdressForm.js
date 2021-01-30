@@ -22,14 +22,15 @@ function AdressForm() {
 
     const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]')
 
-    
-       const xyz = cartFromLocalStorage.map(str => {
-          return(
-            str.pizzaName.toString()
-          )
-        })
-        console.log(xyz.toString());
-      
+    const renderPizzaFromLocalStrg = cartFromLocalStorage.map(pizza => {
+        return (`
+            ${pizza.pizzaName}
+            ${pizza.pizzaPrice}
+        `
+        )
+    })
+    console.log(renderPizzaFromLocalStrg.toString());
+
     const [firstName, setFirstName] = useState('')
     const [sureName, setSureName] = useState('')
     const [phone, setPhone] = useState('')
@@ -49,12 +50,12 @@ function AdressForm() {
             postNumber: postNumber,
             adress: adress,
             date: date,
-            food: xyz.toString()
+            food: renderPizzaFromLocalStrg.toString()
         });
 
         setOrderlist([
             ...orderList,
-            { firstName: firstName, sureName: sureName, phone: phone, epost: epost, postNumber: postNumber, adress: adress, date: date, food: xyz.toString() }
+            { firstName: firstName, sureName: sureName, phone: phone, epost: epost, postNumber: postNumber, adress: adress, date: date, food: renderPizzaFromLocalStrg.toString() }
         ]);
         window.location.reload()
     };
