@@ -24,9 +24,9 @@ function AdressForm() {
 
     
        const xyz = cartFromLocalStorage.map(str => {
-          return(`
-            ${str.pizzaName}
-          `)
+          return(
+            JSON.stringify(str.pizzaName)
+          )
         })
       
     const [firstName, setFirstName] = useState('')
