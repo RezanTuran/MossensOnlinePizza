@@ -20,10 +20,8 @@ const useStyles = makeStyles((theme) => ({
 function AdressForm() {
     const classes = useStyles();
 
-    const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]').join()
-
-    console.log(cartFromLocalStorage)
-
+    const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]')
+      
     const [firstName, setFirstName] = useState('')
     const [sureName, setSureName] = useState('')
     const [phone, setPhone] = useState('')
@@ -43,12 +41,20 @@ function AdressForm() {
             postNumber: postNumber,
             adress: adress,
             date: date,
-            food: cartFromLocalStorage
+            food: cartFromLocalStorage.map(str => {
+                return(`
+                  ${console.log(str.pizzaName)}
+                `)
+              })
         });
 
         setOrderlist([
             ...orderList,
-            { firstName: firstName, sureName: sureName, phone: phone, epost: epost, postNumber: postNumber, adress: adress, date: date, food: cartFromLocalStorage }
+            { firstName: firstName, sureName: sureName, phone: phone, epost: epost, postNumber: postNumber, adress: adress, date: date, food: cartFromLocalStorage.map(str => {
+                return(`
+                  ${console.log(str.pizzaName)}
+                `)
+              }) }
         ]);
         window.location.reload()
     };
