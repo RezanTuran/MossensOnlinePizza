@@ -25,9 +25,10 @@ function AdressForm() {
     
        const xyz = cartFromLocalStorage.map(str => {
           return(
-            JSON.stringify(str.pizzaName)
+            str.pizzaName.toString()
           )
         })
+        console.log(xyz.toString());
       
     const [firstName, setFirstName] = useState('')
     const [sureName, setSureName] = useState('')
@@ -48,12 +49,12 @@ function AdressForm() {
             postNumber: postNumber,
             adress: adress,
             date: date,
-            food: xyz
+            food: xyz.toString()
         });
 
         setOrderlist([
             ...orderList,
-            { firstName: firstName, sureName: sureName, phone: phone, epost: epost, postNumber: postNumber, adress: adress, date: date, food: xyz }
+            { firstName: firstName, sureName: sureName, phone: phone, epost: epost, postNumber: postNumber, adress: adress, date: date, food: xyz.toString() }
         ]);
         window.location.reload()
     };
