@@ -18,7 +18,8 @@ function Order() {
                 return (
                     <div className="card">
                         <h2> {val.firstName}</h2>
-                        <p>{val.food}</p>
+                        <p>{val.pizzaName}</p>
+                        <p>{val.pizzaPrice}</p>
                     </div>
                 )
             })}
