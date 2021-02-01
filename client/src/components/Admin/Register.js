@@ -99,6 +99,7 @@ export default function Register() {
         }).then((response) => {
             console.log(response);
         });
+        window.location.reload()
     };
 
     return (
