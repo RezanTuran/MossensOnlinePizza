@@ -168,6 +168,15 @@ app.get('/api/getAdmin', (req, res) => {
     });
 })
 
+// Delete Admin
+app.delete('/api/deleteAdmin/:id', (req, res) => {
+    const name = req.params.id;
+    const sqlDeleteAdmin = "DELETE FROM adminsystem WHERE id = ?";
+    db.query(sqlDeleteAdmin, UserName, (err, result) => {
+        if (err) console.log(err);
+    })
+})
+
 // ### Post Order ### //
 app.post('/api/insertOrder', (req, res) => {
 
