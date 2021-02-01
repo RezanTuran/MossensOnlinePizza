@@ -21,11 +21,11 @@ function Order() {
                         <hr></hr>
                         <p>Pizzanamn: <span style={{color: 'yellow'}}>{val.pizzaName}</span></p>
                         <hr></hr>
-                        <p>Pizzapris: <span style={{color: 'yellow'}}>{val.pizzaPrice}</span></p>
-                        <hr></hr>
                         <p>Antal pizza: <span style={{color: 'yellow'}}>{val.quantity}</span></p>
                         <hr></hr>
                         <p>Ingredienser: <span style={{color: 'yellow'}}>{val.ingredients}</span></p>
+                        <hr></hr>
+                        <p>Totalpris: <span style={{color: 'yellow'}}>{val.pizzaPrice}</span></p>
                     </div>
                 )
             })}

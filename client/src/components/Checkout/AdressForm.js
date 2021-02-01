@@ -28,19 +28,21 @@ function AdressForm() {
         `
         )
     })
-    const renderPizzaPriceFromLocalSt = cartFromLocalStorage.map(pizza => {
-        return (`
-            ${ pizza.pizzaPrice}
-        `
-        )
-    })
+    const renderPizzaPriceFromLocalSt = cartFromLocalStorage.reduce((sum, { pizzaPrice, quantity }) => sum + pizzaPrice * quantity, 0)
+
     const renderPizzaQuantityFromLocalSt = cartFromLocalStorage.map(pizza => {
         return (`
             ${ pizza.quantity}
         `
         )
     })
-    const renderPizzaIngredientsFromLocalSt = cartFromLocalStorage.reduce((sum, { pizzaPrice, quantity }) => sum + pizzaPrice * quantity, 0)
+    const renderPizzaIngredientsFromLocalSt = cartFromLocalStorage.map(pizza => {
+        return (`
+            ${ pizza.ingredients}
+        `
+        )
+    })
+
 
     const [firstName, setFirstName] = useState('')
     const [sureName, setSureName] = useState('')
