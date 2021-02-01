@@ -1,61 +1,3 @@
-// import React, { useState,useEffect } from 'react'
-// import Axios from 'axios';
-// import Register from './Register'
-
-// function Login(props) {
-
-//     const { history } = props;
-
-//     const handleButtonClick = () => {
-//         history.push('./admin');
-//     };
-
-//     const [userNameLogin, setUserName] = useState('')
-//     const [passwordLogin, setPassword] = useState('')
-
-//     const [loginStatus, setLoginStatus] = useState('')
-
-//     Axios.defaults.withCredentials = true
-
-//     const adminLogin = () => {
-//         Axios.post('https://mossenspizzeria.herokuapp.com/api/login', {
-//             userName: userNameLogin,
-//             password: passwordLogin,
-//         }).then((response) => {            
-//             if (response.data.message) {
-//                 setLoginStatus(response.data.message)
-//             } else {
-//                 handleButtonClick()
-//             }
-//         });
-//     };
-
-//     useEffect(() => {
-//         Axios.get("https://mossenspizzeria.herokuapp.com/api/login").then((response) => {
-//             if(response.data.loggedIn === true) {
-//                 handleButtonClick()
-//             }
-//         })
-//     },)
-
-//     return (
-//         <div>
-//             <h1>Logga in</h1>
-//             <input type="text" placeholder="Användarnamn"
-//                 onChange={(e) => { setUserName(e.target.value) }}
-//             />
-//             <input type="password" placeholder="Lösenord"
-//                 onChange={(e) => { setPassword(e.target.value) }}
-//             />
-//             <button onClick={adminLogin}>Logga in</button>
-//             <h1>{loginStatus}</h1>
-//             <Register />
-//         </div>
-//     )
-// }
-
-// export default Login
-
 import React, {useState,useEffect} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -73,7 +15,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="inherit" href="#">
         Mossens Pizzeria
       </Link>{' '}
       {new Date().getFullYear()}
@@ -169,8 +111,8 @@ export default function Login(props) {
             margin="normal"
             required
             fullWidth
-            name="Lösenord"
-            label="Password"
+            name="Password"
+            label="Lösenord"
             type="password"
             id="password"
             autoComplete="current-password"

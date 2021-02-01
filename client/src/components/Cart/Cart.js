@@ -27,34 +27,6 @@ function Cart({
             {cart.map((product, idx) => {
                 return (
                     <>
-                        {/* <div className="food-items" key={idx}>
-                            <img src={pizzaImg} alt="BigCo Inc. logo" />
-                            <div className="details">
-                                <div className="details-sub">
-                                    <h5>{product.pizzaName}</h5>
-                                    <h5 className="price">{product.pizzaPrice} :- &nbsp; &nbsp; <span>{product.pizzaPriceF} :-</span></h5>
-                                </div>
-                                <p>{product.ingredients}</p>
-                                <TextField
-                                    id="outlined-basic"
-                                    label="Antal"
-                                    variant="outlined"
-                                    value={product.quantity}
-                                    onChange={(e) =>
-                                        setQuantity(product,
-                                            parseInt(e.target.value)
-                                        )}
-                                />
-                                <Button
-                                    onClick={() => removeFromCart(product)}
-                                    variant="contained"
-                                    color="secondary"
-                                    startIcon={<DeleteIcon />}
-                                >
-                                    Ta Bort
-                                </Button>
-                            </div>
-                        </div> */}
                         <table>
                             <thead>
                                 <tr>

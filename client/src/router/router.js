@@ -6,6 +6,7 @@ import PizzaMenu from "../components/Menu/PizzaMenu";
 import Galery from "../components/Pages/Galery";
 import Admin from "../components/Admin/Admin";
 import Login from "../components/Admin/Login";
+import Register from "../components/Admin/Register";
 import { Route, Switch } from "react-router-dom";
 import InserPizza from "../components/Admin/InserPizza";
 import Checkout from "../components/Checkout/Checkout";
@@ -22,6 +23,7 @@ export default function App() {
         <Route exact path="/galery" render={props => <Galery {...props} />} />
         <Route exact path="/admin" render={props => <Admin {...props} />} />
         <Route exact path="/login" render={props => <Login {...props} />} />
+        <Route exact path="/register" render={props => <Register {...props} />} />
         <Route exact path="/insertPizza" render={props => <InserPizza {...props} />} />
         <Route exact path="/checkout" render={props => <Checkout {...props} />} />
         <Route exact path="/order" render={props => <Order {...props} />} />

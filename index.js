@@ -106,6 +106,8 @@ app.post('/api/register', (req, res) => {
 
     const userName = req.body.userName
     const password = req.body.password
+    const email = req.body.email
+    const sureName = req.body.sureName
 
     bcrypt.hash(password, saltRounds, (err, hash) => {
 
@@ -113,8 +115,8 @@ app.post('/api/register', (req, res) => {
             console.log(err);
         }
 
-        const sqlInsertAdmin = "INSERT INTO adminSystem (userName,password) VALUES (?,?)";
-        db.query(sqlInsertAdmin, [userName, hash],
+        const sqlInsertAdmin = "INSERT INTO adminSystem (userName,password,email,sureName) VALUES (?,?,?,?)";
+        db.query(sqlInsertAdmin, [userName, hash, email, sureName],
             (err, result) => {
                 console.log(err);
             })
