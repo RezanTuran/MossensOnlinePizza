@@ -34,12 +34,6 @@ function AdressForm() {
         `
         )
     })
-    const renderPizzaQuantityFromLocalSt = cartFromLocalStorage.map(pizza => {
-        return (`
-            ${ pizza.quantity}
-        `
-        )
-    })
 
     const [firstName, setFirstName] = useState('')
     const [sureName, setSureName] = useState('')
@@ -62,12 +56,11 @@ function AdressForm() {
             date: date,
             pizzaName: renderPizzaNameFromLocalSt.toString(),
             pizzaPrice: renderPizzaPriceFromLocalSt.toString(),
-            quantity: renderPizzaQuantityFromLocalSt.toString()
         });
 
         setOrderlist([
             ...orderList,
-            { firstName: firstName, sureName: sureName, phone: phone, epost: epost, postNumber: postNumber, adress: adress, date: date, pizzaName: renderPizzaNameFromLocalSt.toString(), pizzaPrice: renderPizzaPriceFromLocalSt.toString(), quantity: renderPizzaQuantityFromLocalSt.toString()
+            { firstName: firstName, sureName: sureName, phone: phone, epost: epost, postNumber: postNumber, adress: adress, date: date, pizzaName: renderPizzaNameFromLocalSt.toString(), pizzaPrice: renderPizzaPriceFromLocalSt.toString()
             }
         ]);
         window.location.reload()

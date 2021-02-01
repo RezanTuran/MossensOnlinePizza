@@ -18,8 +18,10 @@ function Order() {
                 return (
                     <div className="card">
                         <h2> {val.firstName}</h2>
+                        <hr></hr>
                         <p>{val.pizzaName}</p>
                         <p>{val.pizzaPrice}</p>
+                        <p>{val.quantity}</p>
                     </div>
                 )
             })}
