@@ -110,7 +110,7 @@ export default function Register() {
                 <Typography component="h1" variant="h5">
                     Register Admin
         </Typography>
-                <form className={classes.form} noValidate>
+                <form className={classes.form} method="post">
                     <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>
                             <TextField
