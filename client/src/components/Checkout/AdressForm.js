@@ -40,13 +40,7 @@ function AdressForm() {
         `
         )
     })
-    const renderPizzaIngredientsFromLocalSt = cartFromLocalStorage.map(pizza => {
-        return (`
-            ${ pizza.ingredients}
-        `
-        )
-    })
-
+    const renderPizzaIngredientsFromLocalSt = cartFromLocalStorage.reduce((sum, { pizzaPrice, quantity }) => sum + pizzaPrice * quantity, 0)
 
     const [firstName, setFirstName] = useState('')
     const [sureName, setSureName] = useState('')

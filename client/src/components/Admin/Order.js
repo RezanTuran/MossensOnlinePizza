@@ -15,18 +15,17 @@ function Order() {
     return (
         <div>
             {orderList.map((val) => {
-                console.log(val.pizzaPrice);
                 return (
                     <div className="card">
-                        <h2> {val.firstName}</h2>
+                        <h2>Kund: {val.firstName} {val.sureName}</h2>
                         <hr></hr>
-                        <p>{val.pizzaName}</p>
+                        <p>Pizzanamn: <span style={{color: 'yellow'}}>{val.pizzaName}</span></p>
                         <hr></hr>
-                        <p>{val.pizzaPrice}</p>
+                        <p>Pizzapris: <span style={{color: 'yellow'}}>{val.pizzaPrice}</span></p>
                         <hr></hr>
-                        <p>{val.quantity}</p>
+                        <p>Antal pizza: <span style={{color: 'yellow'}}>{val.quantity}</span></p>
                         <hr></hr>
-                        <p>{val.ingredients}</p>
+                        <p>Ingredienser: <span style={{color: 'yellow'}}>{val.ingredients}</span></p>
                     </div>
                 )
             })}
