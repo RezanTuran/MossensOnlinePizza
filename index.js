@@ -169,9 +169,10 @@ app.post('/api/insertOrder', (req, res) => {
     const adress = req.body.adress
     const date = new Date()
     const pizzaName = req.body.pizzaName
+    const pizzaPrice = req.body.pizzaPrice
 
-    const sqlInsertOrder = "INSERT INTO pizzaorder (firstName,sureName,phone,epost,postNumber,adress,date,pizzaName) VALUES (?,?,?,?,?,?,?,?)";
-    db.query(sqlInsertOrder, [firstName,sureName,phone,epost,postNumber,adress,date,pizzaName], (err, result) => {
+    const sqlInsertOrder = "INSERT INTO pizzaorder (firstName,sureName,phone,epost,postNumber,adress,date,pizzaName,pizzaPrice) VALUES (?,?,?,?,?,?,?,?,?)";
+    db.query(sqlInsertOrder, [firstName,sureName,phone,epost,postNumber,adress,date,pizzaName,pizzaPrice], (err, result) => {
         //console.log(result);
     });
 });
