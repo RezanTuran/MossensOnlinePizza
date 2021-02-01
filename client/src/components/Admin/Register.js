@@ -1,38 +1,3 @@
-// import React, {useState} from 'react'
-// import Axios from 'axios';
-
-// function Register() {
-
-//     const [userNameReg, setUserNameReg] = useState('')
-//     const [passwordReg, setPasswordReg] = useState('')
-
-//     const adminRegister = () => {
-//         Axios.post('https://mossenspizzeria.herokuapp.com/api/register', {
-//             userName: userNameReg,
-//             password: passwordReg,
-//         }).then((response) => {
-//             console.log(response);
-//         });
-//     };
-
-//     return (
-//         <div>
-//             <div>
-//                 <h1>Registrera</h1>
-//                 <input type="text" placeholder="Användarnamn"
-//                     onChange={(e) => { setUserNameReg(e.target.value) }}
-//                 />
-//                 <input type="password" placeholder="Lösenord"
-//                     onChange={(e) => { setPasswordReg(e.target.value) }}
-//                 />
-//                 <button onClick={adminRegister}>Resgistera</button>
-//             </div>
-//         </div>
-//     )
-// }
-
-// export default Register
-
 import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -104,83 +69,85 @@ export default function Register() {
 
     return (
         <>
-        <Container component="main" maxWidth="xs">
-            <CssBaseline />
-            <div className={classes.paper}>
-                <Avatar className={classes.avatar}>
-                    <LockOutlinedIcon />
-                </Avatar>
-                <Typography component="h1" variant="h5">
-                    Register Admin
+            <Container component="main" maxWidth="xs">
+                <CssBaseline />
+                <div className={classes.paper}>
+                    <Avatar className={classes.avatar}>
+                        <LockOutlinedIcon />
+                    </Avatar>
+                    <Typography component="h1" variant="h5">
+                        Register Admin
         </Typography>
-                <Grid container spacing={2}>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            autoComplete="fname"
-                            name="firstName"
-                            variant="outlined"
-                            required
-                            fullWidth
-                            id="firstName"
-                            label="Förnamn"
-                            autoFocus
-                            onChange={(e) => { setUserNameReg(e.target.value) }}
-                        />
+                    <Grid container spacing={2}>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                autoComplete="fname"
+                                name="firstName"
+                                variant="outlined"
+                                required
+                                fullWidth
+                                id="firstName"
+                                label="Förnamn"
+                                autoFocus
+                                onChange={(e) => { setUserNameReg(e.target.value) }}
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                variant="outlined"
+                                required
+                                fullWidth
+                                id="lastName"
+                                label="Efternamn"
+                                name="lastName"
+                                autoComplete="lname"
+                                onChange={(e) => { setSureNameReg(e.target.value) }}
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                variant="outlined"
+                                required
+                                fullWidth
+                                id="email"
+                                label="Email"
+                                name="email"
+                                autoComplete="email"
+                                onChange={(e) => { setEmailReg(e.target.value) }}
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                variant="outlined"
+                                required
+                                fullWidth
+                                name="password"
+                                label="Lösenord"
+                                type="password"
+                                id="password"
+                                autoComplete="current-password"
+                                onChange={(e) => { setPasswordReg(e.target.value) }}
+                            />
+                        </Grid>
                     </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            variant="outlined"
-                            required
-                            fullWidth
-                            id="lastName"
-                            label="Efternamn"
-                            name="lastName"
-                            autoComplete="lname"
-                            onChange={(e) => { setSureNameReg(e.target.value) }}
-                        />
-                    </Grid>
-                    <Grid item xs={12}>
-                        <TextField
-                            variant="outlined"
-                            required
-                            fullWidth
-                            id="email"
-                            label="Email"
-                            name="email"
-                            autoComplete="email"
-                            onChange={(e) => { setEmailReg(e.target.value) }}
-                        />
-                    </Grid>
-                    <Grid item xs={12}>
-                        <TextField
-                            variant="outlined"
-                            required
-                            fullWidth
-                            name="password"
-                            label="Lösenord"
-                            type="password"
-                            id="password"
-                            autoComplete="current-password"
-                            onChange={(e) => { setPasswordReg(e.target.value) }}
-                        />
-                    </Grid>
-                </Grid>
-                <Button
-                    type="submit"
-                    fullWidth
-                    variant="contained"
-                    color="primary"
-                    className={classes.submit}
-                    onClick={adminRegister}
-                >
-                    Registera
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        color="primary"
+                        className={classes.submit}
+                        onClick={adminRegister}
+                    >
+                        Registera
           </Button>
-            </div>
-            <Box mt={5}>
-                <Copyright />
-            </Box>
-        </Container>
-        <GetAdmin />
+                </div>
+                <Box mt={5}>
+                    <Copyright />
+                </Box>
+            </Container>
+            <br></br>
+            <br></br>
+            <GetAdmin />
         </>
     );
 }
