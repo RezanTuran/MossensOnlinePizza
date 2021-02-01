@@ -160,6 +160,14 @@ app.post('/api/login', (req, res) => {
     )
 });
 
+// Get Admin
+app.get('/api/getAdmin', (req, res) => {
+    const sqlSelectAdmin = "SELECT * FROM adminsystem";
+    db.query(sqlSelectAdmin, (err, result) => {
+        res.send(result)
+    });
+})
+
 // ### Post Order ### //
 app.post('/api/insertOrder', (req, res) => {
 

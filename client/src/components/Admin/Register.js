@@ -46,6 +46,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Axios from 'axios';
+import GetAdmin from '../Admin/GetAdmin';
 
 function Copyright() {
     return (
@@ -94,13 +95,14 @@ export default function Register() {
             password: passwordReg,
             email: emailReg,
             sureName: sureNameReg
-            
+
         }).then((response) => {
             console.log(response);
         });
     };
 
     return (
+        <>
         <Container component="main" maxWidth="xs">
             <CssBaseline />
             <div className={classes.paper}>
@@ -110,74 +112,74 @@ export default function Register() {
                 <Typography component="h1" variant="h5">
                     Register Admin
         </Typography>
-                <form className={classes.form} method="post">
-                    <Grid container spacing={2}>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                autoComplete="fname"
-                                name="firstName"
-                                variant="outlined"
-                                required
-                                fullWidth
-                                id="firstName"
-                                label="Förnamn"
-                                autoFocus
-                                onChange={(e) => { setUserNameReg(e.target.value) }}
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                variant="outlined"
-                                required
-                                fullWidth
-                                id="lastName"
-                                label="Efternamn"
-                                name="lastName"
-                                autoComplete="lname"
-                                onChange={(e) => { setSureNameReg(e.target.value) }}
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                variant="outlined"
-                                required
-                                fullWidth
-                                id="email"
-                                label="Email"
-                                name="email"
-                                autoComplete="email"
-                                onChange={(e) => { setEmailReg(e.target.value) }}
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                variant="outlined"
-                                required
-                                fullWidth
-                                name="password"
-                                label="Lösenord"
-                                type="password"
-                                id="password"
-                                autoComplete="current-password"
-                                onChange={(e) => { setPasswordReg(e.target.value) }}
-                            />
-                        </Grid>
+                <Grid container spacing={2}>
+                    <Grid item xs={12} sm={6}>
+                        <TextField
+                            autoComplete="fname"
+                            name="firstName"
+                            variant="outlined"
+                            required
+                            fullWidth
+                            id="firstName"
+                            label="Förnamn"
+                            autoFocus
+                            onChange={(e) => { setUserNameReg(e.target.value) }}
+                        />
                     </Grid>
-                    <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                        className={classes.submit}
-                        onClick={adminRegister}
-                    >
-                        Registera
+                    <Grid item xs={12} sm={6}>
+                        <TextField
+                            variant="outlined"
+                            required
+                            fullWidth
+                            id="lastName"
+                            label="Efternamn"
+                            name="lastName"
+                            autoComplete="lname"
+                            onChange={(e) => { setSureNameReg(e.target.value) }}
+                        />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <TextField
+                            variant="outlined"
+                            required
+                            fullWidth
+                            id="email"
+                            label="Email"
+                            name="email"
+                            autoComplete="email"
+                            onChange={(e) => { setEmailReg(e.target.value) }}
+                        />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <TextField
+                            variant="outlined"
+                            required
+                            fullWidth
+                            name="password"
+                            label="Lösenord"
+                            type="password"
+                            id="password"
+                            autoComplete="current-password"
+                            onChange={(e) => { setPasswordReg(e.target.value) }}
+                        />
+                    </Grid>
+                </Grid>
+                <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                    className={classes.submit}
+                    onClick={adminRegister}
+                >
+                    Registera
           </Button>
-                </form>
             </div>
             <Box mt={5}>
                 <Copyright />
             </Box>
         </Container>
+        <GetAdmin />
+        </>
     );
 }
