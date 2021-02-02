@@ -100,6 +100,15 @@ app.put('/api/updateName', (req, res) => {
         if (err) console.log(err);
     })
 })
+// Update PizzaIngredients
+app.put('/api/updateIngrediens', (req, res) => {
+    const pizzaId = req.body.pizzaId;
+    const name = req.body.pizzaName;
+    const sqlUpdateIngredients = "UPDATE pizza SET ingredients = ? WHERE pizzaId = ?";
+    db.query(sqlUpdateIngredients, [name, pizzaId], (err, result) => {
+        if (err) console.log(err);
+    })
+})
 
 // Register Admin
 app.post('/api/register', (req, res) => {
