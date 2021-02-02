@@ -11,6 +11,10 @@ function Order() {
         })
     }, [])
 
+    const deleteOrder = (pizza) => {
+        Axios.delete(`https://mossenspizzeria.herokuapp.com/api/deleteOrder/${pizza}`)
+        window.location.reload()
+    }
 
     return (
         <div>
@@ -34,6 +38,7 @@ function Order() {
                         <hr></hr>
                         <p>Totalpris: <span style={{ color: 'yellow' }}>{val.pizzaPrice} :-</span></p>
                         <hr></hr>
+                        <button onClick={() => { deleteOrder(val.id) }}>Ta Bort</button>
                     </div>
                 )
             })}

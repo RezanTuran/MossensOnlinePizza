@@ -205,6 +205,14 @@ app.get('/api/getOrder', (req, res) => {
     });
 })
 
+// ### Delete Order ### //
+app.delete('/api/deleteOrder/:id', (req, res) => {
+    const order = req.params.id;
+    const sqlDeleteOrder = "DELETE FROM pizzaorder WHERE id = ?";
+    db.query(sqlDeleteOrder, order, (err, result) => {
+        if (err) console.log(err);
+    })
+})
 //-------------------------------------------------------//
 app.post("/create-checkout-session", async (req, res) => {
 
