@@ -1,8 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import '../Admin/style.css';
 import Axios from 'axios';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import DeleteIcon from '@material-ui/icons/Delete';
+import CachedIcon from '@material-ui/icons/Cached';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    padding: '2em'
+  },
+  input: {
+    margin: '1em'
+  }
+}));
 
 function PizzaProperties() {
+  const classes = useStyles();
 
   const [pizzaList, setPizzaList] = useState([])
 
@@ -72,47 +89,66 @@ function PizzaProperties() {
             <p>Pizza pris familj: {val.pizzaPriceF}</p>
             <p>ingredienser: {val.ingredients}</p>
 
-
-
-            <input type="text" id="updateInput" placeholder="pris"
+            <TextField className={classes.input} name="pizzaPrice" type="number" id="outlined-basic" label="Pris" variant="outlined"
               onChange={(e) => {
                 setNewPrice(e.target.value)
               }}
             />
-
-            <input type="text" id="updateInput" placeholder="prisF"
+            <TextField className={classes.input} name="pizzaPriceF" type="number" id="outlined-basic" label="Pris Familj" variant="outlined"
               onChange={(e) => {
                 setNewPriceF(e.target.value)
               }}
             />
-            <input type="text" id="updateInput" placeholder="name"
+            <TextField className={classes.input} name="pizzaName" type="text" id="outlined-basic" label="Pizza namn" variant="outlined"
               onChange={(e) => {
                 setNewPizzaName(e.target.value)
               }}
             />
-            <input type="text" id="updateInput" placeholder="Ingredients"
+            <TextField className={classes.input} name="Ingredients" type="text" id="outlined-basic" label="Ingredienser" variant="outlined"
               onChange={(e) => {
                 setNewIngredients(e.target.value)
               }}
             />
-            <button className="adminButton" onClick={() => { deletePizza(val.pizzaId) }}>Delete</button>
-            <button
-              className="adminButton"
-              onClick={() => { updatePizzaPrice(val.pizzaId) }}>Update Pizzaprice
-                 </button>
-            <button
-              className="adminButton"
-              onClick={() => { updatePizzaPriceF(val.pizzaId) }}>Update PizzapriceF
-                 </button>
-
-            <button
-              className="adminButton"
-              onClick={() => { updatePizzaName(val.pizzaId) }}>Update Pizzaname
-                 </button>
-            <button
-              className="adminButton"
-              onClick={() => { updatePizzaIngrediens(val.pizzaId) }}>Update ingredients
-                 </button>
+            <Button
+              onClick={() => { deletePizza(val.pizzaId) }}
+              variant="contained"
+              color="secondary"
+              startIcon={<DeleteIcon />}
+            >
+              Ta Bort
+                </Button>
+            <Button
+              onClick={() => { updatePizzaPrice(val.pizzaId) }}
+              variant="contained"
+              color="secondary"
+              startIcon={<CachedIcon />}
+            >
+              Uppdatera Pris
+                </Button>
+            <Button
+              onClick={() => { updatePizzaPriceF(val.pizzaId) }}
+              variant="contained"
+              color="secondary"
+              startIcon={<CachedIcon />}
+            >
+              Uppdatera Pris F
+                </Button>
+            <Button
+              onClick={() => { updatePizzaName(val.pizzaId) }}
+              variant="contained"
+              color="secondary"
+              startIcon={<CachedIcon />}
+            >
+              Uppdatera Pizza namn
+                </Button>
+            <Button
+              onClick={() => { updatePizzaIngrediens(val.pizzaId) }}
+              variant="contained"
+              color="secondary"
+              startIcon={<CachedIcon />}
+            >
+              Uppdatera Ingredienser
+                </Button>
 
           </div>
         )
