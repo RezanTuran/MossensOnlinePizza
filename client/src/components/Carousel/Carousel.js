@@ -5,7 +5,6 @@ import PizzaImg2 from '../Carousel/images/pizza2.jpg'
 import Hamburger from '../Carousel/images/hamburger1.jpeg'
 import Kebab from '../Carousel/images/kebab.jpg'
 
-
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (

@@ -31,6 +31,10 @@ const useStyles = makeStyles(theme => ({
     flex: 1,
     justifyContent: "space-evenly",
   },
+  navColor: {
+    color: '#c1a35f',
+    fontWeight: 'bolder'
+  }
 }));
 
 const Header = (props) => {
@@ -79,7 +83,7 @@ const Header = (props) => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" style={{backgroundColor:'black'}}>
+      <AppBar position="static" style={{ backgroundColor: 'black' }}>
         <Toolbar>
           <Typography
             variant="h6"
@@ -87,7 +91,7 @@ const Header = (props) => {
             onClick={() => handleButtonClick("/")}
             style={{ cursor: "pointer" }}
           >
-            <img style={{width:'8em',display:'flex'}} src={MossensLogo} alt="logo" />
+            <img style={{ width: '8em', display: 'flex' }} src={MossensLogo} alt="logo" />
           </Typography>
           {isMobile ? (
             <>
@@ -128,31 +132,31 @@ const Header = (props) => {
           ) : (
               <div className={classes.headerOptions}>
                 <Button
-                  variant="contained"
+                  className={classes.navColor}
                   onClick={() => handleButtonClick("/")}
                 >
                   HEM
               </Button>
                 <Button
-                  variant="contained"
+                  className={classes.navColor}
                   onClick={() => handleButtonClick("/menu")}
                 >
                   MENY
               </Button>
                 <Button
-                  variant="contained"
+                  className={classes.navColor}
                   onClick={() => handleButtonClick("/contact")}
                 >
                   KONTAKT
               </Button>
                 <Button
-                  variant="contained"
+                  className={classes.navColor}
                   onClick={() => handleButtonClick("/about")}
                 >
                   OM OSS
               </Button>
                 <Button
-                  variant="contained"
+                  className={classes.navColor}
                   onClick={() => handleButtonClick("/galery")}
                 >
                   GALERY
@@ -164,14 +168,18 @@ const Header = (props) => {
             onClick={() => handleButtonClick('/testcart')}
             style={{ cursor: "pointer" }}
           /> */}
-          <PersonIcon
-            variant="contained"
-            onClick={() => handleButtonClick('/login')}
-            style={{ cursor: "pointer" }}
-          />
+   
+          <Button
+          variant="contained"
+          onClick={() => handleButtonClick('/login')}
+          style={{ backgroundColor:'#c1a35f',fontWeight:'bolder' }}
+          startIcon={<PersonIcon />}
+          >
+            Logga in
+          </Button>
         </Toolbar>
       </AppBar>
-      
+
     </div>
   );
 };
