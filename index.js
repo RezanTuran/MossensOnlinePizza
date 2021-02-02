@@ -103,7 +103,7 @@ app.put('/api/updateName', (req, res) => {
 // Update PizzaIngredients
 app.put('/api/updateIngrediens', (req, res) => {
     const pizzaId = req.body.pizzaId;
-    const name = req.body.pizzaName;
+    const name = req.body.ingredients;
     const sqlUpdateIngredients = "UPDATE pizza SET ingredients = ? WHERE pizzaId = ?";
     db.query(sqlUpdateIngredients, [name, pizzaId], (err, result) => {
         if (err) console.log(err);

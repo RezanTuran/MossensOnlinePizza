@@ -88,7 +88,7 @@ function PizzaProperties() {
                  </button>
             <button
               className="adminButton"
-              onClick={() => { updatePizzaIngrediens(val.pizzaId) }}>Update Pizzaname
+              onClick={() => { updatePizzaIngrediens(val.pizzaId) }}>Update ingredients
                  </button>
 
           </div>
