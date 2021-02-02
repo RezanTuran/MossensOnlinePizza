@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
+import Divider from '@material-ui/core/Divider';
 
 function Order() {
 
@@ -25,24 +26,30 @@ function Order() {
                     <div className="card">
                         <h2 className="orderTitle">Kunduppgifter</h2>
                         <h4>Namn: <span className="customerInfo">{val.firstName} {val.sureName}</span></h4>
+                        <Divider />
                         <h4>Address: <span className="customerInfo">{val.adress}</span></h4>
+                        <Divider />
                         <h4>Postnummer: <span className="customerInfo">{val.postNumber}</span></h4>
+                        <Divider />
                         <h4>Telefonnummer: <span className="customerInfo">{val.phone}</span></h4>
+                        <Divider />
                         <h4>E-post: <span className="customerInfo">{val.epost}</span></h4>
+                        <Divider />
                         <h4>Datum: <span className="customerInfo">{val.date}</span></h4>
+                        <Divider />
                         <h2 className="orderTitle">Beställning</h2>
-                        <hr></hr>
+                        <Divider />
                         <p>Pizzanamn: <span className="customerInfo">{val.pizzaName}</span></p>
-                        <hr></hr>
+                        <Divider />
                         <p>Antal pizza: <span className="customerInfo">{val.quantity}</span></p>
-                        <hr></hr>
+                        <Divider />
                         <p>Ingredienser: <span className="customerInfo">{val.ingredients}</span></p>
-                        <hr></hr>
+                        <Divider />
                         <p>Totalpris: <span className="customerInfo">{val.pizzaPrice} :-</span></p>
-                        <hr></hr>
+                        <Divider />
                         <Button
                             variant="contained"
-                            color="primary"
+                            style={{backgroundColor:'#9D0606',color:'white'}}
                             endIcon={<DeleteIcon />}
                             onClick={() => { deleteOrder(val.id) }}
                         >

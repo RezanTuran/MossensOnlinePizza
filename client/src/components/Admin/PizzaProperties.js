@@ -6,6 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import CachedIcon from '@material-ui/icons/Cached';
+import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,6 +15,11 @@ const useStyles = makeStyles((theme) => ({
     padding: '2em'
   },
   input: {
+    margin: '1em'
+  },
+  Button: {
+    backgroundColor:'#9D0606',
+    color:'white',
     margin: '1em'
   }
 }));
@@ -83,12 +89,20 @@ function PizzaProperties() {
       {pizzaList.map((val) => {
         return (
           <div className="card">
-            <p>Pizza ID: {val.pizzaId}</p>
-            <p>Pizzanamn: {val.pizzaName}</p>
-            <p>Pizza pris: {val.pizzaPrice}</p>
-            <p>Pizza pris familj: {val.pizzaPriceF}</p>
-            <p>ingredienser: {val.ingredients}</p>
-
+            <p>Pizza ID: <spam className="customerInfo">{val.pizzaId}</spam></p>
+            <Divider />
+            <p>Pizzanamn: <span className="customerInfo">{val.pizzaName}</span></p>
+            <Divider />
+            <p>Pizza pris: <span className="customerInfo">{val.pizzaPrice}</span></p>
+            <Divider />
+            <p>Pizza pris familj: <span className="customerInfo">{val.pizzaPriceF}</span></p>
+            <Divider />
+            <p>Ingredienser: <span className="customerInfo">{val.ingredients}</span></p>
+            <TextField className={classes.input} name="pizzaName" type="text" id="outlined-basic" label="Pizza namn" variant="outlined"
+              onChange={(e) => {
+                setNewPizzaName(e.target.value)
+              }}
+            />
             <TextField className={classes.input} name="pizzaPrice" type="number" id="outlined-basic" label="Pris" variant="outlined"
               onChange={(e) => {
                 setNewPrice(e.target.value)
@@ -99,11 +113,6 @@ function PizzaProperties() {
                 setNewPriceF(e.target.value)
               }}
             />
-            <TextField className={classes.input} name="pizzaName" type="text" id="outlined-basic" label="Pizza namn" variant="outlined"
-              onChange={(e) => {
-                setNewPizzaName(e.target.value)
-              }}
-            />
             <TextField className={classes.input} name="Ingredients" type="text" id="outlined-basic" label="Ingredienser" variant="outlined"
               onChange={(e) => {
                 setNewIngredients(e.target.value)
@@ -112,40 +121,45 @@ function PizzaProperties() {
             <Button
               onClick={() => { deletePizza(val.pizzaId) }}
               variant="contained"
-              color="secondary"
               startIcon={<DeleteIcon />}
+              className={classes.Button}
+              color="secondary"
             >
               Ta Bort
                 </Button>
             <Button
               onClick={() => { updatePizzaPrice(val.pizzaId) }}
               variant="contained"
-              color="secondary"
+              color="primary"
               startIcon={<CachedIcon />}
+              className={classes.input}
             >
               Uppdatera Pris
                 </Button>
             <Button
               onClick={() => { updatePizzaPriceF(val.pizzaId) }}
               variant="contained"
-              color="secondary"
+              color="primary"
               startIcon={<CachedIcon />}
+              className={classes.input}
             >
               Uppdatera Pris F
                 </Button>
             <Button
               onClick={() => { updatePizzaName(val.pizzaId) }}
               variant="contained"
-              color="secondary"
+              color="primary"
               startIcon={<CachedIcon />}
+              className={classes.input}
             >
               Uppdatera Pizza namn
                 </Button>
             <Button
               onClick={() => { updatePizzaIngrediens(val.pizzaId) }}
               variant="contained"
-              color="secondary"
+              color="primary"
               startIcon={<CachedIcon />}
+              className={classes.input}
             >
               Uppdatera Ingredienser
                 </Button>

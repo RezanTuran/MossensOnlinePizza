@@ -60,6 +60,7 @@ function Cart({
                                     <td>
                                         <Button
                                             onClick={() => removeFromCart(product)}
+                                            style={{ backgroundColor: '#9D0606'}}
                                             variant="contained"
                                             color="secondary"
                                             startIcon={<DeleteIcon />}

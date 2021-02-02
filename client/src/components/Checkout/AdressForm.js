@@ -115,8 +115,9 @@ function AdressForm() {
                     onClick={insertOrder}
                     variant="contained"
                     color="secondary"
+                    style={{ backgroundColor: '#9D0606'}}
                 >
-                    Slutför
+                    Till Betalning
                 </Button>
             </div>
         </div>

@@ -73,6 +73,7 @@ function PizzaMenu() {
     <>
       <header className="cartHeader">
         <Button
+          style={{ backgroundColor: '#9D0606', margin:'1em'}}
           color="secondary"
           variant="contained"
           startIcon={<ShoppingCartIcon />}
@@ -81,6 +82,7 @@ function PizzaMenu() {
           Kundkorg({getCartTotal()})
       </Button>
         <Button
+          style={{ backgroundColor: '#9D0606',margin:'1em' }}
           color="secondary"
           variant="contained"
           startIcon={<MenuBookIcon />}
