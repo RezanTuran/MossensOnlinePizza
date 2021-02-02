@@ -72,7 +72,8 @@ function PizzaProperties() {
             <p>Pizza pris familj: {val.pizzaPriceF}</p>
             <p>ingredienser: {val.ingredients}</p>
 
-            <button className="adminButton" onClick={() => { deletePizza(val.pizzaId) }}>Delete</button>
+
+
             <input type="text" id="updateInput" placeholder="pris"
               onChange={(e) => {
                 setNewPrice(e.target.value)
@@ -94,11 +95,12 @@ function PizzaProperties() {
                 setNewIngredients(e.target.value)
               }}
             />
+            <button className="adminButton" onClick={() => { deletePizza(val.pizzaId) }}>Delete</button>
             <button
               className="adminButton"
               onClick={() => { updatePizzaPrice(val.pizzaId) }}>Update Pizzaprice
                  </button>
-                 <button
+            <button
               className="adminButton"
               onClick={() => { updatePizzaPriceF(val.pizzaId) }}>Update PizzapriceF
                  </button>

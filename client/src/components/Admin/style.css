@@ -4,13 +4,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 2em;
   }
   .form input{
     width: 300px;
     height: 60px;
     margin: 10px;
     font-size: 25px;
-    border: 2px solid red;
     border-radius: 15px;
   }
   .card{
@@ -110,4 +110,11 @@ only screen and (max-width: 760px),
 	td:nth-of-type(2):before { content: "Efternamn"; }
 	td:nth-of-type(3):before { content: "E-post"; }
 	td:nth-of-type(4):before { content: "Ta Bort"; }
+}
+
+
+.container{
+  display: flex;
+ align-items: center;
+ flex-direction: column;
 }
