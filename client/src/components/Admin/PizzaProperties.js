@@ -9,6 +9,7 @@ function PizzaProperties() {
   const [newPrice, setNewPrice] = useState('')
   const [newPizzaName, setNewPizzaName] = useState('')
   const [newPizzaIngredients, setNewIngredients] = useState('')
+  const [newPriceF, setNewPriceF] = useState('')
 
   useEffect(() => {
     Axios.get('https://mossenspizzeria.herokuapp.com/api/get').then((Response) => {
@@ -50,6 +51,16 @@ function PizzaProperties() {
     setNewIngredients('')
     window.location.reload()
   }
+  // Update PizzaPriceF
+  const updatePizzaPriceF = (pizza) => {
+    Axios.put('https://mossenspizzeria.herokuapp.com/api/updatePriceF/', {
+      pizzaId: pizza,
+      pizzaPriceF: newPriceF,
+    });
+    setNewPriceF('')
+    window.location.reload()
+  }
+
   return (
     <div className="App">
       {pizzaList.map((val) => {
@@ -67,6 +78,12 @@ function PizzaProperties() {
                 setNewPrice(e.target.value)
               }}
             />
+
+            <input type="text" id="updateInput" placeholder="prisF"
+              onChange={(e) => {
+                setNewPriceF(e.target.value)
+              }}
+            />
             <input type="text" id="updateInput" placeholder="name"
               onChange={(e) => {
                 setNewPizzaName(e.target.value)
@@ -80,6 +97,10 @@ function PizzaProperties() {
             <button
               className="adminButton"
               onClick={() => { updatePizzaPrice(val.pizzaId) }}>Update Pizzaprice
+                 </button>
+                 <button
+              className="adminButton"
+              onClick={() => { updatePizzaPriceF(val.pizzaId) }}>Update PizzapriceF
                  </button>
 
             <button
