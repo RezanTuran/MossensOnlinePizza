@@ -69,7 +69,6 @@ function PizzaMenu() {
     setCart(newCart)
   }
   
-
   return (
     <>
       <header className="cartHeader">

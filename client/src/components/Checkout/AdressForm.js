@@ -4,7 +4,6 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Axios from 'axios';
 
-
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
@@ -24,7 +23,7 @@ function AdressForm() {
 
     const renderPizzaNameFromLocalSt = cartFromLocalStorage.map(pizza => {
         return (`
-            ${ pizza.pizzaName}
+            ${pizza.pizzaName}
         `
         )
     })
@@ -32,17 +31,24 @@ function AdressForm() {
 
     const renderPizzaQuantityFromLocalSt = cartFromLocalStorage.map(pizza => {
         return (`
-            ${ pizza.quantity}
+            ${pizza.quantity}
         `
         )
     })
     const renderPizzaIngredientsFromLocalSt = cartFromLocalStorage.map(pizza => {
         return (`
-            ${ pizza.ingredients}
+            ${pizza.ingredients}
         `
         )
     })
 
+    const handleButtonClick = () => {
+        window.location.assign(".#/menu")
+    };
+    const handleButtonClickToOrderConfirmation = () => {
+        setTimeout(function(){ localStorage.removeItem('order'); }, 9000);
+        window.location.assign(".#/orderconfirmation")
+    };
 
     const [firstName, setFirstName] = useState('')
     const [sureName, setSureName] = useState('')
@@ -71,10 +77,18 @@ function AdressForm() {
 
         setOrderlist([
             ...orderList,
-            { firstName: firstName, sureName: sureName, phone: phone, epost: epost, postNumber: postNumber, adress: adress, date: date, pizzaName: renderPizzaNameFromLocalSt.toString(), pizzaPrice: renderPizzaPriceFromLocalSt.toString(),quantity: renderPizzaQuantityFromLocalSt.toString(),ingredients: renderPizzaIngredientsFromLocalSt.toString()
+            {
+                firstName: firstName, sureName: sureName, phone: phone, epost: epost, postNumber: postNumber, adress: adress, date: date, pizzaName: renderPizzaNameFromLocalSt.toString(), pizzaPrice: renderPizzaPriceFromLocalSt.toString(), quantity: renderPizzaQuantityFromLocalSt.toString(), ingredients: renderPizzaIngredientsFromLocalSt.toString()
             }
         ]);
-        window.location.reload()
+        //Set order i localStorage
+        localStorage.setItem('order', JSON.stringify(
+            ...orderList,
+            {
+                firstName: firstName, sureName: sureName, phone: phone, epost: epost, postNumber: postNumber, adress: adress, date: date, pizzaName: renderPizzaNameFromLocalSt.toString(), pizzaPrice: renderPizzaPriceFromLocalSt.toString(), quantity: renderPizzaQuantityFromLocalSt.toString(), ingredients: renderPizzaIngredientsFromLocalSt.toString()
+            }
+        ));
+        handleButtonClickToOrderConfirmation()
     };
 
     return (
@@ -115,9 +129,18 @@ function AdressForm() {
                     onClick={insertOrder}
                     variant="contained"
                     color="secondary"
-                    style={{ backgroundColor: '#9D0606'}}
+                    style={{ backgroundColor: '#9D0606' }}
                 >
-                    Till Betalning
+                    Slutföt
+                </Button>
+                <br></br>
+                <Button
+                    onClick={handleButtonClick}
+                    variant="contained"
+                    color="secondary"
+                    style={{ backgroundColor: '#9D0606' }}
+                >
+                    Tillbaka
                 </Button>
             </div>
         </div>

@@ -57,6 +57,8 @@ function Products({ addToCart }) {
             </FormControl>
             &nbsp;
             <div></div>
+            <div></div>
+            <div></div>
             &nbsp;
             <br></br>
             {filtrePizza.map((product, idx) => {

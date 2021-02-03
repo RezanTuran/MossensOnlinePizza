@@ -11,6 +11,7 @@ import { Route, Switch } from "react-router-dom";
 import InserPizza from "../components/Admin/InserPizza";
 import Checkout from "../components/Checkout/Checkout";
 import Order from '../components/Admin/Order';
+import OrderConfirmation from '../components/OrderConfirmation/OrderConfirmation';
 
 export default function App() {
 
@@ -27,6 +28,7 @@ export default function App() {
         <Route exact path="/insertPizza" render={props => <InserPizza {...props} />} />
         <Route exact path="/checkout" render={props => <Checkout {...props} />} />
         <Route exact path="/order" render={props => <Order {...props} />} />
+        <Route exact path="/orderconfirmation" render={props => <OrderConfirmation {...props} />} />
       </Switch>
   );
 }
