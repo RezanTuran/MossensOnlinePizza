@@ -1,0 +1,10 @@
+.orderConfHeader{
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    margin: 2em;
+    padding: 2em;
+    font-weight: 900;
+    border: 3px solid black;
+    background-color: #9D0606;
+    text-align: center;
+}

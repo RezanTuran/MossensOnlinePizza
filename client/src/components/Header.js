@@ -10,7 +10,6 @@ import Button from "@material-ui/core/Button";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { withRouter } from "react-router-dom";
 import MenuIcon from '@material-ui/icons/Menu';
-// import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import PersonIcon from '@material-ui/icons/Person';
 import MossensLogo from '../components/Menu/images/logo.png'
 
