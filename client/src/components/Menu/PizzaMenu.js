@@ -68,12 +68,13 @@ function PizzaMenu() {
     newCart.find(item => item.pizzaName === product.pizzaName).quantity = amount;
     setCart(newCart)
   }
+  
 
   return (
     <>
       <header className="cartHeader">
         <Button
-          style={{ backgroundColor: '#9D0606', margin:'1em'}}
+          style={{ backgroundColor: '#9D0606', margin: '1em' }}
           color="secondary"
           variant="contained"
           startIcon={<ShoppingCartIcon />}
@@ -82,7 +83,7 @@ function PizzaMenu() {
           Kundkorg({getCartTotal()})
       </Button>
         <Button
-          style={{ backgroundColor: '#9D0606',margin:'1em' }}
+          style={{ backgroundColor: '#9D0606', margin: '1em' }}
           color="secondary"
           variant="contained"
           startIcon={<MenuBookIcon />}
@@ -92,7 +93,6 @@ function PizzaMenu() {
       </Button>
       </header>
       <div className="menu">
-
         {page === PAGE_PRODUCTS && <Products addToCart={addToCart} />}
       </div>
       <div className="cart">
