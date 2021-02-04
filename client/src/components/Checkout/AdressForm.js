@@ -131,7 +131,7 @@ function AdressForm() {
                     color="secondary"
                     style={{ backgroundColor: '#9D0606' }}
                 >
-                    Slutföt
+                    Slutför Beställningen
                 </Button>
                 <br></br>
                 <Button

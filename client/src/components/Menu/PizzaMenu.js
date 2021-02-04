@@ -91,7 +91,7 @@ function PizzaMenu() {
           Visa Menyn
       </Button>
       </header>
-      <div className="menu">
+      <div>
         {page === PAGE_PRODUCTS && <Products addToCart={addToCart} />}
       </div>
       <div className="cart">

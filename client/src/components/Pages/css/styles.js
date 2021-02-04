@@ -17,9 +17,15 @@ export default makeStyles((theme) => ({
     top: '-71.8em',
     height: '1000px'
   },
-  showImg: {
-    backgroundColor: 'green',
-    height: '1000px'
+  transparentBackgroundMobile:{
+    display: 'flex',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    position: 'relative',
+    top: '-71.8em',
+    height: '69vh'
   },
   title: {
     fontFamily: 'Tangerine,cursive',
@@ -41,6 +47,16 @@ export default makeStyles((theme) => ({
     marginBottom :'30px',
     marginTop:'10px',
     padding:'0 30px'
+  },
+  mobileImg: {
+    width: '100%'
+  },
+  showImg: {
+    height: '1000px'
+  },
+  buttonColor:{
+    backgroundColor: '#9d0606',
+    padding: '1em'
   }
 
 }));

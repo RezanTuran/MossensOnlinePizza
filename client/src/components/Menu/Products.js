@@ -25,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
     textField: {
         width: '25ch',
     },
+    input: {
+        width: '20em'
+    }
 }));
 
 function Products({ addToCart }) {
@@ -47,49 +50,49 @@ function Products({ addToCart }) {
 
     return (
         <>
-            <FormControl fullWidth className={classes.margin}>
-                <InputLabel htmlFor="standard-adornment-amount">Sök Pizza</InputLabel>
-                <Input
-                    id="standard-adornment-amount"
-                    onChange={event => setSearchPizza(event.target.value)}
-                    startAdornment={<InputAdornment position="start"><SearchIcon /></InputAdornment>}
-                />
-            </FormControl>
-            &nbsp;
-            <div></div>
-            <div></div>
-            <div></div>
-            &nbsp;
-            <br></br>
-            {filtrePizza.map((product, idx) => {
-                return (
-                    <div className="food-items" key={idx}>
-                        <img src={pizzaImg} alt="BigCo Inc. logo" />
-                        <div className="details">
-                            <div className="details-sub">
-                                <h5>{product.pizzaName}</h5>
-                                <h5 className="price">{product.pizzaPrice} :- <Checkbox
-                                    checked="checked"
-                                    value="checkedA"
-                                    inputProps={{ 'aria-label': 'Checkbox A' }}
-                                />&nbsp; &nbsp; <span>{product.pizzaPriceF} :-<Checkbox
-                                    value="checkedA"
-                                    inputProps={{ 'aria-label': 'Checkbox A' }}
-                                /></span></h5>
-                            </div>
-                            <p>{product.ingredients}</p>
-                            <Button
-                                onClick={() => addToCart(product)}
-                                variant="contained"
-                                color="primary"
-                                startIcon={<ShoppingCartIcon />}
-                            >
-                                Beställ
+            <div className="searchContainer">
+                <FormControl className={classes.margin}>
+                    <InputLabel style={{ color: '#9d0606' }} htmlFor="standard-adornment-amount">Sök Pizza</InputLabel>
+                    <Input
+                        id="standard-adornment-amount"
+                        onChange={event => setSearchPizza(event.target.value)}
+                        startAdornment={<InputAdornment position="start"><SearchIcon style={{ color: '#9d0606' }} /></InputAdornment>}
+                        className={classes.input}
+                    />
+                </FormControl>
+
+            </div>
+            <div className="menu">
+                {filtrePizza.map((product, idx) => {
+                    return (
+                            <div className="food-items" key={idx}>
+                                <img src={pizzaImg} alt="BigCo Inc. logo" />
+                                <div className="details">
+                                    <div className="details-sub">
+                                        <h5>{product.pizzaName}</h5>
+                                        <h5 className="price">{product.pizzaPrice} :- <Checkbox
+                                            checked="checked"
+                                            value="checkedA"
+                                            inputProps={{ 'aria-label': 'Checkbox A' }}
+                                        />&nbsp; &nbsp; <span>{product.pizzaPriceF} :-<Checkbox
+                                            value="checkedA"
+                                            inputProps={{ 'aria-label': 'Checkbox A' }}
+                                        /></span></h5>
+                                    </div>
+                                    <p>{product.ingredients}</p>
+                                    <Button
+                                        onClick={() => addToCart(product)}
+                                        variant="contained"
+                                        color="primary"
+                                        startIcon={<ShoppingCartIcon />}
+                                    >
+                                        Beställ
                                 </Button>
-                        </div>
-                    </div>
-                )
-            })}
+                                </div>
+                            </div>
+                    )
+                })}
+            </div>
         </>
 
     )
