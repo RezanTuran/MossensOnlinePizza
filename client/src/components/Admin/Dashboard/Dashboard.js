@@ -140,13 +140,13 @@ export default function Dashboard() {
             onClick={handleDrawerOpen}
             className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
           >
-            <MenuIcon />
+            <MenuIcon style={{fontSize:'2em'}}/>
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             Admin Panel
           </Typography>
           <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
+            <Badge badgeContent={1} color="secondary">
               <NotificationsIcon />
             </Badge>
           </IconButton>

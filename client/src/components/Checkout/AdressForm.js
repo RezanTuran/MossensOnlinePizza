@@ -56,7 +56,7 @@ function AdressForm() {
     const [epost, setEpost] = useState('')
     const [postNumber, setPostnumber] = useState('')
     const [adress, setAdress] = useState('')
-    let date = new Date()
+    let date = new Date().getFullYear() + '-' + new Date().getMonth() + '-' +new Date().getDate() + ' ' + new Date().getHours() + ':' + new Date().getMinutes()
     const [orderList, setOrderlist] = useState([])
 
     // Post order
