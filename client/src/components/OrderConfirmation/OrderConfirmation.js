@@ -3,6 +3,7 @@ import Divider from '@material-ui/core/Divider';
 import './Style.css';
 import Button from '@material-ui/core/Button';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
+import { Helmet } from "react-helmet";
 
 function OrderConfirmation() {
 
@@ -14,6 +15,9 @@ function OrderConfirmation() {
 
     return (
         <>
+            <Helmet>
+                <title>Mossens Pizzeria | Orderbekräftelse</title>
+            </Helmet>
             <div className="orderConfHeader">
                 <h1>Orderbekräftelse</h1>
             </div>

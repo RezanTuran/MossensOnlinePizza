@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   menuButton: {
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
   },
   title: {
     [theme.breakpoints.down("xs")]: {
@@ -101,7 +101,7 @@ const Header = (props) => {
                 aria-label="menu"
                 onClick={handleMenu}
               >
-                <MenuIcon />
+                <MenuIcon style={{fontSize:'2em'}}/>
               </IconButton>
               <Menu
                 id="menu-appbar"
@@ -161,13 +161,7 @@ const Header = (props) => {
                   GALERY
               </Button>
               </div>
-            )}
-          {/* <ShoppingCartIcon
-            variant="contained"
-            onClick={() => handleButtonClick('/testcart')}
-            style={{ cursor: "pointer" }}
-          /> */}
-   
+            )}   
           <Button
           variant="contained"
           onClick={() => handleButtonClick('/login')}
