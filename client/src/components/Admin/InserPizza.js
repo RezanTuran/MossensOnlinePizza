@@ -6,6 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
 import { makeStyles } from '@material-ui/core/styles';
+import { Helmet } from "react-helmet";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -46,6 +47,9 @@ function InserPizza() {
 
     return (
         <>
+            <Helmet>
+                <title>Mossens Pizzeria | Pizza</title>
+            </Helmet>
             <div className={classes.root}>
                 <TextField className={classes.input} name="pizzaName" type="text" id="outlined-basic" label="Pizza namn" variant="outlined"
                     onChange={(e) => {

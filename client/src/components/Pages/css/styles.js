@@ -25,7 +25,7 @@ export default makeStyles((theme) => ({
     backgroundColor: 'rgba(0, 0, 0, 0.8)',
     position: 'relative',
     top: '-71.8em',
-    height: '69vh'
+    height: '71vh'
   },
   title: {
     fontFamily: 'Tangerine,cursive',
@@ -49,7 +49,8 @@ export default makeStyles((theme) => ({
     padding:'0 30px'
   },
   mobileImg: {
-    width: '100%'
+    width: '100%',
+    height: '70vh'
   },
   showImg: {
     height: '1000px'

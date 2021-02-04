@@ -10,6 +10,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import FormControl from '@material-ui/core/FormControl';
 import SearchIcon from '@material-ui/icons/Search';
+import { Helmet } from "react-helmet";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -50,6 +51,9 @@ function Products({ addToCart }) {
 
     return (
         <>
+            <Helmet>
+                <title>Mossens Pizzeria | Meny</title>
+            </Helmet>
             <div className="searchContainer">
                 <FormControl className={classes.margin}>
                     <InputLabel style={{ color: '#9d0606' }} htmlFor="standard-adornment-amount">Sök Pizza</InputLabel>
@@ -65,31 +69,31 @@ function Products({ addToCart }) {
             <div className="menu">
                 {filtrePizza.map((product, idx) => {
                     return (
-                            <div className="food-items" key={idx}>
-                                <img src={pizzaImg} alt="BigCo Inc. logo" />
-                                <div className="details">
-                                    <div className="details-sub">
-                                        <h5>{product.pizzaName}</h5>
-                                        <h5 className="price">{product.pizzaPrice} :- <Checkbox
-                                            checked="checked"
-                                            value="checkedA"
-                                            inputProps={{ 'aria-label': 'Checkbox A' }}
-                                        />&nbsp; &nbsp; <span>{product.pizzaPriceF} :-<Checkbox
-                                            value="checkedA"
-                                            inputProps={{ 'aria-label': 'Checkbox A' }}
-                                        /></span></h5>
-                                    </div>
-                                    <p>{product.ingredients}</p>
-                                    <Button
-                                        onClick={() => addToCart(product)}
-                                        variant="contained"
-                                        color="primary"
-                                        startIcon={<ShoppingCartIcon />}
-                                    >
-                                        Beställ
-                                </Button>
+                        <div className="food-items" key={idx}>
+                            <img src={pizzaImg} alt="BigCo Inc. logo" />
+                            <div className="details">
+                                <div className="details-sub">
+                                    <h5>{product.pizzaName}</h5>
+                                    <h5 className="price">{product.pizzaPrice} :- <Checkbox
+                                        checked="checked"
+                                        value="checkedA"
+                                        inputProps={{ 'aria-label': 'Checkbox A' }}
+                                    />&nbsp; &nbsp; <span>{product.pizzaPriceF} :-<Checkbox
+                                        value="checkedA"
+                                        inputProps={{ 'aria-label': 'Checkbox A' }}
+                                    /></span></h5>
                                 </div>
+                                <p>{product.ingredients}</p>
+                                <Button
+                                    onClick={() => addToCart(product)}
+                                    variant="contained"
+                                    color="primary"
+                                    startIcon={<ShoppingCartIcon />}
+                                >
+                                    Beställ
+                                </Button>
                             </div>
+                        </div>
                     )
                 })}
             </div>

@@ -1,10 +1,16 @@
 import React from 'react'
+import { Helmet } from "react-helmet";
 
 function Contact() {
     return (
-        <div>
-           <h1>Kontakt</h1>
-        </div>
+        <>
+            <Helmet>
+                <title>Mossens Pizzeria | Kontakt</title>
+            </Helmet>
+            <div>
+                <h1>Kontakt</h1>
+            </div>
+        </>
     )
 }
 

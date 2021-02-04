@@ -6,6 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
 import './style.css';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import { Helmet } from "react-helmet";
 
 function Cart({
     cart,
@@ -24,6 +25,9 @@ function Cart({
 
     return (
         <>
+            <Helmet>
+                <title>Mossens Pizzeria | Kundkorg</title>
+            </Helmet>
             {cart.map((product, idx) => {
                 return (
                     <>
@@ -40,7 +44,7 @@ function Cart({
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><img style={{width:'100px'}} src={pizzaImg} alt="BigCo Inc. logo" /></td>
+                                    <td><img style={{ width: '100px' }} src={pizzaImg} alt="BigCo Inc. logo" /></td>
                                     <td>{product.pizzaName}</td>
                                     <td>{product.pizzaPrice}</td>
                                     <td>{product.ingredients}</td>
@@ -60,7 +64,7 @@ function Cart({
                                     <td>
                                         <Button
                                             onClick={() => removeFromCart(product)}
-                                            style={{ backgroundColor: '#9D0606'}}
+                                            style={{ backgroundColor: '#9D0606' }}
                                             variant="contained"
                                             color="secondary"
                                             startIcon={<DeleteIcon />}
@@ -76,12 +80,12 @@ function Cart({
             })}
 
             {cart.length > 0 && (
-                <div style={{marginTop:'2em', marginLeft:'1em'}}>
+                <div style={{ marginTop: '2em', marginLeft: '1em' }}>
                     <Button
                         onClick={handleButtonClick}
                         variant="contained"
                         color="primary"
-                        style={{margin:'5px'}}
+                        style={{ margin: '5px' }}
                         endIcon={<NavigateNextIcon />}
                     >
                         Nästa

@@ -1,10 +1,16 @@
 import React from 'react'
+import { Helmet } from "react-helmet";
 
 function About() {
     return (
-        <div>
-            <h1>About Page</h1>
-        </div>
+        <>
+            <Helmet>
+                <title>Mossens Pizzeria | Om oss</title>
+            </Helmet>
+            <div>
+                <h1>About Page</h1>
+            </div>
+        </>
     )
 }
 

@@ -12,6 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Axios from 'axios';
 import GetAdmin from '../Admin/GetAdmin';
+import { Helmet } from "react-helmet";
 
 function Copyright() {
     return (
@@ -69,6 +70,9 @@ export default function Register() {
 
     return (
         <>
+            <Helmet>
+                <title>Mossens Pizzeria | Registera</title>
+            </Helmet>
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <div className={classes.paper}>
