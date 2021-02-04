@@ -1,6 +1,7 @@
 import React from 'react';
 import '../Admin/style.css';
 import { Helmet } from "react-helmet";
+import Dashboard from './Dashboard/Dashboard'
 
 function Admin(props) {
 
@@ -15,11 +16,12 @@ function Admin(props) {
       <Helmet>
         <title>Mossens Pizzeria | Admin</title>
       </Helmet>
-      <div>
+      {/* <div>
         <button onClick={() => handleButtonClick("/insertPizza")}>Lägg till pizza</button>
         <button onClick={() => handleButtonClick("/order")}>Beställningar</button>
         <button onClick={() => handleButtonClick("/register")}>Lägg till admin</button>
-      </div>
+      </div> */}
+<Dashboard />
     </>
   );
 }

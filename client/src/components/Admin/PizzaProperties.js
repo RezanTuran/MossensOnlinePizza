@@ -18,8 +18,8 @@ const useStyles = makeStyles((theme) => ({
     margin: '1em'
   },
   Button: {
-    backgroundColor:'#9D0606',
-    color:'white',
+    backgroundColor: '#9D0606',
+    color: 'white',
     margin: '1em'
   }
 }));
@@ -128,6 +128,15 @@ function PizzaProperties() {
               Ta Bort
                 </Button>
             <Button
+              onClick={() => { updatePizzaName(val.pizzaId) }}
+              variant="contained"
+              color="primary"
+              startIcon={<CachedIcon />}
+              className={classes.input}
+            >
+              Uppdatera Pizza namn
+                </Button>
+            <Button
               onClick={() => { updatePizzaPrice(val.pizzaId) }}
               variant="contained"
               color="primary"
@@ -144,15 +153,6 @@ function PizzaProperties() {
               className={classes.input}
             >
               Uppdatera Pris F
-                </Button>
-            <Button
-              onClick={() => { updatePizzaName(val.pizzaId) }}
-              variant="contained"
-              color="primary"
-              startIcon={<CachedIcon />}
-              className={classes.input}
-            >
-              Uppdatera Pizza namn
                 </Button>
             <Button
               onClick={() => { updatePizzaIngrediens(val.pizzaId) }}
