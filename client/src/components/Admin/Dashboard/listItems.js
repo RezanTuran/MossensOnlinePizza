@@ -14,7 +14,6 @@ import LocalPizzaIcon from '@material-ui/icons/LocalPizza';
 export const mainListItems = (
 
   <div>
-    
     <ListItem button >
       <ListItemIcon>
         <DashboardIcon />

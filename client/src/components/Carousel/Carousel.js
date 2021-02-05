@@ -25,7 +25,6 @@ function SamplePrevArrow(props) {
     />
   );
 }
-
 export default class SimpleSlider extends Component {
   render() {
     const settings = {

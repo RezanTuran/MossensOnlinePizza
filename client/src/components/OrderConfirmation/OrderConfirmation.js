@@ -8,11 +8,10 @@ import { Helmet } from "react-helmet";
 function OrderConfirmation() {
 
     const ordertFromLocalStorage = JSON.parse(localStorage.getItem('order'))
-
     const handleButtonClick = () => {
         window.location.assign(".#/menu")
     };
-
+    
     return (
         <>
             <Helmet>
@@ -56,8 +55,6 @@ function OrderConfirmation() {
                 </Button>
             </div>
         </>
-
     )
 }
-
 export default OrderConfirmation

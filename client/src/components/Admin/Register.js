@@ -61,7 +61,6 @@ export default function Register() {
             password: passwordReg,
             email: emailReg,
             sureName: sureNameReg
-
         }).then((response) => {
             console.log(response);
         });

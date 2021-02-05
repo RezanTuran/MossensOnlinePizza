@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.5b5dbf33.chunk.css",
+    "main.css": "/static/css/main.39dfd4ac.chunk.css",
     "main.js": "/static/js/main.aabf530b.chunk.js",
     "main.js.map": "/static/js/main.aabf530b.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.c012fedc.js",
@@ -8,7 +8,7 @@
     "static/js/2.171c63e8.chunk.js": "/static/js/2.171c63e8.chunk.js",
     "static/js/2.171c63e8.chunk.js.map": "/static/js/2.171c63e8.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.5b5dbf33.chunk.css.map": "/static/css/main.5b5dbf33.chunk.css.map",
+    "static/css/main.39dfd4ac.chunk.css.map": "/static/css/main.39dfd4ac.chunk.css.map",
     "static/js/2.171c63e8.chunk.js.LICENSE.txt": "/static/js/2.171c63e8.chunk.js.LICENSE.txt",
     "static/media/hamburger1.68235a9d.jpeg": "/static/media/hamburger1.68235a9d.jpeg",
     "static/media/kebab.f81c54a2.jpg": "/static/media/kebab.f81c54a2.jpg",
@@ -21,7 +21,7 @@
   "entrypoints": [
     "static/js/runtime-main.c012fedc.js",
     "static/js/2.171c63e8.chunk.js",
-    "static/css/main.5b5dbf33.chunk.css",
+    "static/css/main.39dfd4ac.chunk.css",
     "static/js/main.aabf530b.chunk.js"
   ]
 }

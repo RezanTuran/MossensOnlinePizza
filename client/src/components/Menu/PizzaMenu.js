@@ -102,7 +102,6 @@ function PizzaMenu() {
           setQuantity={setQuantity}
         />}
       </div>
-
     </>
   );
 }

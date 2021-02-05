@@ -42,8 +42,6 @@ const db = mysql.createPool({
     password: "6f567673",
     database: "heroku_4a9f54220fd7a1d",
 });
-
-
 // Get Pizza
 app.get('/api/get', (req, res) => {
     const sqlSelect = "SELECT * FROM pizza";
@@ -51,7 +49,6 @@ app.get('/api/get', (req, res) => {
         res.send(result)
     });
 })
-
 // Post Pizza
 app.post('/api/insert', (req, res) => {
     const pizzaName = req.body.pizzaName
@@ -64,7 +61,6 @@ app.post('/api/insert', (req, res) => {
         //console.log(result);
     });
 });
-
 // Delete Pizza
 app.delete('/api/delete/:pizzaId', (req, res) => {
     const name = req.params.pizzaId;
@@ -73,7 +69,6 @@ app.delete('/api/delete/:pizzaId', (req, res) => {
         if (err) console.log(err);
     })
 })
-
 // Update PizzaPrice
 app.put('/api/updatePrice', (req, res) => {
     const pizzaId = req.body.pizzaId;
@@ -110,7 +105,6 @@ app.put('/api/updatePriceF', (req, res) => {
         if (err) console.log(err);
     })
 })
-
 // Register Admin
 app.post('/api/register', (req, res) => {
 
@@ -120,11 +114,9 @@ app.post('/api/register', (req, res) => {
     const sureName = req.body.sureName
 
     bcrypt.hash(password, saltRounds, (err, hash) => {
-
         if (err) {
             console.log(err);
         }
-
         const sqlInsertAdmin = "INSERT INTO adminSystem (userName,password,email,sureName) VALUES (?,?,?,?)";
         db.query(sqlInsertAdmin, [userName, hash, email, sureName],
             (err, result) => {
@@ -177,7 +169,6 @@ app.get('/api/getAdmin', (req, res) => {
         res.send(result)
     });
 })
-
 // Delete Admin
 app.delete('/api/deleteAdmin/:id', (req, res) => {
     const user = req.params.id;
@@ -186,7 +177,6 @@ app.delete('/api/deleteAdmin/:id', (req, res) => {
         if (err) console.log(err);
     })
 })
-
 // ### Post Order ### //
 app.post('/api/insertOrder', (req, res) => {
 
@@ -214,7 +204,6 @@ app.get('/api/getOrder', (req, res) => {
         res.send(result)
     });
 })
-
 // ### Delete Order ### //
 app.delete('/api/deleteOrder/:id', (req, res) => {
     const order = req.params.id;
@@ -223,6 +212,7 @@ app.delete('/api/deleteOrder/:id', (req, res) => {
         if (err) console.log(err);
     })
 })
+
 //-------------------------------------------------------//
 app.post("/create-checkout-session", async (req, res) => {
 
@@ -271,7 +261,7 @@ app.post("/create-checkout-session", async (req, res) => {
   })
   
 
-
+// Server port
 app.listen(port, () => {
     console.log(`Server runing on port ${port}`);
 })

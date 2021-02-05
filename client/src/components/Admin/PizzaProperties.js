@@ -163,11 +163,9 @@ function PizzaProperties() {
             >
               Uppdatera Ingredienser
                 </Button>
-
           </div>
         )
       })}
-
     </div>
   )
 }

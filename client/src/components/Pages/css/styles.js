@@ -59,5 +59,4 @@ export default makeStyles((theme) => ({
     backgroundColor: '#9d0606',
     padding: '1em'
   }
-
 }));

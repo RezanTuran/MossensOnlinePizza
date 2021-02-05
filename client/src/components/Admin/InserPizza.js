@@ -82,7 +82,6 @@ function InserPizza() {
             </div>
             <PizzaProperties />
         </>
-
     )
 }
 
