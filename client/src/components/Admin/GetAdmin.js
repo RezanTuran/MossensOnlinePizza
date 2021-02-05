@@ -22,7 +22,7 @@ function GetAdmin() {
         <div>
             {adminList.map((val) => {
                 return (
-                    <table>
+                    <table className="registerTable">
                         <thead>
                             <tr>
                                 <th>Förnamn</th>
@@ -33,10 +33,10 @@ function GetAdmin() {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{val.userName}</td>
-                                <td>{val.sureName}</td>
-                                <td>{val.email}</td>
-                                <td>
+                                <td className="registerTD">{val.userName}</td>
+                                <td className="registerTD">{val.sureName}</td>
+                                <td className="registerTD">{val.email}</td>
+                                <td className="registerTD">
                                     <Button
                                     variant="contained"
                                         color="secondary"
