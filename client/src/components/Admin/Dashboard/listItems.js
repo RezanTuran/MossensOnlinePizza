@@ -8,37 +8,36 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import AssignmentIcon from '@material-ui/icons/Assignment';
-import { Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
 import LocalPizzaIcon from '@material-ui/icons/LocalPizza';
 
 export const mainListItems = (
-
   <div>
-    <ListItem button >
+    <ListItem button>
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
       <ListItemText primary="Admin Panel" />
     </ListItem>
 
-    <Link to="/order" style={{ textDecoration: 'none',color:'inherit' }}>
-    <ListItem button >
-      <ListItemIcon>
-        <ShoppingCartIcon/>
-      </ListItemIcon>
-      <ListItemText primary="Beställningar" />
-    </ListItem>
+    <Link to="/order" style={{ textDecoration: 'none', color: 'inherit' }}>
+      <ListItem button>
+        <ListItemIcon>
+          <ShoppingCartIcon />
+        </ListItemIcon>
+        <ListItemText primary="Beställningar" />
+      </ListItem>
     </Link>
 
-    <Link to="/register" style={{ textDecoration: 'none',color:'inherit' }}>
-    <ListItem button>
-      <ListItemIcon>
-        <PeopleIcon />
-      </ListItemIcon>
-      <ListItemText primary="Registera Admin" />
-    </ListItem>
+    <Link to="/register" style={{ textDecoration: 'none', color: 'inherit' }}>
+      <ListItem button>
+        <ListItemIcon>
+          <PeopleIcon />
+        </ListItemIcon>
+        <ListItemText primary="Registera Admin" />
+      </ListItem>
     </Link>
-    
+
     <ListItem button>
       <ListItemIcon>
         <BarChartIcon />
@@ -46,13 +45,16 @@ export const mainListItems = (
       <ListItemText primary="Rapporter" />
     </ListItem>
 
-    <Link to="/insertPizza" style={{ textDecoration: 'none',color:'inherit' }}>
-    <ListItem button>
-      <ListItemIcon>
-        <LocalPizzaIcon />
-      </ListItemIcon>
-      <ListItemText primary="Lägg till pizza" />
-    </ListItem>
+    <Link
+      to="/insertPizza"
+      style={{ textDecoration: 'none', color: 'inherit' }}
+    >
+      <ListItem button>
+        <ListItemIcon>
+          <LocalPizzaIcon />
+        </ListItemIcon>
+        <ListItemText primary="Lägg till pizza" />
+      </ListItem>
     </Link>
   </div>
 );

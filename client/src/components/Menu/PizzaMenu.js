@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import '../Menu/styles.css'
+import React, { useState, useEffect } from 'react';
+import '../Menu/styles.css';
 import Cart from '../Cart/Cart';
 import Products from './Products';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
@@ -10,16 +10,15 @@ const PAGE_PRODUCTS = 'products';
 const PAGE_CART = 'cart';
 
 // Get item localStorage
-const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]')
+const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]');
 
 function PizzaMenu() {
-
   const [cart, setCart] = useState(cartFromLocalStorage);
-  const [page, setPage] = useState(PAGE_PRODUCTS)
+  const [page, setPage] = useState(PAGE_PRODUCTS);
 
   // Set item localStorage
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
 
   // Add items to cart
@@ -42,33 +41,32 @@ function PizzaMenu() {
 
   // Remove items from cart
   const removeFromCart = (productToRemove) => {
-    setCart(
-      cart.filter((pizzaList) => pizzaList !== productToRemove)
-    );
+    setCart(cart.filter((pizzaList) => pizzaList !== productToRemove));
   };
 
   const navigateTo = (nextPage) => {
     setPage(nextPage);
-  }
+  };
 
   // Clear Cart
   const clearCart = () => {
-    setCart([])
-  }
+    setCart([]);
+  };
 
   // Pizza price counter
   const getCartTotal = () => {
-    return cart.reduce(
-      (sum, { quantity }) => sum + quantity, 0) + '';
+    return cart.reduce((sum, { quantity }) => sum + quantity, 0) + '';
   };
 
   //Pizza amount
   const setQuantity = (product, amount) => {
     const newCart = [...cart];
-    newCart.find(item => item.pizzaName === product.pizzaName).quantity = amount;
-    setCart(newCart)
-  }
-  
+    newCart.find(
+      (item) => item.pizzaName === product.pizzaName
+    ).quantity = amount;
+    setCart(newCart);
+  };
+
   return (
     <>
       <header className="cartHeader">
@@ -80,7 +78,7 @@ function PizzaMenu() {
           onClick={() => navigateTo(PAGE_CART)}
         >
           Kundkorg({getCartTotal()})
-      </Button>
+        </Button>
         <Button
           style={{ backgroundColor: '#9D0606', margin: '1em' }}
           color="secondary"
@@ -89,18 +87,18 @@ function PizzaMenu() {
           onClick={() => navigateTo(PAGE_PRODUCTS)}
         >
           Visa Menyn
-      </Button>
+        </Button>
       </header>
-      <div>
-        {page === PAGE_PRODUCTS && <Products addToCart={addToCart} />}
-      </div>
+      <div>{page === PAGE_PRODUCTS && <Products addToCart={addToCart} />}</div>
       <div className="cart">
-        {page === PAGE_CART && <Cart
-          cart={cart}
-          removeFromCart={removeFromCart}
-          clearCart={clearCart}
-          setQuantity={setQuantity}
-        />}
+        {page === PAGE_CART && (
+          <Cart
+            cart={cart}
+            removeFromCart={removeFromCart}
+            clearCart={clearCart}
+            setQuantity={setQuantity}
+          />
+        )}
       </div>
     </>
   );

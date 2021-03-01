@@ -1,6 +1,6 @@
 import React from 'react';
-import { Helmet } from "react-helmet";
-import Dashboard from './Dashboard/Dashboard'
+import { Helmet } from 'react-helmet';
+import Dashboard from './Dashboard/Dashboard';
 
 function Admin() {
   return (
@@ -8,7 +8,7 @@ function Admin() {
       <Helmet>
         <title>Mossens Pizzeria | Admin</title>
       </Helmet>
-        <Dashboard />
+      <Dashboard />
     </>
   );
 }

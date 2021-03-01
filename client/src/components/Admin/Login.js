@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Axios from 'axios';
-import { Helmet } from "react-helmet";
+import { Helmet } from 'react-helmet';
 
 function Copyright() {
   return (
@@ -54,12 +54,12 @@ export default function Login(props) {
     history.push('./admin');
   };
 
-  const [userNameLogin, setUserName] = useState('')
-  const [passwordLogin, setPassword] = useState('')
+  const [userNameLogin, setUserName] = useState('');
+  const [passwordLogin, setPassword] = useState('');
 
-  const [loginStatus, setLoginStatus] = useState('')
+  const [loginStatus, setLoginStatus] = useState('');
 
-  Axios.defaults.withCredentials = true
+  Axios.defaults.withCredentials = true;
 
   const adminLogin = () => {
     Axios.post('https://mossenspizzeria.herokuapp.com/api/login', {
@@ -67,20 +67,22 @@ export default function Login(props) {
       password: passwordLogin,
     }).then((response) => {
       if (response.data.message) {
-        setLoginStatus(response.data.message)
+        setLoginStatus(response.data.message);
       } else {
-        handleButtonClick()
+        handleButtonClick();
       }
     });
   };
 
   useEffect(() => {
-    Axios.get("https://mossenspizzeria.herokuapp.com/api/login").then((response) => {
-      if (response.data.loggedIn === true) {
-        handleButtonClick()
+    Axios.get('https://mossenspizzeria.herokuapp.com/api/login').then(
+      (response) => {
+        if (response.data.loggedIn === true) {
+          handleButtonClick();
+        }
       }
-    })
-  })
+    );
+  });
 
   return (
     <>
@@ -89,13 +91,13 @@ export default function Login(props) {
       </Helmet>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <div className={classes.paper} >
+        <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Admin Panel
-        </Typography>
+          </Typography>
           <div>
             <TextField
               variant="outlined"
@@ -107,8 +109,9 @@ export default function Login(props) {
               name="email"
               autoComplete="email"
               autoFocus
-              onChange={(e) => { setUserName(e.target.value) }}
-
+              onChange={(e) => {
+                setUserName(e.target.value);
+              }}
             />
             <TextField
               variant="outlined"
@@ -120,7 +123,9 @@ export default function Login(props) {
               type="password"
               id="password"
               autoComplete="current-password"
-              onChange={(e) => { setPassword(e.target.value) }}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
             />
             <Button
               type="submit"
@@ -131,7 +136,7 @@ export default function Login(props) {
               onClick={adminLogin}
             >
               Logga in
-          </Button>
+            </Button>
           </div>
           <h1>{loginStatus}</h1>
         </div>

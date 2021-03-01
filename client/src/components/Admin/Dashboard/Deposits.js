@@ -14,9 +14,9 @@ const useStyles = makeStyles({
   },
 });
 
-const year = new Date().getFullYear()
-const day = new Date().getDate()
-const month = new Date().getMonth()
+const year = new Date().getFullYear();
+const day = new Date().getDate();
+const month = new Date().getMonth();
 
 export default function Deposits() {
   const classes = useStyles();
