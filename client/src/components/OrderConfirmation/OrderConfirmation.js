@@ -22,43 +22,43 @@ function OrderConfirmation() {
       <div className="card">
         <h2 className="orderTitle">Kunduppgifter</h2>
         <h4>
-          Namn:{' '}
+          Namn:
           <span className="customerInfo">
             {ordertFromLocalStorage.firstName} {ordertFromLocalStorage.sureName}
           </span>
         </h4>
         <Divider />
         <h4>
-          Address:{' '}
+          Address:
           <span className="customerInfo">{ordertFromLocalStorage.adress}</span>
         </h4>
         <Divider />
         <h4>
-          Postnummer:{' '}
+          Postnummer:
           <span className="customerInfo">
             {ordertFromLocalStorage.postNumber}
           </span>
         </h4>
         <Divider />
         <h4>
-          Telefonnummer:{' '}
+          Telefonnummer:
           <span className="customerInfo">{ordertFromLocalStorage.phone}</span>
         </h4>
         <Divider />
         <h4>
-          E-post:{' '}
+          E-post:
           <span className="customerInfo">{ordertFromLocalStorage.epost}</span>
         </h4>
         <Divider />
         <h4>
-          Datum:{' '}
+          Datum:
           <span className="customerInfo">{ordertFromLocalStorage.date}</span>
         </h4>
         <Divider />
         <h2 className="orderTitle">Beställning</h2>
         <Divider />
         <p>
-          Pizzanamn:{' '}
+          Pizzanamn:
           <span className="customerInfo">
             {ordertFromLocalStorage.pizzaName}
           </span>
